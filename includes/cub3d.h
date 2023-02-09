@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/07 10:39:14 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/07 17:02:56 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -16,10 +16,14 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
+# define WIDTH 1920
+# define HEIGHT 1080
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include "structures.h"
+# include "mlx.h"
+# include "mlx_int.h"
 # include "libft.h"
 
 bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc);
@@ -36,5 +40,7 @@ int		skip_textures_and_colors(char *scene_file);
 void	free_struc_elements(t_texture_data texture_data);
 void	fill_texture_elements(t_texture_data *texture_data, char **line);
 int		get_color_elements(t_color_data *color_data, char **line, int trigger);
+void	*open_window(t_window window, t_texture_data texture_data
+			, t_images_data *images_data);
 
 #endif

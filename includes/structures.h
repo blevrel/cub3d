@@ -6,14 +6,13 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/06 14:50:47 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/07 16:09:55 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 # include <stdbool.h>
 
-//structure contenant toutes les textures des murs
 typedef struct s_texture_data
 {
 	char	*no_texture;
@@ -22,12 +21,25 @@ typedef struct s_texture_data
 	char	*ea_texture;
 }				t_texture_data;
 
-//structure contenant les couleurs du plafond et du sol
+typedef struct s_images_data
+{
+	char	*no_image;
+	char	*so_image;
+	char	*we_image;
+	char	*ea_image;
+}				t_images_data;
+
 typedef struct s_color_data
 {
 	int	c_color[3];
 	int	f_color[3];
 }				t_color_data;
+
+typedef struct s_window
+{
+	void	*win_ptr;
+	void	*mlx;	
+}				t_window;
 
 typedef struct s_map_data
 {
@@ -38,9 +50,11 @@ typedef struct s_map_data
 
 typedef struct s_all
 {
-	t_texture_data	texture_data;
-	t_color_data	color_data;
-	t_map_data		map_data;
+	t_texture_data		texture_data;
+	t_color_data		color_data;
+	t_window			window;
+	t_map_data			map_data;
+	t_images_data		images_data;
 }				t_all;
 
 #endif
