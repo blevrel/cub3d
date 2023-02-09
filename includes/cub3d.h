@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/09 15:05:12 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/09 20:17:25 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -16,8 +16,16 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
-# define WIDTH 1920
-# define HEIGHT 1080
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
+# define SQ_SIZE 256
+# define MINI_WIDTH 193
+# define MINI_HEIGHT 193
+# define MINI_SQ_SIZE 64
+# define MINI_POS 20
+# define BORDER_COLOR 0xff8b94
+# define WALL_COLOR 0xffd3b6
+# define FLOOR_COLOR 0xa8e6cf
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -41,6 +49,8 @@ void	free_struc_elements(t_texture_data texture_data);
 void	fill_texture_elements(t_texture_data *texture_data, char **line);
 int		get_color_elements(t_color_data *color_data, char **line, int trigger);
 void	*open_window(t_window window, t_texture_data texture_data,
-			t_images_data *images_data);
+			t_texture_images_data *images_data);
+void	display_minimap(char **mat, /*t_player player,*/ t_window window);
+void	my_pixel_put(t_img_data *data, int x, int y, int color);
 
 #endif

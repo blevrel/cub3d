@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/07 16:11:43 by blevrel          ###   ########.fr        #
+#    Updated: 2023/02/09 17:49:34 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
 		srcs/open_window.c	\
+		srcs/display_minimap.c	\
+		srcs/my_pixel_put.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}

@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:16:24 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/09 15:04:47 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/09 17:58:41 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -79,6 +79,8 @@ int	main(int argc, char **argv)
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
 			game_struc.texture_data, &game_struc.images_data);
+	display_minimap(mat, game_struc.window);
+	mlx_loop(game_struc.window.mlx);
 	free_double_tab(mat);
 	free_struc_elements(game_struc.texture_data);
 	mlx_destroy_display(game_struc.window.mlx);
