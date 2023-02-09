@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:16:24 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/07 17:20:14 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/09 15:04:47 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -77,16 +77,10 @@ int	main(int argc, char **argv)
 	if (!mat)
 		return (-2);
 	game_struc.window.mlx = mlx_init();
-	game_struc.window.win_ptr = open_window(game_struc.window
-		, game_struc.texture_data, &game_struc.images_data);
+	game_struc.window.win_ptr = open_window(game_struc.window,
+			game_struc.texture_data, &game_struc.images_data);
 	free_double_tab(mat);
 	free_struc_elements(game_struc.texture_data);
-	//gerer la destruction quand la texture n'est pas trouvée, si elle est trouvée ca marche, sinon leaks
-	mlx_destroy_image(game_struc.window.mlx, game_struc.images_data.no_image);
-	mlx_destroy_image(game_struc.window.mlx, game_struc.images_data.so_image);
-	mlx_destroy_image(game_struc.window.mlx, game_struc.images_data.we_image);
-	mlx_destroy_image(game_struc.window.mlx, game_struc.images_data.ea_image);
-	mlx_destroy_window(game_struc.window.mlx, game_struc.window.win_ptr);
 	mlx_destroy_display(game_struc.window.mlx);
 	free(game_struc.window.mlx);
 	return (0);

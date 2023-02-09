@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/29 12:33:23 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/07 13:35:38 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/09 14:50:08 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -73,6 +73,8 @@ bool	check_map_content(char **mat, t_map_data *map_data)
 				map_data->nb_players++;
 			if (c == FLOOR || c == PLAYER)
 				value = check_around(mat, i, j);
+			if (c == 0)
+				return (false);
 			j++;
 		}
 		i++;
