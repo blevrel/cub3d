@@ -101,13 +101,22 @@ get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
 get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
 get_next_line	../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	cub3d.c	/^char	**get_parsed_mat(char *scene_file, t_all *gam/
+go_down	movement_management/move.c	/^static t_player	go_down(t_all *game_struct)$/
+go_left	movement_management/move.c	/^static t_player	go_left(t_all *game_struct)$/
+go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
+go_right	movement_management/move.c	/^static t_player	go_right(t_all *game_struct)$/
+go_up	movement_management/move.c	/^static t_player	go_up(t_all *game_struct)$/
 init_str	../libft/ft_itoa.c	/^static char	*init_str(char *str, int n)$/
 init_struc	parsing/init_struc.c	/^void	init_struc(t_all *game_struc)$/
 init_textures_and_colors	parsing/init_textures_and_colors.c	/^int	init_textures_and_colors(t_color_data *color_d/
+initialize	launch_game.c	/^static void	initialize(t_all *game_struct, int i, /
+initialize_player_position	launch_game.c	/^static void	initialize_player_position(t_all *game/
 join_gnl	../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
+launch_game	launch_game.c	/^void	launch_game(t_all *game_struct, char **mat)$/
 lgstr	../libft/ft_itoa.c	/^static int	lgstr(int n)$/
 load_textures	open_window.c	/^bool	load_textures(t_texture_data texture_data, t_/
-movement_management	movement_management/movement_management.c	/^int	movement_management(t_player *pos, )$/
+move	movement_management/move.c	/^t_player	move(int keycode, t_all *game_struct)$/
+movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
 nb_set	../libft/ft_strtrim.c	/^static int	nb_set(char const *s, char const *set)$/
 nb_str	../libft/ft_split.c	/^static int	nb_str(char *s, char c)$/
 open_window	open_window.c	/^void	*open_window(t_window window, t_texture_data /
