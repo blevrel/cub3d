@@ -1,90 +1,69 @@
 #include "cub3d.h"
 
-t_img_data	draw_border(t_img_data img)
+int	pick_pixel_color(char **mat, int x_pxl, int y_pxl, t_map_data map_data)
 {
-	int	i;
+	int	x_pos_in_mat;
+	int	y_pos_in_mat;
 
-	i = 0;
-	while (i <= MINI_WIDTH)
+	x_pos_in_mat = x_pxl / SQ_SIZE;
+	y_pos_in_mat = y_pxl / SQ_SIZE;
+	if ((x_pos_in_mat <= 0 || x_pos_in_mat >= map_data.map_width - 1)
+			|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
+			|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
+			|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
+		return (WALL_COLOR);
+	else if (mat[y_pos_in_mat][x_pos_in_mat] == '0')
+		return (FLOOR_COLOR);
+	else
+		return (PLAYER_COLOR);
+}
+
+t_img_data	put_minimap_pixel(t_img_data img, int color)
+{
+	static int	img_x = 1;
+	static int	img_y = 1;
+
+	if (color == PLAYER_COLOR)
 	{
-		my_pixel_put(&img, i, 0, BORDER_COLOR);
-		my_pixel_put(&img, i, MINI_HEIGHT, BORDER_COLOR);
-		i++;
+		if ((img_x > (MINI_WIDTH - 15) / 2 && img_x < (MINI_WIDTH + 15) / 2)
+			&& (img_y > (MINI_HEIGHT - 15) / 2
+			&& img_y < (MINI_HEIGHT + 15) / 2))
+			my_pixel_put(&img, img_x, img_y, color);
+		else
+			my_pixel_put(&img, img_x, img_y, FLOOR_COLOR);
+		img_x++;
+		return (img);
 	}
-	i = 0;
-	while (i <= MINI_HEIGHT)
+	my_pixel_put(&img, img_x, img_y, color);
+	img_x++;
+	if (img_x == MINI_WIDTH)
 	{
-		my_pixel_put(&img, 0, i, BORDER_COLOR);
-		my_pixel_put(&img, MINI_WIDTH, i, BORDER_COLOR);
-		i++;
+		img_y++;
+		img_x = 1;
 	}
+	if (img_y == MINI_HEIGHT)
+		img_y = 1;
 	return (img);
 }
 
-t_img_data	draw_square_at_coordinates(t_img_data img, int x, int y, int color)
+t_img_data	check_around_player(t_img_data img, /*t_player player,*/
+	char **mat, t_map_data map_data)
 {
-	int	save_x;
-	int	save_y;
-
-	save_y = y;
-	save_x = x;
-	while (y < MINI_SQ_SIZE + save_y)
-	{
-		x = save_x;
-		while (x < MINI_SQ_SIZE + save_x)
-		{
-			my_pixel_put(&img, x, y, color);
-			x++;
-		}
-		y++;
-	}
-	return (img);
-}
-
-t_img_data	fill_minimap_square(t_img_data img, int element)
-{
-	static int	x = 1;
-	static int	y = 1;
-
-	if (element == FLOOR)
-		draw_square_at_coordinates(img, x, y, FLOOR_COLOR);
-	if (element == WALL)
-		draw_square_at_coordinates(img, x, y, WALL_COLOR);
-	if (element == PLAYER)
-	{
-		draw_square_at_coordinates(img, x, y, FLOOR_COLOR);
-		//case particuliere, rajouter le joueur par dessus les couleurs du sol
-	}
-	x += 64;
-	if (x == 193)
-	{
-		y += 64;
-		x = 1;
-	}
-	if (y == 193)
-		y = 1;
-	return (img);
-}
-
-t_img_data	check_around_player(t_img_data img, /*t_player player, */char **mat)
-{
+	int	x_pxl = 19 * SQ_SIZE + 16;
+	int	y_pxl = 6 * SQ_SIZE + 16;
+	int	y_check = y_pxl - (MINI_VISION * SQ_SIZE);
 	int	x_check;
-	int	y_check;
+	int	x_pxl_limit = x_pxl + (MINI_VISION * SQ_SIZE);
+	int	y_pxl_limit = y_pxl + (MINI_VISION * SQ_SIZE);
+	int	color;
 
-	//y = player.pos_y - 1;
-	y_check = 1;
-	while (y_check < 4)
+	while (y_check < y_pxl_limit)
 	{
-		//x = player.pos_x - 1;
-		x_check = 3;
-		while (x_check < 6)
+		x_check = x_pxl - (MINI_VISION * SQ_SIZE);
+		while (x_check < x_pxl_limit)
 		{
-			if (mat[y_check][x_check] == '0')
-				img = fill_minimap_square(img, FLOOR);
-			else if (mat[y_check][x_check] == 2 || mat[y_check][x_check] == '1')
-				img = fill_minimap_square(img, WALL);
-			else
-				img = fill_minimap_square(img, PLAYER);
+			color = pick_pixel_color(mat, x_check, y_check, map_data);
+			img = put_minimap_pixel(img, color);
 			x_check++;
 		}
 		y_check++;
@@ -92,7 +71,8 @@ t_img_data	check_around_player(t_img_data img, /*t_player player, */char **mat)
 	return (img);
 }
 
-void	display_minimap(char **mat, /*t_player player,*/ t_window window)
+void	display_minimap(char **mat, /*t_player player,*/ t_window window,
+			t_map_data map_data)
 {
 	t_img_data	minimap;
 
@@ -100,7 +80,7 @@ void	display_minimap(char **mat, /*t_player player,*/ t_window window)
 	minimap.addr = mlx_get_data_addr(minimap.img, &minimap.bits_per_pixel,
 			&minimap.line_length, &minimap.endian);
 	minimap = draw_border(minimap);
-	minimap = check_around_player(minimap, mat);
+	minimap = check_around_player(minimap, mat, map_data);
 	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
 	//(void)player;
 }

@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/09 17:49:34 by blevrel          ###   ########.fr        #
+#    Updated: 2023/02/10 17:30:47 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,7 +51,7 @@ fclean: clean
 
 re: fclean all
 
-.c.o:
+%.o: %.c includes/cub3d.h
 	${CC} ${CFLAGS} -c ${HEAD} $< -o ${<:.c=.o} -g
 
 ${NAME}: ${OBJS}
