@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 10:18:44 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/10 10:28:35 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRUCTURES_H
@@ -63,6 +63,7 @@ typedef struct s_all
 	t_window			window;
 	t_map_data			map_data;
 	t_images_data		images_data;
+	t_player			pos;
 }				t_all;
 
 #endif
