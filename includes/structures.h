@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 14:51:16 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:01:36 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRUCTURES_H
@@ -50,8 +50,6 @@ typedef struct s_map_data
 
 typedef struct s_player
 {
-	int		mat_x;
-	int		mat_y;
 	int		pxl_x;
 	int		pxl_y;
 	float	angle;

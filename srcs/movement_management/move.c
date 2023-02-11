@@ -1,106 +1,30 @@
-#include "../../includes/cub3d.h"
+#include "cub3d.h"
 
 static t_player	go_up(t_all *game_struct)
 {
-	if (game_struct->pos.angle > 0 && game_struct->pos.angle < PI / 2)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI / 2 && game_struct->pos.angle < PI)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI && game_struct->pos.angle < 3 * PI / 2)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > 3 * PI / 2
-		&& game_struct->pos.angle < 2 * PI)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
+	game_struct->pos.pxl_x += (cos(game_struct->pos.angle) * MOVESPEED);
+	game_struct->pos.pxl_y -= (sin(game_struct->pos.angle) * MOVESPEED);
 	return (game_struct->pos);
 }
 
 static t_player	go_down(t_all *game_struct)
 {
-	if (game_struct->pos.angle > 0 && game_struct->pos.angle < PI / 2)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI / 2 && game_struct->pos.angle < PI)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI && game_struct->pos.angle < 3 * PI / 2)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > 3 * PI / 2
-		&& game_struct->pos.angle < 2 * PI)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
+	game_struct->pos.pxl_x -= (cos(game_struct->pos.angle) * MOVESPEED);
+	game_struct->pos.pxl_y += (sin(game_struct->pos.angle) * MOVESPEED);
 	return (game_struct->pos);
 }
 
 static t_player	go_left(t_all *game_struct)
 {
-	if (game_struct->pos.angle > 0 && game_struct->pos.angle < PI / 2)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI / 2 && game_struct->pos.angle < PI)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI && game_struct->pos.angle < 3 * PI / 2)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > 3 * PI / 2
-		&& game_struct->pos.angle < 2 * PI)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
+	game_struct->pos.pxl_x -= (sin(game_struct->pos.angle) * MOVESPEED);
+	game_struct->pos.pxl_y -= (cos(game_struct->pos.angle) * MOVESPEED);
 	return (game_struct->pos);
 }
 
 static t_player	go_right(t_all *game_struct)
 {
-	if (game_struct->pos.angle > 0 && game_struct->pos.angle < PI / 2)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI / 2 && game_struct->pos.angle < PI)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > PI && game_struct->pos.angle < 3 * PI / 2)
-	{
-		game_struct->pos.pxl_x += cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y -= sin(game_struct->pos.angle);
-	}
-	else if (game_struct->pos.angle > 3 * PI / 2
-		&& game_struct->pos.angle < 2 * PI)
-	{
-		game_struct->pos.pxl_x -= cos(game_struct->pos.angle);
-		game_struct->pos.pxl_y += sin(game_struct->pos.angle);
-	}
+	game_struct->pos.pxl_x += (sin(game_struct->pos.angle) * MOVESPEED);
+	game_struct->pos.pxl_y += (cos(game_struct->pos.angle) * MOVESPEED);
 	return (game_struct->pos);
 }
 
@@ -114,5 +38,7 @@ t_player	move(int keycode, t_all *game_struct)
 		game_struct->pos = go_left(game_struct);
 	else if (keycode == 'd')
 		game_struct->pos = go_right(game_struct);
+	ft_printf("pxl_x = %d\npxl_y = %d\n", \
+		game_struct->pos.pxl_x, game_struct->pos.pxl_y);
 	return (game_struct->pos);
 }

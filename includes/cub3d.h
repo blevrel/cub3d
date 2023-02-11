@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 19:56:45 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/11 14:37:16 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -18,7 +18,7 @@
 # define BORDER 5
 # define WIDTH 1920
 # define HEIGHT 1080
-# define PI 3.14159265359
+# define MOVESPEED 4
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>

@@ -1,9 +1,7 @@
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static void	initialize(t_all *game_struct, int i, int j, char c)
 {
-	game_struct->pos.mat_x = j;
-	game_struct->pos.mat_y = i;
 	game_struct->pos.pxl_x = (j - 1) * 64 + 32;
 	game_struct->pos.pxl_y = (i - 1) * 64 + 32;
 	if (c == 'W')
@@ -29,7 +27,10 @@ static void	initialize_player_position(t_all *game_struct, char **mat)
 		{
 			if (mat[i][j] == 'W' || mat[i][j] == 'E'
 				|| mat[i][j] == 'N' || mat[i][j] == 'S')
+			{
 				initialize(game_struct, i, j, mat[i][j]);
+				break;
+			}
 			j++;
 		}
 		i++;
