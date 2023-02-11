@@ -13,6 +13,10 @@
 NAME  =	cub3D
 
 SRCS  =	srcs/cub3d.c \
+		srcs/launch_game.c	\
+		srcs/open_window.c	\
+		srcs/display_minimap.c	\
+		srcs/my_pixel_put.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \
@@ -25,6 +29,8 @@ SRCS  =	srcs/cub3d.c \
 		srcs/display_minimap.c	\
 		srcs/my_pixel_put.c	\
 		srcs/get_triangle_coordinates.c	\
+		srcs/movement_management/move.c	\
+		srcs/movement_management/movement_management.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}

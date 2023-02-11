@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:14:20 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 17:18:00 by jsauvain         ###   ########.fr       */
+/*   Created: 2023/01/28 12:16:24 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/11 13:54:15 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ char	**start_parsing(char *scene_file, t_all *game_struc)
 
 int	main(int argc, char **argv)
 {
+	char	**mat;
 	t_all	game_struc;
 
 	if (argc != 2)
@@ -73,15 +74,15 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	init_struc(&game_struc);
-	game_struc.mat = start_parsing(argv[1], &game_struc);
-	if (!game_struc.mat)
+	mat = start_parsing(argv[1], &game_struc);
+	if (!mat)
 		return (-2);
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
 			game_struc.texture_data, &game_struc.images_data);
-	launch_game(&game_struc);
+	launch_game(&game_struc, mat);
 	mlx_loop(game_struc.window.mlx);
-	free_double_tab(game_struc.mat);
+	free_double_tab(mat);
 	free_struc_elements(game_struc.texture_data);
 	mlx_destroy_display(game_struc.window.mlx);
 	free(game_struc.window.mlx);

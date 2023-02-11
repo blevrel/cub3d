@@ -33,7 +33,6 @@ t_img_data	put_minimap_pixel(t_img_data img, int color)
 	return (img);
 }
 
-
 t_img_data	draw_player(t_img_data img, t_triangle triangle)
 {
     int x;
@@ -61,20 +60,21 @@ t_img_data	draw_player(t_img_data img, t_triangle triangle)
 }
 
 t_img_data	fill_minimap(t_img_data img, /*t_player player,*/
-	char **mat, t_map_data map_data)
 {
-	int	x_pxl = 19 * SQ_SIZE + 16;
-	int	y_pxl = 6 * SQ_SIZE + 16;
-	int	y_check = y_pxl - (MINI_VISION * SQ_SIZE);
+	int	y_check;
 	int	x_check;
-	int	x_pxl_limit = x_pxl + (MINI_VISION * SQ_SIZE);
-	int	y_pxl_limit = y_pxl + (MINI_VISION * SQ_SIZE);
 //	float	angle = 0;
+=======
+	int	x_pxl_limit;
+	int	y_pxl_limit;
 	int	color;
 
+	x_pxl_limit = player.pxl_x + (MINI_VISION * SQ_SIZE);
+	y_pxl_limit = player.pxl_y + (MINI_VISION * SQ_SIZE);
+	y_check = player.pxl_y - (MINI_VISION * SQ_SIZE);
 	while (y_check < y_pxl_limit)
 	{
-		x_check = x_pxl - (MINI_VISION * SQ_SIZE);
+		x_check = player.pxl_x - (MINI_VISION * SQ_SIZE);
 		while (x_check < x_pxl_limit)
 		{
 			color = pick_pixel_color(mat, x_check, y_check, map_data);
@@ -86,7 +86,7 @@ t_img_data	fill_minimap(t_img_data img, /*t_player player,*/
 	return (img);
 }
 
-void	display_minimap(char **mat, /*t_player player,*/ t_window window,
+void	display_minimap(char **mat, t_player player, t_window window,
 			t_map_data map_data)
 {
 	t_img_data	minimap;
@@ -100,5 +100,4 @@ void	display_minimap(char **mat, /*t_player player,*/ t_window window,
 	minimap = fill_minimap(minimap, mat, map_data);
 	minimap = draw_player(minimap, player_triangle);
 	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
-	//(void)player;
 }
