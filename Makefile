@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/11 16:28:51 by jsauvain         ###   ########.fr        #
+#    Updated: 2023/02/11 18:35:28 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,10 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/init_textures_and_colors.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
+		srcs/open_window.c	\
+		srcs/display_minimap.c	\
+		srcs/my_pixel_put.c	\
+		srcs/get_triangle_coordinates.c	\
 		srcs/movement_management/move.c	\
 		srcs/movement_management/movement_management.c	\
 		
@@ -35,7 +39,7 @@ CC	  =	clang
 
 CFLAGS =	-Wall -Wextra -Werror
 
-LIB   =	-L mlx_linux -lmlx -lXext -lX11 -lm -L libft -lft
+LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft -lm
 
 HEAD  =	-I mlx_linux -I libft -I includes
 
