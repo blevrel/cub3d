@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 10:14:38 by blevrel          ###   ########.fr       */
+/*   Created: 2023/02/11 16:15:22 by jsauvain          #+#    #+#             */
+/*   Updated: 2023/02/11 16:15:46 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 # include <stdbool.h>
@@ -57,13 +58,22 @@ typedef struct s_map_data
 	int	nb_players;
 }				t_map_data;
 
+typedef struct s_player
+{
+	int		pxl_x;
+	int		pxl_y;
+	float	angle;
+}				t_player;
+
+//TODO
 typedef struct s_all
 {
-	t_texture_data				texture_data;
-	t_color_data				color_data;
-	t_window					window;
-	t_map_data					map_data;
-	t_texture_images_data		images_data;
-}				t_all;
+	t_texture_data		texture_data;
+	t_color_data		color_data;
+	t_window			window;
+	t_map_data			map_data;
+	t_images_data		images_data;
+	t_player			pos;
+}	t_all;
 
 #endif

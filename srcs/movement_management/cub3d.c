@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/11 16:14:20 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 16:15:04 by jsauvain         ###   ########.fr       */
+/*   Created: 2023/01/28 12:16:24 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/11 13:54:15 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int	main(int argc, char **argv)
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
 			game_struc.texture_data, &game_struc.images_data);
-	//TODO
-	display_minimap(mat, game_struc.window, game_struc.map_data);
 	launch_game(&game_struc, mat);
 	mlx_loop(game_struc.window.mlx);
 	free_double_tab(mat);
