@@ -1,9 +1,11 @@
 Mcub3d	cub3d.c	/^int	main(int argc, char **argv)$/
+Mcub3d	movement_management/cub3d.c	/^int	main(int argc, char **argv)$/
 add_border	parsing/fill_matrix.c	/^char	**add_border(char **mat, t_map_data *map_data/
 alloc_mat	parsing/fill_matrix.c	/^char	**alloc_mat(char *scene_file, int fd, t_map_d/
 assign_line_to_elem	parsing/init_textures_and_colors.c	/^int	assign_line_to_elem(t_color_data *color_data$/
 char_is_valid	parsing/check_map_content.c	/^int	char_is_valid(char c)$/
 check_around	parsing/check_map_content.c	/^bool	check_around(char **mat, int i, int j)$/
+check_around_player	display_minimap.c	/^t_img_data	check_around_player(t_img_data img, \/*t/
 check_end	../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
 check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
 check_last	../libft/ft_strrchr.c	/^static int	check_last(char *s, int i, int c)$/
@@ -17,6 +19,8 @@ check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_text
 check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
 closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
 diffls	../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
+display_minimap	display_minimap.c	/^void	display_minimap(char **mat, t_player pos, t_w/
+draw_border	my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
 dup_dp	../libft/ft_dup_dp.c	/^char	**dup_dp(char **str)$/
 fill_color_elements	parsing/get_elements.c	/^int	fill_color_elements(char **col_value, t_color_/
 fill_dest	../libft/get_next_line_utils.c	/^static char	*fill_dest(char *dest, char *buff, int/
@@ -101,28 +105,32 @@ get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
 get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
 get_next_line	../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	cub3d.c	/^char	**get_parsed_mat(char *scene_file, t_all *gam/
-go_down	movement_management/move.c	/^static t_player	go_down(t_all *game_struct)$/
-go_left	movement_management/move.c	/^static t_player	go_left(t_all *game_struct)$/
+get_parsed_mat	movement_management/cub3d.c	/^char	**get_parsed_mat(char *scene_file, t_all *gam/
+go_down	movement_management/move.c	/^static t_player	go_down(t_player pos)$/
+go_left	movement_management/move.c	/^static t_player	go_left(t_player pos)$/
 go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
-go_right	movement_management/move.c	/^static t_player	go_right(t_all *game_struct)$/
-go_up	movement_management/move.c	/^static t_player	go_up(t_all *game_struct)$/
+go_right	movement_management/move.c	/^static t_player	go_right(t_player pos)$/
+go_up	movement_management/move.c	/^static t_player	go_up(t_player pos)$/
 init_str	../libft/ft_itoa.c	/^static char	*init_str(char *str, int n)$/
 init_struc	parsing/init_struc.c	/^void	init_struc(t_all *game_struc)$/
 init_textures_and_colors	parsing/init_textures_and_colors.c	/^int	init_textures_and_colors(t_color_data *color_d/
-initialize	launch_game.c	/^static void	initialize(t_all *game_struct, int i, /
-initialize_player_position	launch_game.c	/^static void	initialize_player_position(t_all *game/
+initialize	launch_game.c	/^static t_player	initialize(t_player pos, int i, in/
+initialize_player_position	launch_game.c	/^static t_player	initialize_player_position(t_playe/
 join_gnl	../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
-launch_game	launch_game.c	/^void	launch_game(t_all *game_struct, char **mat)$/
+launch_game	launch_game.c	/^void	launch_game(t_all *game_struct)$/
 lgstr	../libft/ft_itoa.c	/^static int	lgstr(int n)$/
-load_textures	open_window.c	/^bool	load_textures(t_texture_data texture_data, t_/
-move	movement_management/move.c	/^t_player	move(int keycode, t_all *game_struct)$/
-movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
+load_textures	open_window.c	/^bool	load_textures(t_texture_data texture_data$/
+move	movement_management/move.c	/^t_player	move(int keycode, t_player pos)$/
+movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_refresh_min/
+my_pixel_put	my_pixel_put.c	/^void	my_pixel_put(t_img_data *data, int x, int y, /
 nb_set	../libft/ft_strtrim.c	/^static int	nb_set(char const *s, char const *set)$/
 nb_str	../libft/ft_split.c	/^static int	nb_str(char *s, char c)$/
 open_window	open_window.c	/^void	*open_window(t_window window, t_texture_data /
+pick_pixel_color	display_minimap.c	/^int	pick_pixel_color(char **mat, int x_pxl, int y_/
 prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat, int line_ind/
 print_adress	../libft/ft_printf_utils.c	/^int	print_adress(va_list param)$/
 print_adress_error	../libft/ft_print_error_utils.c	/^int	print_adress_error(va_list param)$/
+put_minimap_pixel	display_minimap.c	/^t_img_data	put_minimap_pixel(t_img_data img, int c/
 putnbr_adress	../libft/ft_printf.c	/^int	putnbr_adress(unsigned long long int nb, char /
 putnbr_adress_error	../libft/ft_print_error.c	/^int	putnbr_adress_error(unsigned long long int nb,/
 putnbr_hex	../libft/ft_printf.c	/^int	putnbr_hex(unsigned int nb, char *str)$/
@@ -131,6 +139,7 @@ putnbr_unsigned	../libft/ft_printf.c	/^int	putnbr_unsigned(unsigned int nb)$/
 putnbr_unsigned_error	../libft/ft_print_error.c	/^int	putnbr_unsigned_error(unsigned int nb)$/
 skip_textures_and_colors	parsing/init_textures_and_colors.c	/^int	skip_textures_and_colors(char *scene_file)$/
 start_parsing	cub3d.c	/^char	**start_parsing(char *scene_file, t_all *game/
+start_parsing	movement_management/cub3d.c	/^char	**start_parsing(char *scene_file, t_all *game/
 strduploc	../libft/ft_split.c	/^static char	*strduploc(char *s, char c)$/
 swaploc	../libft/ft_itoa.c	/^static char	*swaploc(char *str)$/
 trim_end_of_line	parsing/init_textures_and_colors.c	/^char	*trim_end_of_line(int fd)$/

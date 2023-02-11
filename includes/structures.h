@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:15:22 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 16:15:46 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/11 17:11:02 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,15 +65,15 @@ typedef struct s_player
 	float	angle;
 }				t_player;
 
-//TODO
 typedef struct s_all
 {
-	t_texture_data		texture_data;
-	t_color_data		color_data;
-	t_window			window;
-	t_map_data			map_data;
-	t_images_data		images_data;
-	t_player			pos;
-}	t_all;
+	t_texture_data			texture_data;
+	t_color_data			color_data;
+	t_texture_images_data	images_data;
+	t_window				window;
+	t_map_data				map_data;
+	t_player				pos;
+	char					**mat;
+}				t_all;
 
 #endif

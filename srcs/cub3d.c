@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:14:20 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 16:15:04 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/11 17:18:00 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ char	**start_parsing(char *scene_file, t_all *game_struc)
 
 int	main(int argc, char **argv)
 {
-	char	**mat;
 	t_all	game_struc;
 
 	if (argc != 2)
@@ -74,17 +73,15 @@ int	main(int argc, char **argv)
 		return (-1);
 	}
 	init_struc(&game_struc);
-	mat = start_parsing(argv[1], &game_struc);
-	if (!mat)
+	game_struc.mat = start_parsing(argv[1], &game_struc);
+	if (!game_struc.mat)
 		return (-2);
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
 			game_struc.texture_data, &game_struc.images_data);
-	//TODO
-	display_minimap(mat, game_struc.window, game_struc.map_data);
-	launch_game(&game_struc, mat);
+	launch_game(&game_struc);
 	mlx_loop(game_struc.window.mlx);
-	free_double_tab(mat);
+	free_double_tab(game_struc.mat);
 	free_struc_elements(game_struc.texture_data);
 	mlx_destroy_display(game_struc.window.mlx);
 	free(game_struc.window.mlx);

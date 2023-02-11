@@ -6,9 +6,10 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 17:33:59 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/11 17:16:53 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 # define PLAYER 1
@@ -27,9 +28,11 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
+# define MOVESPEED 4
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include "structures.h"
 # include "mlx.h"
 # include "mlx_int.h"
@@ -51,9 +54,12 @@ void		fill_texture_elements(t_texture_data *texture_data, char **line);
 int			get_color_elements(t_color_data *color_data, char **line, int trigger);
 void		*open_window(t_window window, t_texture_data texture_data,
 				t_texture_images_data *images_data);
-void		display_minimap(char **mat, /*t_player player,*/ t_window window,
-				t_map_data map_data);
+void		display_minimap(char **mat, t_player pos, t_window window,
+				t_map_data map_dat);
 void		my_pixel_put(t_img_data *data, int x, int y, int color);
 t_img_data	draw_border(t_img_data img_data);
+void		launch_game(t_all *game_struct);
+int			movement_management(int keycode, t_all *game_struct);
+t_player	move(int keycode, t_player pos);
 
 #endif

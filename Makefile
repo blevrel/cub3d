@@ -6,13 +6,17 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/10 17:30:47 by blevrel          ###   ########.fr        #
+#    Updated: 2023/02/11 16:28:51 by jsauvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME  =	cub3D
 
 SRCS  =	srcs/cub3d.c \
+		srcs/launch_game.c	\
+		srcs/open_window.c	\
+		srcs/display_minimap.c	\
+		srcs/my_pixel_put.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \
@@ -21,9 +25,8 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/init_textures_and_colors.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
-		srcs/open_window.c	\
-		srcs/display_minimap.c	\
-		srcs/my_pixel_put.c	\
+		srcs/movement_management/move.c	\
+		srcs/movement_management/movement_management.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}
@@ -32,7 +35,7 @@ CC	  =	clang
 
 CFLAGS =	-Wall -Wextra -Werror
 
-LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft
+LIB   =	-L mlx_linux -lmlx -lXext -lX11 -lm -L libft -lft
 
 HEAD  =	-I mlx_linux -I libft -I includes
 
