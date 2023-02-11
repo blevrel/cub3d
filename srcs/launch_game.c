@@ -2,8 +2,8 @@
 
 static t_player	initialize(t_player pos, int i, int j, char c)
 {
-	pos.pxl_x = (j - 1) * 32 + 16;
-	pos.pxl_y = (i - 1) * 32 + 16;
+	pos.pxl_x = (j) * 32 + 16;
+	pos.pxl_y = (i) * 32 + 16;
 	if (c == 'W')
 		pos.angle = M_PI;
 	else if (c == 'E')
@@ -43,8 +43,8 @@ static t_player	initialize_player_position(t_player pos, char **mat)
 
 void	launch_game(t_all *game_struct)
 {
-	game_struct->pos = initialize_player_position(game_struct->pos,
+	game_struct->pos = initialize_player_position(game_struct->pos, \
 		game_struct->mat);
-	mlx_key_hook(game_struct->window.win_ptr, movement_management,
+	mlx_key_hook(game_struct->window.win_ptr, movement_management, \
 		game_struct);
 }

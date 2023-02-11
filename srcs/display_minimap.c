@@ -8,9 +8,9 @@ int	pick_pixel_color(char **mat, int x_pxl, int y_pxl, t_map_data map_data)
 	x_pos_in_mat = x_pxl / SQ_SIZE;
 	y_pos_in_mat = y_pxl / SQ_SIZE;
 	if ((x_pos_in_mat <= 0 || x_pos_in_mat >= map_data.map_width - 1)
-			|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
-			|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
-			|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
+		|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
+		|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
+		|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
 		return (WALL_COLOR);
 	else if (mat[y_pos_in_mat][x_pos_in_mat] == '0')
 		return (FLOOR_COLOR);
@@ -27,7 +27,7 @@ t_img_data	put_minimap_pixel(t_img_data img, int color)
 	{
 		if ((img_x > (MINI_WIDTH - 15) / 2 && img_x < (MINI_WIDTH + 15) / 2)
 			&& (img_y > (MINI_HEIGHT - 15) / 2
-			&& img_y < (MINI_HEIGHT + 15) / 2))
+				&& img_y < (MINI_HEIGHT + 15) / 2))
 			my_pixel_put(&img, img_x, img_y, color);
 		else
 			my_pixel_put(&img, img_x, img_y, FLOOR_COLOR);
@@ -82,5 +82,6 @@ void	display_minimap(char **mat, t_player player, t_window window,
 			&minimap.line_length, &minimap.endian);
 	minimap = draw_border(minimap);
 	minimap = check_around_player(minimap, player, mat, map_data);
-	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
+	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img,
+		MINI_POS, MINI_POS);
 }
