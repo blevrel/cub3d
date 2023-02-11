@@ -6,13 +6,12 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:15:22 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 17:11:02 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/11 20:15:00 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-# include <stdbool.h>
 
 typedef struct s_texture_data
 {

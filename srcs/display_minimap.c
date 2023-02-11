@@ -59,12 +59,12 @@ t_img_data	draw_player(t_img_data img, t_triangle triangle)
 	return (img);
 }
 
-t_img_data	fill_minimap(t_img_data img, /*t_player player,*/
+t_img_data	fill_minimap(t_img_data img, char **mat, t_player player,
+	t_map_data map_data)
 {
 	int	y_check;
 	int	x_check;
 //	float	angle = 0;
-=======
 	int	x_pxl_limit;
 	int	y_pxl_limit;
 	int	color;
@@ -92,12 +92,12 @@ void	display_minimap(char **mat, t_player player, t_window window,
 	t_img_data	minimap;
 	t_triangle	player_triangle;
 
-	player_triangle = get_triangle_coords(90);
+	player_triangle = get_triangle_coords(player.angle);
 	minimap.img = mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
 	minimap.addr = mlx_get_data_addr(minimap.img, &minimap.bits_per_pixel,
 			&minimap.line_length, &minimap.endian);
 	minimap = draw_border(minimap);
-	minimap = fill_minimap(minimap, mat, map_data);
+	minimap = fill_minimap(minimap, mat, player, map_data);
 	minimap = draw_player(minimap, player_triangle);
 	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
 }
