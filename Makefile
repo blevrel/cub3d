@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/10 17:30:47 by blevrel          ###   ########.fr        #
+#    Updated: 2023/02/11 18:35:28 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS  =	srcs/cub3d.c \
 		srcs/open_window.c	\
 		srcs/display_minimap.c	\
 		srcs/my_pixel_put.c	\
+		srcs/get_triangle_coordinates.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}
@@ -32,7 +33,7 @@ CC	  =	clang
 
 CFLAGS =	-Wall -Wextra -Werror
 
-LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft
+LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft -lm
 
 HEAD  =	-I mlx_linux -I libft -I includes
 

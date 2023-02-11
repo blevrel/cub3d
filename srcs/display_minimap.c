@@ -34,32 +34,28 @@ t_img_data	put_minimap_pixel(t_img_data img, int color)
 }
 
 
-t_img_data	draw_player(t_img_data img, int x1, int y1, int x2, int y2, int x3, int y3 /*t_triangle*/)
+t_img_data	draw_player(t_img_data img, t_triangle triangle)
 {
-    int min_x;
-    int min_y;
+    int x;
+    int y;
     int max_x;
     int max_y;
-	int	i;
-	int	j;
 
-    min_x = ft_min(x1, ft_min(x2, x3));
-    max_x = ft_max(x1, ft_max(x2, x3));
-    min_y = ft_min(y1, ft_min(y2, y3));
-    max_y = ft_max(y1, ft_max(y2, y3));
-	i = min_x;
-    while (i <= max_x)
+    max_x = ft_max(triangle.x_a, ft_max(triangle.x_b, triangle.x_c));
+    max_y = ft_max(triangle.y_a, ft_max(triangle.y_b, triangle.y_c));
+    x = ft_min(triangle.x_a, ft_min(triangle.x_b, triangle.x_c));
+    while (x <= max_x)
 	{
-		j = min_y;
-        while (j <= max_y)
+    	y = ft_min(triangle.y_a, ft_min(triangle.y_b, triangle.y_c));
+        while (y <= max_y)
 		{
-            if ((y2 - y3) * i + (x3 - x2) * j + x2 * y3 - x3 * y2 >= 0
-				&& (y3 - y1) * i + (x1 - x3) * j + x3 * y1 - x1 * y3 >= 0
-				&& (y1 - y2) * i + (x2 - x1) * j + x1 * y2 - x2 * y1 >= 0)
-				my_pixel_put(&img, i, j, PLAYER_COLOR);
-			j++;
+            if ((triangle.y_b - triangle.y_c) * x + (triangle.x_c - triangle.x_b) * y + triangle.x_b * triangle.y_c - triangle.x_c * triangle.y_b >= 0
+				&& (triangle.y_c - triangle.y_a) * x + (triangle.x_a - triangle.x_c) * y + triangle.x_c * triangle.y_a - triangle.x_a * triangle.y_c >= 0
+				&& (triangle.y_a - triangle.y_b) * x + (triangle.x_b - triangle.x_a) * y + triangle.x_a * triangle.y_b - triangle.x_b * triangle.y_a >= 0)
+				my_pixel_put(&img, x, y, PLAYER_COLOR);
+			y++;
 		}
-		i++;
+		x++;
 	}
 	return (img);
 }
@@ -94,13 +90,15 @@ void	display_minimap(char **mat, /*t_player player,*/ t_window window,
 			t_map_data map_data)
 {
 	t_img_data	minimap;
+	t_triangle	player_triangle;
 
+	player_triangle = get_triangle_coords(90);
 	minimap.img = mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
 	minimap.addr = mlx_get_data_addr(minimap.img, &minimap.bits_per_pixel,
 			&minimap.line_length, &minimap.endian);
 	minimap = draw_border(minimap);
 	minimap = fill_minimap(minimap, mat, map_data);
-	minimap = draw_player(minimap, (MINI_WIDTH - 10) / 2, MINI_HEIGHT / 2, (MINI_WIDTH + 10) / 2, (MINI_HEIGHT - 10) / 2, (MINI_WIDTH + 10) / 2, (MINI_HEIGHT + 10) / 2);
+	minimap = draw_player(minimap, player_triangle);
 	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
 	//(void)player;
 }

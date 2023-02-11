@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/11 15:41:22 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/11 19:44:47 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -22,7 +22,7 @@
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
-# define MINI_PLAYER_SIZE 12
+# define MINI_PLAYER_SIZE 11
 # define MINI_VISION 3
 # define BORDER_COLOR 0x854442
 # define WALL_COLOR 0x4b3832
@@ -31,6 +31,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <math.h>
 # include "structures.h"
 # include "mlx.h"
 # include "mlx_int.h"
@@ -56,5 +57,6 @@ void		display_minimap(char **mat, /*t_player player,*/ t_window window,
 				t_map_data map_data);
 void		my_pixel_put(t_img_data *data, int x, int y, int color);
 t_img_data	draw_border(t_img_data img_data);
+t_triangle	get_triangle_coords(float angle);
 
 #endif
