@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 10:14:38 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:44:00 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef STRUCTURES_H
@@ -40,6 +40,16 @@ typedef struct s_window
 	void	*win_ptr;
 	void	*mlx;	
 }				t_window;
+
+typedef struct s_triangle
+{
+	int	x_a;
+	int	y_a;
+	int	x_b;
+	int	y_b;
+	int	x_c;
+	int	y_c;
+}				t_triangle;
 
 typedef struct s_img_data
 {

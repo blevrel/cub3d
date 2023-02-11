@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 17:33:59 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:41:22 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -22,6 +22,7 @@
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
+# define MINI_PLAYER_SIZE 12
 # define MINI_VISION 3
 # define BORDER_COLOR 0x854442
 # define WALL_COLOR 0x4b3832

@@ -6,7 +6,7 @@
 #    By: pirabaud <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/03/30 09:35:24 by pirabaud          #+#    #+#              #
-#    Updated: 2023/01/29 13:55:05 by blevrel          ###   ########.fr        #
+#    Updated: 2023/02/11 15:11:13 by blevrel          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCS  = ft_fill_char_and_increment.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
 		ft_atoi.c ft_calloc.c ft_strdup.c ft_substr.c ft_strlen_double_tab.c \
 		ft_strjoin.c ft_strtrim.c ft_split.c ft_atof.c ft_itoa.c \
 		ft_atoll.c ft_atod.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
-		ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+		ft_min.c ft_max.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 	  	ft_putstr.c ft_putchar.c ft_putnbr.c ft_putnbr_base.c \
 	  	ft_printf.c ft_printf_utils.c get_next_line.c \
 	  	get_next_line_utils.c join_gnl.c ft_strcmp.c	\
