@@ -7,10 +7,11 @@ int	pick_pixel_color(char **mat, int x_pxl, int y_pxl, t_map_data map_data)
 
 	x_pos_in_mat = x_pxl / SQ_SIZE;
 	y_pos_in_mat = y_pxl / SQ_SIZE;
-	if ((x_pos_in_mat <= 0 || x_pos_in_mat >= map_data.map_width - 1)
-		|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
+	if ((x_pos_in_mat <= 0 || x_pos_in_mat >= map_data.map_width)
+		|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height)
 		|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
-		|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
+		|| mat[y_pos_in_mat][x_pos_in_mat] == 2
+		|| ft_isspace(mat[y_pos_in_mat][x_pos_in_mat]))
 		return (WALL_COLOR);
 	else
 		return (FLOOR_COLOR);
@@ -35,20 +36,20 @@ t_img_data	put_minimap_pixel(t_img_data img, int color)
 
 t_img_data	draw_player(t_img_data img, t_triangle triangle)
 {
-    int x;
-    int y;
-    int max_x;
-    int max_y;
+	int	x;
+	int	y;
+	int	max_x;
+	int	max_y;
 
-    max_x = ft_max(triangle.x_a, ft_max(triangle.x_b, triangle.x_c));
-    max_y = ft_max(triangle.y_a, ft_max(triangle.y_b, triangle.y_c));
-    x = ft_min(triangle.x_a, ft_min(triangle.x_b, triangle.x_c));
-    while (x <= max_x)
+	max_x = ft_max(triangle.x_a, ft_max(triangle.x_b, triangle.x_c));
+	max_y = ft_max(triangle.y_a, ft_max(triangle.y_b, triangle.y_c));
+	x = ft_min(triangle.x_a, ft_min(triangle.x_b, triangle.x_c));
+	while (x <= max_x)
 	{
-    	y = ft_min(triangle.y_a, ft_min(triangle.y_b, triangle.y_c));
-        while (y <= max_y)
+		y = ft_min(triangle.y_a, ft_min(triangle.y_b, triangle.y_c));
+		while (y <= max_y)
 		{
-            if ((triangle.y_b - triangle.y_c) * x + (triangle.x_c - triangle.x_b) * y + triangle.x_b * triangle.y_c - triangle.x_c * triangle.y_b >= 0
+			if ((triangle.y_b - triangle.y_c) * x + (triangle.x_c - triangle.x_b) * y + triangle.x_b * triangle.y_c - triangle.x_c * triangle.y_b >= 0
 				&& (triangle.y_c - triangle.y_a) * x + (triangle.x_a - triangle.x_c) * y + triangle.x_c * triangle.y_a - triangle.x_a * triangle.y_c >= 0
 				&& (triangle.y_a - triangle.y_b) * x + (triangle.x_b - triangle.x_a) * y + triangle.x_a * triangle.y_b - triangle.x_b * triangle.y_a >= 0)
 				my_pixel_put(&img, x, y, PLAYER_COLOR);
@@ -62,18 +63,18 @@ t_img_data	draw_player(t_img_data img, t_triangle triangle)
 t_img_data	fill_minimap(t_img_data img, char **mat, t_player player,
 	t_map_data map_data)
 {
-	int	y_check;
-	int	x_check;
-	int	x_pxl_limit;
-	int	y_pxl_limit;
-	int	color;
+	float	y_check;
+	float	x_check;
+	float	x_pxl_limit;
+	float	y_pxl_limit;
+	int		color;
 
-	x_pxl_limit = player.pxl_x + (MINI_VISION * SQ_SIZE);
-	y_pxl_limit = player.pxl_y + (MINI_VISION * SQ_SIZE);
-	y_check = player.pxl_y - (MINI_VISION * SQ_SIZE);
+	x_pxl_limit = player.pxl_x + ((float)MINI_VISION * (float)SQ_SIZE);
+	y_pxl_limit = player.pxl_y + ((float)MINI_VISION * (float)SQ_SIZE);
+	y_check = player.pxl_y - ((float)MINI_VISION * (float)SQ_SIZE);
 	while (y_check < y_pxl_limit)
 	{
-		x_check = player.pxl_x - (MINI_VISION * SQ_SIZE);
+		x_check = player.pxl_x - ((float)MINI_VISION * (float)SQ_SIZE);
 		while (x_check < x_pxl_limit)
 		{
 			color = pick_pixel_color(mat, x_check, y_check, map_data);
@@ -98,5 +99,6 @@ void	display_minimap(char **mat, t_player player, t_window window,
 	minimap = draw_border(minimap);
 	minimap = fill_minimap(minimap, mat, player, map_data);
 	minimap = draw_player(minimap, player_triangle);
-	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img, MINI_POS, MINI_POS);
+	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img,
+		MINI_POS, MINI_POS);
 }
