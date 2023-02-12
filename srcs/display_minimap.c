@@ -8,9 +8,9 @@ int	pick_pixel_color(char **mat, int x_pxl, int y_pxl, t_map_data map_data)
 	x_pos_in_mat = x_pxl / SQ_SIZE;
 	y_pos_in_mat = y_pxl / SQ_SIZE;
 	if ((x_pos_in_mat <= 0 || x_pos_in_mat >= map_data.map_width - 1)
-			|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
-			|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
-			|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
+		|| (y_pos_in_mat <= 0 || y_pos_in_mat >= map_data.map_height - 1)
+		|| mat[y_pos_in_mat][x_pos_in_mat] == '1'
+		|| mat[y_pos_in_mat][x_pos_in_mat] == ' ')
 		return (WALL_COLOR);
 	else
 		return (FLOOR_COLOR);
