@@ -6,7 +6,7 @@
 #    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/11 16:28:51 by jsauvain         ###   ########.fr        #
+#    Updated: 2023/02/12 07:44:04 by jsauvain         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/get_elements.c	\
 		srcs/movement_management/move.c	\
 		srcs/movement_management/movement_management.c	\
+		srcs/movement_management/check_collision.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}

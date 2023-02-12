@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/11 17:16:53 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/12 07:42:13 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void		my_pixel_put(t_img_data *data, int x, int y, int color);
 t_img_data	draw_border(t_img_data img_data);
 void		launch_game(t_all *game_struct);
 int			movement_management(int keycode, t_all *game_struct);
-t_player	move(int keycode, t_player pos);
+t_player	move(int keycode, t_player pos, char **mat);
+int			check_collision(t_player pos, char **mat, char *oper1,
+				char *oper2);
 
 #endif

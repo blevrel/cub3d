@@ -24,7 +24,7 @@ int	movement_management(int keycode, t_all *game_struct)
 			game_struct->pos.angle);
 	else if (keycode == 'w' || keycode == 's'
 		|| keycode == 'a' || keycode == 'd')
-		game_struct->pos = move(keycode, game_struct->pos);
+		game_struct->pos = move(keycode, game_struct->pos, game_struct->mat);
 	display_minimap(game_struct->mat, game_struct->pos, game_struct->window,
 		game_struct->map_data);
 	return (0);
