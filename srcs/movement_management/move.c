@@ -2,41 +2,37 @@
 
 static t_player	go_up(t_player pos, char **mat)
 {
-	if (check_collision(pos, mat, "+cos", "-sin"))
-	{
+	if (!check_collision_x(pos, mat, "+cos"))
 		pos.pxl_x += (cos(pos.angle) * MOVESPEED);
+	if (!check_collision_y(pos, mat, "-sin"))
 		pos.pxl_y -= (sin(pos.angle) * MOVESPEED);
-	}
 	return (pos);
 }
 
 static t_player	go_down(t_player pos, char **mat)
 {
-	if (check_collision(pos, mat, "-cos", "+sin"))
-	{
+	if (!check_collision_x(pos, mat, "-cos"))
 		pos.pxl_x -= (cos(pos.angle) * MOVESPEED);
+	if (!check_collision_y(pos, mat, "+sin"))
 		pos.pxl_y += (sin(pos.angle) * MOVESPEED);
-	}
 	return (pos);
 }
 
 static t_player	go_left(t_player pos, char **mat)
 {
-	if (check_collision(pos, mat, "-sin", "-cos"))
-	{
+	if (!check_collision_x(pos, mat, "-sin"))
 		pos.pxl_x -= (sin(pos.angle) * MOVESPEED);
+	if (!check_collision_y(pos, mat, "-cos"))
 		pos.pxl_y -= (cos(pos.angle) * MOVESPEED);
-	}
 	return (pos);
 }
 
 static t_player	go_right(t_player pos, char **mat)
 {
-	if (check_collision(pos, mat, "+sin", "-cos"))
-	{
+	if (!check_collision_x(pos, mat, "+sin"))
 		pos.pxl_x += (sin(pos.angle) * MOVESPEED);
+	if (!check_collision_y(pos, mat, "+cos"))
 		pos.pxl_y += (cos(pos.angle) * MOVESPEED);
-	}
 	return (pos);
 }
 

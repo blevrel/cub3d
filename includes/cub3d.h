@@ -23,7 +23,7 @@
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
-# define MINI_PLAYER_SIZE 12
+# define MINI_PLAYER_SIZE 11
 # define MINI_VISION 3
 # define BORDER_COLOR 0x854442
 # define WALL_COLOR 0x4b3832
@@ -64,7 +64,7 @@ t_triangle	get_triangle_coords(float angle);
 void		launch_game(t_all *game_struct);
 int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);
-int			check_collision(t_player pos, char **mat, char *oper1,
-				char *oper2);
+int			check_collision_x(t_player pos, char **mat, char *oper);
+int			check_collision_y(t_player pos, char **mat, char *oper);
 
 #endif
