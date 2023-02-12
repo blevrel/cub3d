@@ -1,4 +1,4 @@
-#include "cub3d"
+#include "cub3d.h"
 
 int	get_x_in_mat(float pxl_x, float angle, char *oper1)
 {
@@ -21,13 +21,13 @@ int	get_y_in_mat(float pxl_y, float angle, char *oper2)
 	float	y;
 
 	y = pxl_y;
-	if (!ft_strcmp(oper1, "-sin"))
+	if (!ft_strcmp(oper2, "-sin"))
 		y -= sin(angle) * MOVESPEED;
-	else if (!ft_strcmp(oper1, "+sin"))
+	else if (!ft_strcmp(oper2, "+sin"))
 		y += sin(angle) * MOVESPEED;
-	else if (!ft_strcmp(oper1, "-cos"))
+	else if (!ft_strcmp(oper2, "-cos"))
 		y -= cos(angle) * MOVESPEED;
-	else if (!ft_strcmp(oper1, "+cos"))
+	else if (!ft_strcmp(oper2, "+cos"))
 		y += cos(angle) * MOVESPEED;
 	return (y / 32);
 }

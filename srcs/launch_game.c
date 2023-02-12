@@ -45,6 +45,8 @@ void	launch_game(t_all *game_struct)
 {
 	game_struct->pos = initialize_player_position(game_struct->pos, \
 		game_struct->mat);
+	display_minimap(game_struct->mat, game_struct->pos, game_struct->window,
+		game_struct->map_data);
 	mlx_key_hook(game_struct->window.win_ptr, movement_management, \
 		game_struct);
 }

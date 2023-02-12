@@ -19,7 +19,9 @@ static float	go_left_or_right(int keycode, float angle)
 
 int	movement_management(int keycode, t_all *game_struct)
 {
-	if (keycode == XK_Left || keycode == XK_Right)
+	if (keycode == XK_Escape)
+		exit(1);//faire un fonction destroy avec free et destroy_images
+	else if (keycode == XK_Left || keycode == XK_Right)
 		game_struct->pos.angle = go_left_or_right(keycode, \
 			game_struct->pos.angle);
 	else if (keycode == 'w' || keycode == 's'
