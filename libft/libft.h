@@ -6,7 +6,7 @@
 /*   By: pirabaud <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/28 16:24:58 by pirabaud          #+#    #+#             */
-/*   Updated: 2023/02/02 17:25:34 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/11 15:10:56 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_list
 	struct s_list	*next;
 }			t_list;
 
+int			ft_min(int a, int b);
+int			ft_max(int a, int b);
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);
 int			ft_isalnum(int c);

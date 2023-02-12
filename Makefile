@@ -15,8 +15,8 @@ NAME  =	cub3D
 SRCS  =	srcs/cub3d.c \
 		srcs/launch_game.c	\
 		srcs/open_window.c	\
-		srcs/display_minimap.c	\
 		srcs/my_pixel_put.c	\
+		srcs/display_minimap.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \
@@ -25,6 +25,7 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/init_textures_and_colors.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
+		srcs/get_triangle_coordinates.c	\
 		srcs/movement_management/move.c	\
 		srcs/movement_management/movement_management.c	\
 		srcs/movement_management/check_collision.c	\
@@ -36,7 +37,7 @@ CC	  =	clang
 
 CFLAGS =	-Wall -Wextra -Werror
 
-LIB   =	-L mlx_linux -lmlx -lXext -lX11 -lm -L libft -lft
+LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft -lm
 
 HEAD  =	-I mlx_linux -I libft -I includes
 

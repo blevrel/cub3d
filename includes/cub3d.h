@@ -23,6 +23,7 @@
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
+# define MINI_PLAYER_SIZE 11
 # define MINI_VISION 3
 # define BORDER_COLOR 0x854442
 # define WALL_COLOR 0x4b3832
@@ -31,6 +32,7 @@
 # define MOVESPEED 4
 # include <stdio.h>
 # include <stdlib.h>
+# include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
 # include "structures.h"
@@ -58,6 +60,7 @@ void		display_minimap(char **mat, t_player pos, t_window window,
 				t_map_data map_dat);
 void		my_pixel_put(t_img_data *data, int x, int y, int color);
 t_img_data	draw_border(t_img_data img_data);
+t_triangle	get_triangle_coords(float angle);
 void		launch_game(t_all *game_struct);
 int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);

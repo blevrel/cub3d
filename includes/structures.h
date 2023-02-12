@@ -12,7 +12,6 @@
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-# include <stdbool.h>
 
 typedef struct s_texture_data
 {
@@ -41,6 +40,16 @@ typedef struct s_window
 	void	*win_ptr;
 	void	*mlx;	
 }				t_window;
+
+typedef struct s_triangle
+{
+	int	x_a;
+	int	y_a;
+	int	x_b;
+	int	y_b;
+	int	x_c;
+	int	y_c;
+}				t_triangle;
 
 typedef struct s_img_data
 {
