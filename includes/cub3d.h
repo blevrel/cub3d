@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/12 07:42:13 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/12 14:13:48 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ t_triangle	get_triangle_coords(float angle);
 void		launch_game(t_all *game_struct);
 int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);
-int			check_collision(t_player pos, char **mat, char *oper1,
-				char *oper2);
+int			check_collision_x(t_player pos, char **mat, char *oper);
+int			check_collision_y(t_player pos, char **mat, char *oper);
 
 #endif
