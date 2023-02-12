@@ -6,13 +6,12 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:15:22 by jsauvain          #+#    #+#             */
-/*   Updated: 2023/02/11 17:11:02 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/12 07:03:31 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-# include <stdbool.h>
 
 typedef struct s_texture_data
 {
@@ -42,6 +41,16 @@ typedef struct s_window
 	void	*mlx;	
 }				t_window;
 
+typedef struct s_triangle
+{
+	int	x_a;
+	int	y_a;
+	int	x_b;
+	int	y_b;
+	int	x_c;
+	int	y_c;
+}				t_triangle;
+
 typedef struct s_img_data
 {
 	void	*img;
@@ -60,8 +69,8 @@ typedef struct s_map_data
 
 typedef struct s_player
 {
-	int		pxl_x;
-	int		pxl_y;
+	float	pxl_x;
+	float	pxl_y;
 	float	angle;
 }				t_player;
 
