@@ -14,7 +14,6 @@ static float	go_left_or_right(int keycode, float angle)
 		if (angle < 0)
 			angle += 2 * M_PI;
 	}
-	printf("angle = %f\n", angle);
 	return (angle);
 }
 
