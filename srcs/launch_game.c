@@ -2,8 +2,8 @@
 
 static t_player	initialize(t_player pos, int i, int j, char c)
 {
-	pos.pxl_x = (j) * 32 + 16;
-	pos.pxl_y = (i) * 32 + 16;
+	pos.pxl_x = j * 32 + 16;
+	pos.pxl_y = i * 32 + 16;
 	if (c == 'W')
 		pos.angle = M_PI;
 	else if (c == 'E')
