@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   structures.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
 /*   Updated: 2023/02/10 10:28:35 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
-# include <stdbool.h>
 
 typedef struct s_texture_data
 {
@@ -21,13 +21,13 @@ typedef struct s_texture_data
 	char	*ea_texture;
 }				t_texture_data;
 
-typedef struct s_images_data
+typedef struct s_texture_images_data
 {
 	char	*no_image;
 	char	*so_image;
 	char	*we_image;
 	char	*ea_image;
-}				t_images_data;
+}				t_texture_images_data;
 
 typedef struct s_color_data
 {
@@ -41,6 +41,25 @@ typedef struct s_window
 	void	*mlx;	
 }				t_window;
 
+typedef struct s_triangle
+{
+	int	x_a;
+	int	y_a;
+	int	x_b;
+	int	y_b;
+	int	x_c;
+	int	y_c;
+}				t_triangle;
+
+typedef struct s_img_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;	
+}				t_img_data;
+
 typedef struct s_map_data
 {
 	int	map_width;
@@ -50,20 +69,20 @@ typedef struct s_map_data
 
 typedef struct s_player
 {
-	int	pos_x;
-	int	pos_y;
-	int	pxl_x;
-	int	pxl_y;
+	float	pxl_x;
+	float	pxl_y;
+	float	angle;
 }				t_player;
 
 typedef struct s_all
 {
-	t_texture_data		texture_data;
-	t_color_data		color_data;
-	t_window			window;
-	t_map_data			map_data;
-	t_images_data		images_data;
-	t_player			pos;
+	t_texture_data			texture_data;
+	t_color_data			color_data;
+	t_texture_images_data	images_data;
+	t_window				window;
+	t_map_data				map_data;
+	t_player				pos;
+	char					**mat;
 }				t_all;
 
 #endif

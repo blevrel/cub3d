@@ -4,6 +4,8 @@ alloc_mat	parsing/fill_matrix.c	/^char	**alloc_mat(char *scene_file, int fd, t_m
 assign_line_to_elem	parsing/init_textures_and_colors.c	/^int	assign_line_to_elem(t_color_data *color_data$/
 char_is_valid	parsing/check_map_content.c	/^int	char_is_valid(char c)$/
 check_around	parsing/check_map_content.c	/^bool	check_around(char **mat, int i, int j)$/
+check_collision_x	movement_management/check_collision.c	/^int	check_collision_x(t_player pos, char **mat, ch/
+check_collision_y	movement_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
 check_end	../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
 check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
 check_last	../libft/ft_strrchr.c	/^static int	check_last(char *s, int i, int c)$/
@@ -17,10 +19,14 @@ check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_text
 check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
 closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
 diffls	../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
+display_minimap	display_minimap.c	/^void	display_minimap(char **mat, t_player player, /
+draw_border	my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
+draw_player	display_minimap.c	/^t_img_data	draw_player(t_img_data img, t_triangle /
 dup_dp	../libft/ft_dup_dp.c	/^char	**dup_dp(char **str)$/
 fill_color_elements	parsing/get_elements.c	/^int	fill_color_elements(char **col_value, t_color_/
 fill_dest	../libft/get_next_line_utils.c	/^static char	*fill_dest(char *dest, char *buff, int/
 fill_mat	parsing/fill_matrix.c	/^char	**fill_mat(char *line, int fd, char **mat, t_/
+fill_minimap	display_minimap.c	/^t_img_data	fill_minimap(t_img_data img, char **mat/
 fill_rdest	../libft/ft_memmove.c	/^static char	*fill_rdest(char *rdest, const char *r/
 fill_res	../libft/ft_strjoin.c	/^static char	*fill_res(char *res, char *s, int *i, /
 fill_split	../libft/ft_split.c	/^char	**fill_split(char **split, char *s, char c, i/
@@ -55,11 +61,13 @@ ft_lstlast	../libft/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/
 ft_lstmap	../libft/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),/
 ft_lstnew	../libft/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/
 ft_lstsize	../libft/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/
+ft_max	../libft/ft_max.c	/^int	ft_max(int a, int b)$/
 ft_memchr	../libft/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/
 ft_memcmp	../libft/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size/
 ft_memcpy	../libft/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_/
 ft_memmove	../libft/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size/
 ft_memset	../libft/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/
+ft_min	../libft/ft_min.c	/^int	ft_min(int a, int b)$/
 ft_print_error	../libft/ft_print_error.c	/^int	ft_print_error(const char *format, ...)$/
 ft_printf	../libft/ft_printf.c	/^int	ft_printf(const char *format, ...)$/
 ft_putchar	../libft/ft_putchar.c	/^int	ft_putchar(char c)$/
@@ -99,20 +107,36 @@ ft_toupper	../libft/ft_toupper.c	/^int	ft_toupper(int c)$/
 get_color_elements	parsing/get_elements.c	/^int	get_color_elements(t_color_data *color_data, c/
 get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
 get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
+get_new_x_in_mat	movement_management/check_collision.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
+get_new_y_in_mat	movement_management/check_collision.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
 get_next_line	../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	cub3d.c	/^char	**get_parsed_mat(char *scene_file, t_all *gam/
+get_triangle_coords	get_triangle_coordinates.c	/^t_triangle	get_triangle_coords(float angle_a)$/
+go_down	movement_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
+go_left	movement_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
+go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
+go_right	movement_management/move.c	/^static t_player	go_right(t_player pos, char **mat)/
+go_up	movement_management/move.c	/^static t_player	go_up(t_player pos, char **mat)$/
 init_str	../libft/ft_itoa.c	/^static char	*init_str(char *str, int n)$/
 init_struc	parsing/init_struc.c	/^void	init_struc(t_all *game_struc)$/
 init_textures_and_colors	parsing/init_textures_and_colors.c	/^int	init_textures_and_colors(t_color_data *color_d/
+initialize	launch_game.c	/^static t_player	initialize(t_player pos, int i, in/
+initialize_player_position	launch_game.c	/^static t_player	initialize_player_position(t_playe/
 join_gnl	../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
+launch_game	launch_game.c	/^void	launch_game(t_all *game_struct)$/
 lgstr	../libft/ft_itoa.c	/^static int	lgstr(int n)$/
-load_textures	open_window.c	/^bool	load_textures(t_texture_data texture_data, t_/
+load_textures	open_window.c	/^bool	load_textures(t_texture_data texture_data$/
+move	movement_management/move.c	/^t_player	move(int keycode, t_player pos, char **ma/
+movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
+my_pixel_put	my_pixel_put.c	/^void	my_pixel_put(t_img_data *data, int x, int y, /
 nb_set	../libft/ft_strtrim.c	/^static int	nb_set(char const *s, char const *set)$/
 nb_str	../libft/ft_split.c	/^static int	nb_str(char *s, char c)$/
 open_window	open_window.c	/^void	*open_window(t_window window, t_texture_data /
+pick_pixel_color	display_minimap.c	/^int	pick_pixel_color(char **mat, int x_pxl, int y_/
 prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat, int line_ind/
 print_adress	../libft/ft_printf_utils.c	/^int	print_adress(va_list param)$/
 print_adress_error	../libft/ft_print_error_utils.c	/^int	print_adress_error(va_list param)$/
+put_minimap_pixel	display_minimap.c	/^t_img_data	put_minimap_pixel(t_img_data img, int c/
 putnbr_adress	../libft/ft_printf.c	/^int	putnbr_adress(unsigned long long int nb, char /
 putnbr_adress_error	../libft/ft_print_error.c	/^int	putnbr_adress_error(unsigned long long int nb,/
 putnbr_hex	../libft/ft_printf.c	/^int	putnbr_hex(unsigned int nb, char *str)$/

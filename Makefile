@@ -1,18 +1,10 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: blevrel <marvin@42.fr>                     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/23 08:50:48 by blevrel           #+#    #+#              #
-#    Updated: 2023/02/07 16:11:43 by blevrel          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 NAME  =	cub3D
 
 SRCS  =	srcs/cub3d.c \
+		srcs/launch_game.c	\
+		srcs/open_window.c	\
+		srcs/my_pixel_put.c	\
+		srcs/display_minimap.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \
@@ -21,7 +13,10 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/init_textures_and_colors.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
-		srcs/open_window.c	\
+		srcs/get_triangle_coordinates.c	\
+		srcs/movement_management/move.c	\
+		srcs/movement_management/movement_management.c	\
+		srcs/movement_management/check_collision.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}
@@ -30,7 +25,7 @@ CC	  =	clang
 
 CFLAGS =	-Wall -Wextra -Werror
 
-LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft
+LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft -lm
 
 HEAD  =	-I mlx_linux -I libft -I includes
 
@@ -49,7 +44,7 @@ fclean: clean
 
 re: fclean all
 
-.c.o:
+%.o: %.c includes/cub3d.h
 	${CC} ${CFLAGS} -c ${HEAD} $< -o ${<:.c=.o} -g
 
 ${NAME}: ${OBJS}
