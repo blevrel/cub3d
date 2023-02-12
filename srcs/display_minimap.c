@@ -64,7 +64,6 @@ t_img_data	fill_minimap(t_img_data img, char **mat, t_player player,
 {
 	int	y_check;
 	int	x_check;
-//	float	angle = 0;
 	int	x_pxl_limit;
 	int	y_pxl_limit;
 	int	color;
