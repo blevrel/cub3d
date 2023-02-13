@@ -4,7 +4,8 @@ SRCS  =	srcs/cub3d.c \
 		srcs/launch_game.c	\
 		srcs/open_window.c	\
 		srcs/my_pixel_put.c	\
-		srcs/display_minimap.c	\
+		srcs/display_minimap/display_minimap.c	\
+		srcs/display_minimap/get_triangle_coordinates.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \
@@ -13,7 +14,6 @@ SRCS  =	srcs/cub3d.c \
 		srcs/parsing/init_textures_and_colors.c \
 		srcs/parsing/free_struc_elements.c	\
 		srcs/parsing/get_elements.c	\
-		srcs/get_triangle_coordinates.c	\
 		srcs/movement_management/move.c	\
 		srcs/movement_management/movement_management.c	\
 		srcs/movement_management/check_collision.c	\
