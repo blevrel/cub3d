@@ -34,20 +34,23 @@ char	**start_parsing(char *scene_file, t_all *game_struc)
 	char	**mat;
 
 	i = 0;
-	fd = init_textures_and_colors(&game_struc->color_data,
-			&game_struc->texture_data, scene_file);
+	fd = init_textures_and_colors(&game_struc->texture_color_data, scene_file);
 	if (fd == -1)
 	{
 		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mOpen failed\e[0m\n");
-		free_struc_elements(game_struc->texture_data);
+		free_struc_elements(game_struc->texture_color_data);
 		return (NULL);
 	}
 	mat = get_parsed_mat(scene_file, game_struc, fd);
 	if (!mat)
 	{
-		free_struc_elements(game_struc->texture_data);
+		free_struc_elements(game_struc->texture_color_data);
 		return (NULL);
 	}
+	game_struc->render_data.c_color
+		= convert_rgb_to_hexa(game_struc->texture_color_data.c_color);
+	game_struc->render_data.f_color
+		= convert_rgb_to_hexa(game_struc->texture_color_data.f_color);
 	return (mat);
 }
 
@@ -66,11 +69,11 @@ int	main(int argc, char **argv)
 		return (-2);
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
-			game_struc.texture_data, &game_struc.images_data);
+			game_struc.texture_color_data, &game_struc.render_data);
 	launch_game(&game_struc);
 	mlx_loop(game_struc.window.mlx);
 	free_double_tab(game_struc.mat);
-	free_struc_elements(game_struc.texture_data);
+	free_struc_elements(game_struc.texture_color_data);
 	mlx_destroy_display(game_struc.window.mlx);
 	free(game_struc.window.mlx);
 	return (0);

@@ -1,0 +1,1 @@
+raycasting_render	raycasting_render.c	/^void	raycasting_render(t_all *game_struct)$/

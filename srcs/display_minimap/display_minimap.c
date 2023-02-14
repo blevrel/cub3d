@@ -99,6 +99,7 @@ void	display_minimap(char **mat, t_player player, t_window window,
 	minimap = draw_border(minimap);
 	minimap = fill_minimap(minimap, mat, player, map_data);
 	minimap = draw_player(minimap, player_triangle);
+	minimap = draw_rays(minimap, player, mat);
 	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img,
 		MINI_POS, MINI_POS);
 }

@@ -1,7 +1,6 @@
 #include "cub3d.h"
 
-int	assign_line_to_elem(t_color_data *color_data
-, t_texture_data *texture_data, char *line, int *i)
+int	assign_line_to_elem(t_texture_color_data *texture_color_data, char *line, int *i)
 {
 	char	**splitted_line;
 
@@ -14,15 +13,15 @@ int	assign_line_to_elem(t_color_data *color_data
 		free_double_tab(splitted_line);
 		return (-1);
 	}
-	fill_texture_elements(texture_data, splitted_line);
+	fill_texture_elements(texture_color_data, splitted_line);
 	if (ft_strcmp(splitted_line[0], "C") == 0)
 	{
-		if (get_color_elements(color_data, splitted_line, 1) == -1)
+		if (get_color_elements(texture_color_data, splitted_line, 1) == -1)
 			return (-1);
 	}
 	if (ft_strcmp(splitted_line[0], "F") == 0)
 	{
-		if (get_color_elements(color_data, splitted_line, 0) == -1)
+		if (get_color_elements(texture_color_data, splitted_line, 0) == -1)
 			return (-1);
 	}
 	free_double_tab(splitted_line);
@@ -72,8 +71,8 @@ char	*trim_end_of_line(int fd)
 	return (trim_line);
 }
 
-int	init_textures_and_colors(t_color_data *color_data
-	, t_texture_data *texture_data, char *scene_file)
+int	init_textures_and_colors(t_texture_color_data *texture_color_data,
+		char *scene_file)
 {
 	int		fd;
 	int		i;
@@ -90,7 +89,7 @@ int	init_textures_and_colors(t_color_data *color_data
 			return (-1);
 		if (!trim_line[0])
 			free(trim_line);
-		else if (assign_line_to_elem(color_data, texture_data, trim_line
+		else if (assign_line_to_elem(texture_color_data, trim_line
 				, &i) == -1)
 		{
 			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");

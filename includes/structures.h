@@ -6,40 +6,44 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 10:28:35 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/14 09:21:04 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-typedef struct s_texture_data
+typedef struct s_texture_color_data
 {
 	char	*no_texture;
 	char	*so_texture;
 	char	*we_texture;
 	char	*ea_texture;
-}				t_texture_data;
+	int		c_color[3];
+	int		f_color[3];
+}				t_texture_color_data;
 
-typedef struct s_texture_images_data
+typedef struct s_render_data
 {
-	char	*no_image;
-	char	*so_image;
-	char	*we_image;
-	char	*ea_image;
-}				t_texture_images_data;
-
-typedef struct s_color_data
-{
-	int	c_color[3];
-	int	f_color[3];
-}				t_color_data;
+	void	*no_image;
+	void	*so_image;
+	void	*we_image;
+	void	*ea_image;
+	int		c_color;
+	int		f_color;
+}				t_render_data;
 
 typedef struct s_window
 {
 	void	*win_ptr;
 	void	*mlx;	
 }				t_window;
+
+typedef struct s_wall_coords
+{
+	float	x;
+	float	y;
+}				t_wall_coords;
 
 typedef struct s_triangle
 {
@@ -76,9 +80,8 @@ typedef struct s_player
 
 typedef struct s_all
 {
-	t_texture_data			texture_data;
-	t_color_data			color_data;
-	t_texture_images_data	images_data;
+	t_texture_color_data	texture_color_data;
+	t_render_data			render_data;
 	t_window				window;
 	t_map_data				map_data;
 	t_player				pos;

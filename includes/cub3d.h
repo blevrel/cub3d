@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/12 14:35:44 by blevrel          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef CUB3D_H
 # define CUB3D_H
 # define PLAYER 1
@@ -20,6 +8,7 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
+# define FOV 200
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
@@ -48,16 +37,22 @@ bool		check_map_content(char **mat, t_map_data *map_data);
 void		init_struc(t_all *game_struc);
 int			get_map_height(int fd);
 int			get_map_width(char **mat);
-int			init_textures_and_colors(t_color_data *color_data,
-				t_texture_data *texture_data, char *scene_file);
+int			init_textures_and_colors(t_texture_color_data *texture_color_data,
+				char *scene_file);
 int			skip_textures_and_colors(char *scene_file);
-void		free_struc_elements(t_texture_data texture_data);
-void		fill_texture_elements(t_texture_data *texture_data, char **line);
-int			get_color_elements(t_color_data *color_data, char **line, int trigger);
-void		*open_window(t_window window, t_texture_data texture_data,
-				t_texture_images_data *images_data);
+void		free_struc_elements(t_texture_color_data texture_color_data);
+void		fill_texture_elements(t_texture_color_data *texture_color_data,
+				char **line);
+int			get_color_elements(t_texture_color_data *texture_color_data,
+				char **line, int trigger);
+int			convert_rgb_to_hexa(int *color);
+void		*open_window(t_window window,
+				t_texture_color_data texture_color_data, t_render_data *images_data);
 void		display_minimap(char **mat, t_player pos, t_window window,
 				t_map_data map_dat);
+t_img_data	draw_rays(t_img_data minimap, t_player player, char **mat);
+t_img_data	draw_vertical_line(t_img_data render_img, t_render_data render_data,
+				float x);
 void		my_pixel_put(t_img_data *data, int x, int y, int color);
 t_img_data	draw_border(t_img_data img_data);
 t_triangle	get_triangle_coords(float angle);
@@ -66,5 +61,6 @@ int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);
 int			check_collision_x(t_player pos, char **mat, char *oper);
 int			check_collision_y(t_player pos, char **mat, char *oper);
+void		raycasting_render(t_all *game_struct);
 
 #endif
