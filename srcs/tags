@@ -19,7 +19,9 @@ check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_text
 check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
 closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
 diffls	../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
+display_map	display_map/display_map.c	/^void	display_map(float horizontal_distance, float /
 display_minimap	display_minimap.c	/^void	display_minimap(char **mat, t_player player, /
+displaying	display_map/display_map.c	/^static void	displaying(t_img_data *map, int wall_h/
 draw_border	my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
 draw_player	display_minimap.c	/^t_img_data	draw_player(t_img_data img, t_triangle /
 dup_dp	../libft/ft_dup_dp.c	/^char	**dup_dp(char **str)$/
@@ -112,6 +114,7 @@ get_new_y_in_mat	movement_management/check_collision.c	/^static int	get_new_y_in
 get_next_line	../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	cub3d.c	/^char	**get_parsed_mat(char *scene_file, t_all *gam/
 get_triangle_coords	get_triangle_coordinates.c	/^t_triangle	get_triangle_coords(float angle_a)$/
+get_wall_height	display_map/display_map.c	/^static int	get_wall_height(float horizontal_distan/
 go_down	movement_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
 go_left	movement_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
 go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
@@ -147,4 +150,5 @@ skip_textures_and_colors	parsing/init_textures_and_colors.c	/^int	skip_textures_
 start_parsing	cub3d.c	/^char	**start_parsing(char *scene_file, t_all *game/
 strduploc	../libft/ft_split.c	/^static char	*strduploc(char *s, char c)$/
 swaploc	../libft/ft_itoa.c	/^static char	*swaploc(char *str)$/
+test_displaying	display_map/display_map.c	/^void	test_displaying(t_img_data *map, int wall_hei/
 trim_end_of_line	parsing/init_textures_and_colors.c	/^char	*trim_end_of_line(int fd)$/

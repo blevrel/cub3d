@@ -17,6 +17,7 @@ SRCS  =	srcs/cub3d.c \
 		srcs/movement_management/move.c	\
 		srcs/movement_management/movement_management.c	\
 		srcs/movement_management/check_collision.c	\
+		srcs/display_map/display_map.c	\
 		
 
 OBJS  =	${SRCS:.c=.o}

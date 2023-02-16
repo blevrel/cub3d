@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:37:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/12 14:35:44 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/16 17:41:44 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,7 @@ int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);
 int			check_collision_x(t_player pos, char **mat, char *oper);
 int			check_collision_y(t_player pos, char **mat, char *oper);
+void		display_map(float horizontal_distance,float vertical_distance,
+				/*int pxl_horizontal*/t_window window);
 
 #endif
