@@ -7,7 +7,6 @@ SRCS  =	srcs/main_processes/cub3d.c \
 		srcs/draw_pixels/draw_vertical_line.c	\
 		srcs/display_minimap/display_minimap.c	\
 		srcs/display_minimap/get_triangle_coordinates.c	\
-		srcs/display_minimap/draw_rays.c	\
 		srcs/parsing/check_valid_scene.c \
 		srcs/parsing/fill_matrix.c \
 		srcs/parsing/check_map_content.c \

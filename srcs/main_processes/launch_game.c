@@ -15,7 +15,7 @@ static t_player	initialize(t_player pos, int i, int j, char c)
 	return (pos);
 }
 
-static t_player	initialize_player_position(t_player pos, char **mat)
+static t_player	initialize_player_position(t_player player, char **mat)
 {
 	int	i;
 	int	j;
@@ -31,23 +31,22 @@ static t_player	initialize_player_position(t_player pos, char **mat)
 			if (mat[i][j] == 'W' || mat[i][j] == 'E'
 				|| mat[i][j] == 'N' || mat[i][j] == 'S')
 			{
-				pos = initialize(pos, i, j, mat[i][j]);
+				player = initialize(player, i, j, mat[i][j]);
 				trigger++;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (pos);
+	return (player);
 }
 
 void	launch_game(t_all *game_struct)
 {
-	game_struct->pos = initialize_player_position(game_struct->pos, \
+	game_struct->player = initialize_player_position(game_struct->player, \
 		game_struct->mat);
-	raycasting_render(game_struct);
-	display_minimap(game_struct->mat, game_struct->pos, game_struct->window,
-		game_struct->map_data);
+	cast_rays(*game_struct);
+	display_minimap(*game_struct);
 	mlx_hook(game_struct->window.win_ptr, KeyPress, KeyPressMask,
 		movement_management, game_struct);
 }

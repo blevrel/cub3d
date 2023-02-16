@@ -70,6 +70,7 @@ int	main(int argc, char **argv)
 	game_struc.window.mlx = mlx_init();
 	game_struc.window.win_ptr = open_window(game_struc.window,
 			game_struc.texture_color_data, &game_struc.render_data);
+	init_images(&game_struc.render_images, game_struc.window);
 	launch_game(&game_struc);
 	mlx_loop(game_struc.window.mlx);
 	free_double_tab(game_struc.mat);

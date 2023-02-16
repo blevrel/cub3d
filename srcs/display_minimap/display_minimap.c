@@ -86,20 +86,16 @@ t_img_data	fill_minimap(t_img_data img, char **mat, t_player player,
 	return (img);
 }
 
-void	display_minimap(char **mat, t_player player, t_window window,
-			t_map_data map_data)
+void	display_minimap(t_all game_struct)
 {
-	t_img_data	minimap;
 	t_triangle	player_triangle;
 
-	player_triangle = get_triangle_coords(player.angle);
-	minimap.img = mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
-	minimap.addr = mlx_get_data_addr(minimap.img, &minimap.bits_per_pixel,
-			&minimap.line_length, &minimap.endian);
-	minimap = draw_border(minimap);
-	minimap = fill_minimap(minimap, mat, player, map_data);
-	minimap = draw_player(minimap, player_triangle);
-	minimap = draw_rays(minimap, player, mat);
-	mlx_put_image_to_window(window.mlx, window.win_ptr, minimap.img,
+	player_triangle = get_triangle_coords(game_struct.player.angle);
+	draw_border(game_struct.render_images.minimap_render);
+	fill_minimap(game_struct.render_images.minimap_render,
+		game_struct.mat, game_struct.player, game_struct.map_data);
+	draw_player(game_struct.render_images.minimap_render, player_triangle);
+	mlx_put_image_to_window(game_struct.window.mlx,
+	game_struct.window.win_ptr, game_struct.render_images.minimap_render.img,
 		MINI_POS, MINI_POS);
 }
