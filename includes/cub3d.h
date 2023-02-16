@@ -8,6 +8,7 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
+# define WALL_SIZE 250 
 # define FOV 60
 # define PLAYER_HEIGHT 16
 # define MINI_WIDTH 193
@@ -62,5 +63,6 @@ int			movement_management(int keycode, t_all *game_struct);
 t_player	move(int keycode, t_player pos, char **mat);
 int			check_collision_x(t_player pos, char **mat, char *oper);
 int			check_collision_y(t_player pos, char **mat, char *oper);
+void		display_map(float distance, int pxl_horizontal, t_img_data render_img);
 
 #endif

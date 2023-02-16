@@ -5,6 +5,7 @@ SRCS  =	srcs/main_processes/cub3d.c \
 		srcs/main_processes/open_window.c	\
 		srcs/draw_pixels/my_pixel_put.c	\
 		srcs/draw_pixels/draw_vertical_line.c	\
+		srcs/display_map/display_map.c	\
 		srcs/display_minimap/display_minimap.c	\
 		srcs/display_minimap/get_triangle_coordinates.c	\
 		srcs/parsing/check_valid_scene.c \
@@ -19,7 +20,6 @@ SRCS  =	srcs/main_processes/cub3d.c \
 		srcs/movement_management/movement_management.c	\
 		srcs/movement_management/check_collision.c	\
 		srcs/raycasting/raycasting_render.c	\
-		
 
 OBJS  =	${SRCS:.c=.o}
 
