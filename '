@@ -23,7 +23,6 @@ SRCS  =	srcs/main_processes/cub3d.c \
 		srcs/raycasting/raycasting_render.c	\
 		srcs/raycasting/init_raycast_dir.c	\
 		srcs/raycasting/get_raycast_dist.c	\
-		srcs/raycasting/init_data.c	\
 
 OBJS  =	${SRCS:.c=.o}
 

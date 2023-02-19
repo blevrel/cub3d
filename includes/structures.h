@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/16 15:43:27 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/19 19:12:50 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,28 @@ typedef struct s_player
 	float	angle;
 }				t_player;
 
+typedef struct s_raycast_dist
+{
+	float	side_x;
+	float	side_y;
+	float	delta_x;
+	float	delta_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+}				t_raycast_dist;
+
+typedef struct s_raycast_dir
+{
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
+	float	camera_x;
+	float	raydir_x;
+	float	raydir_y;
+}				t_raycast_dir;
+
 typedef struct s_render_images
 {
 	t_img_data	minimap_render;
@@ -92,6 +114,8 @@ typedef struct s_all
 	t_window				window;
 	t_map_data				map_data;
 	t_player				player;
+	t_raycast_dir			direction;
+	t_raycast_dist			distance;
 	char					**mat;
 }				t_all;
 

@@ -1,0 +1,176 @@
+Mcub3d	main_processes/cub3d.c	/^int	main(int argc, char **argv)$/
+add_border	parsing/fill_matrix.c	/^char	**add_border(char **mat, t_map_data *map_data/
+alloc_mat	parsing/fill_matrix.c	/^char	**alloc_mat(char *scene_file, int fd, t_map_d/
+assign_line_to_elem	parsing/init_textures_and_colors.c	/^int	assign_line_to_elem(t_texture_color_data *text/
+cast_rays	raycasting/raycasting_render.c	/^void	cast_rays(t_all *game_struct)$/
+char_is_valid	parsing/check_map_content.c	/^int	char_is_valid(char c)$/
+check_around	parsing/check_map_content.c	/^bool	check_around(char **mat, int i, int j)$/
+check_collision_x	movement_management/check_collision.c	/^int	check_collision_x(t_player pos, char **mat, ch/
+check_collision_y	movement_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
+check_end	../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
+check_errors	../libft/ft_atoi_base.c	/^int	check_errors(char *str, char *base)$/
+check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
+check_last	../libft/ft_strrchr.c	/^static int	check_last(char *s, int i, int c)$/
+check_map_content	parsing/check_map_content.c	/^bool	check_map_content(char **mat, t_map_data *map/
+check_n	../libft/get_next_line.c	/^int	check_n(char *str)$/
+check_print	../libft/ft_printf_utils.c	/^int	check_print(char c, va_list param)$/
+check_print_error	../libft/ft_print_error_utils.c	/^int	check_print_error(char c, va_list param)$/
+check_s	../libft/ft_split.c	/^static char	**check_s(char const *s)$/
+check_set	../libft/ft_strtrim.c	/^static int	check_set(char const c, char const *set/
+check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_textures_and_colors_elements(t_texture_/
+check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
+closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
+convert_rgb_to_hexa	parsing/parsing_utils.c	/^int	convert_rgb_to_hexa(int *color)$/
+diffls	../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
+display_map	display_map/display_map.c	/^void	display_map(float distance, int pxl_horizonta/
+display_minimap	display_minimap/display_minimap.c	/^void	display_minimap(t_all game_struct)$/
+draw_border	draw_pixels/my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
+draw_player	display_minimap/display_minimap.c	/^t_img_data	draw_player(t_img_data img, t_triangle /
+draw_vertical_line	draw_pixels/draw_vertical_line.c	/^t_img_data	draw_vertical_line(t_img_data render_im/
+dup_dp	../libft/ft_dup_dp.c	/^char	**dup_dp(char **str)$/
+fill_color_elements	parsing/get_elements.c	/^int	fill_color_elements(char **col_value,$/
+fill_dest	../libft/get_next_line_utils.c	/^static char	*fill_dest(char *dest, char *buff, int/
+fill_mat	parsing/fill_matrix.c	/^char	**fill_mat(char *line, int fd, char **mat, t_/
+fill_minimap	display_minimap/display_minimap.c	/^t_img_data	fill_minimap(t_img_data img, char **mat/
+fill_rdest	../libft/ft_memmove.c	/^static char	*fill_rdest(char *rdest, const char *r/
+fill_res	../libft/ft_strjoin.c	/^static char	*fill_res(char *res, char *s, int *i, /
+fill_split	../libft/ft_split.c	/^char	**fill_split(char **split, char *s, char c, i/
+fill_str	../libft/ft_itoa.c	/^static char	*fill_str(char *str, int n, int i)$/
+fill_str	../libft/ft_substr.c	/^static char	*fill_str(char *res, char const *s, un/
+fill_texture_elements	parsing/get_elements.c	/^void	fill_texture_elements(t_texture_color_data *t/
+free_double_tab	../libft/free_double_tab.c	/^void	free_double_tab(char **tab)$/
+free_save	../libft/get_next_line.c	/^char	*free_save(char *save)$/
+free_struc_elements	parsing/free_struc_elements.c	/^void	free_struc_elements(t_texture_color_data text/
+ft_atod	../libft/ft_atod.c	/^double	ft_atod(const char *nptr)$/
+ft_atof	../libft/ft_atof.c	/^float	ft_atof(const char *nptr)$/
+ft_atoi	../libft/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/
+ft_atoi_base	../libft/ft_atoi_base.c	/^int	ft_atoi_base(char *str, char *base)$/
+ft_atoll	../libft/ft_atoll.c	/^long long	ft_atoll(const char *nptr)$/
+ft_bzero	../libft/ft_bzero.c	/^void	ft_bzero(void *s, size_t n)$/
+ft_calloc	../libft/ft_calloc.c	/^void	*ft_calloc(size_t nmemb, size_t size)$/
+ft_copy	../libft/get_next_line_utils.c	/^char	*ft_copy(char *dest, char *src)$/
+ft_cpy_save	../libft/get_next_line.c	/^char	*ft_cpy_save(char *save)$/
+ft_fill_char_and_increment	../libft/ft_fill_char_and_increment.c	/^void	ft_fill_char_and_increment(char *res, char *s/
+ft_fill_res	../libft/ft_itoa_base.c	/^static void	ft_fill_res(int offset, int n, char *r/
+ft_get_base	../libft/ft_itoa_base.c	/^static char	ft_get_base(int b)$/
+ft_get_size	../libft/ft_itoa_base.c	/^static int	ft_get_size(int n, int base)$/
+ft_isalnum	../libft/ft_isalnum.c	/^int	ft_isalnum(int c)$/
+ft_isalpha	../libft/ft_isalpha.c	/^int	ft_isalpha(int c)$/
+ft_isascii	../libft/ft_isascii.c	/^int	ft_isascii(int c)$/
+ft_isdigit	../libft/ft_isdigit.c	/^int	ft_isdigit(int c)$/
+ft_isprint	../libft/ft_isprint.c	/^int	ft_isprint(int c)$/
+ft_isspace	../libft/ft_isspace.c	/^int	ft_isspace(char c)$/
+ft_itoa	../libft/ft_itoa.c	/^char	*ft_itoa(int n)$/
+ft_itoa_base	../libft/ft_itoa_base.c	/^char	*ft_itoa_base(int n, int base)$/
+ft_lstadd_back	../libft/ft_lstadd_back.c	/^void	ft_lstadd_back(t_list **lst, t_list *new)$/
+ft_lstadd_front	../libft/ft_lstadd_front.c	/^void	ft_lstadd_front(t_list **lst, t_list *new)$/
+ft_lstclear	../libft/ft_lstclear.c	/^void	ft_lstclear(t_list **lst, void (*del)(void*))/
+ft_lstdelone	../libft/ft_lstdelone.c	/^void	ft_lstdelone(t_list *lst, void (*del)(void*))/
+ft_lstiter	../libft/ft_lstiter.c	/^void	ft_lstiter(t_list *lst, void (*f)(void *))$/
+ft_lstlast	../libft/ft_lstlast.c	/^t_list	*ft_lstlast(t_list *lst)$/
+ft_lstmap	../libft/ft_lstmap.c	/^t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),/
+ft_lstnew	../libft/ft_lstnew.c	/^t_list	*ft_lstnew(void *content)$/
+ft_lstsize	../libft/ft_lstsize.c	/^int	ft_lstsize(t_list *lst)$/
+ft_max	../libft/ft_max.c	/^int	ft_max(int a, int b)$/
+ft_memchr	../libft/ft_memchr.c	/^void	*ft_memchr(const void *s, int c, size_t n)$/
+ft_memcmp	../libft/ft_memcmp.c	/^int	ft_memcmp(const void *s1, const void *s2, size/
+ft_memcpy	../libft/ft_memcpy.c	/^void	*ft_memcpy(void *dest, const void *src, size_/
+ft_memmove	../libft/ft_memmove.c	/^void	*ft_memmove(void *dest, const void *src, size/
+ft_memset	../libft/ft_memset.c	/^void	*ft_memset(void *s, int c, size_t n)$/
+ft_min	../libft/ft_min.c	/^int	ft_min(int a, int b)$/
+ft_print_error	../libft/ft_print_error.c	/^int	ft_print_error(const char *format, ...)$/
+ft_printf	../libft/ft_printf.c	/^int	ft_printf(const char *format, ...)$/
+ft_putchar	../libft/ft_putchar.c	/^int	ft_putchar(char c)$/
+ft_putchar_error	../libft/ft_print_error_utils.c	/^int	ft_putchar_error(char c)$/
+ft_putchar_fd	../libft/ft_putchar_fd.c	/^void	ft_putchar_fd(char c, int fd)$/
+ft_putchar_fdloc	../libft/ft_putstr_fd.c	/^static void	ft_putchar_fdloc(char c, int fd)$/
+ft_putendl_fd	../libft/ft_putendl_fd.c	/^void	ft_putendl_fd(char *s, int fd)$/
+ft_putnbr	../libft/ft_putnbr.c	/^int	ft_putnbr(int nb)$/
+ft_putnbr_base	../libft/ft_putnbr_base.c	/^int	ft_putnbr_base(int nb, int base, char *str)$/
+ft_putnbr_error	../libft/ft_print_error_utils.c	/^int	ft_putnbr_error(int nb)$/
+ft_putnbr_fd	../libft/ft_putnbr_fd.c	/^void	ft_putnbr_fd(int n, int fd)$/
+ft_putstr	../libft/ft_putstr.c	/^int	ft_putstr(char *str)$/
+ft_putstr_error	../libft/ft_print_error_utils.c	/^int	ft_putstr_error(char *str)$/
+ft_putstr_fd	../libft/ft_putstr_fd.c	/^void	ft_putstr_fd(char *s, int fd)$/
+ft_read	../libft/get_next_line.c	/^char	*ft_read(int fd, char *save, int buffer_size)/
+ft_split	../libft/ft_split.c	/^char	**ft_split(char const *s, char c)$/
+ft_strchr	../libft/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/
+ft_strcmp	../libft/ft_strcmp.c	/^int	ft_strcmp(const char *s1, const char *s2)$/
+ft_strcpy	../libft/ft_strcpy.c	/^char	*ft_strcpy(char *dest, char *src)$/
+ft_strdup	../libft/ft_strdup.c	/^char	*ft_strdup(const char *s)$/
+ft_striteri	../libft/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, /
+ft_strjoin	../libft/ft_strjoin.c	/^char	*ft_strjoin(char const *s1, char const *s2)$/
+ft_strjoin_free	../libft/get_next_line_utils.c	/^char	*ft_strjoin_free(char *str, char *buff)$/
+ft_strlcat	../libft/ft_strlcat.c	/^size_t	ft_strlcat(char *dest, const char *src, siz/
+ft_strlcpy	../libft/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size/
+ft_strlen	../libft/ft_strlen.c	/^size_t	ft_strlen(const char *s)$/
+ft_strlen_double_tab	../libft/ft_strlen_double_tab.c	/^int	ft_strlen_double_tab(char **tab)$/
+ft_strlen_until_c	../libft/ft_strlen_until_c.c	/^int	ft_strlen_until_c(char *str, char c)$/
+ft_strmapi	../libft/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned/
+ft_strncmp	../libft/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, siz/
+ft_strnstr	../libft/ft_strnstr.c	/^char	*ft_strnstr(const char *big, const char *litt/
+ft_strrchr	../libft/ft_strrchr.c	/^char	*ft_strrchr(const char *s, int c)$/
+ft_strtrim	../libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/
+ft_substr	../libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start,/
+ft_tolower	../libft/ft_tolower.c	/^int	ft_tolower(int c)$/
+ft_toupper	../libft/ft_toupper.c	/^int	ft_toupper(int c)$/
+get_angle	raycasting/init_data.c	/^static float	get_angle(char c)$/
+get_base_length	../libft/ft_atoi_base.c	/^int	get_base_length(char *base)$/
+get_camera_and_raydir	raycasting/raycasting_render.c	/^static t_raycast_dir	get_camera_and_raydir(t_rayca/
+get_color_elements	parsing/get_elements.c	/^int	get_color_elements(t_texture_color_data *textu/
+get_dir	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_dir(char c)$/
+get_dist_from_wall	raycasting/raycasting_render.c	/^static float	get_dist_from_wall(t_raycast_dist dis/
+get_first_delta_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_delta_dist(float r/
+get_first_side_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_side_dist(float px/
+get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
+get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
+get_nb	../libft/ft_atoi_base.c	/^int	get_nb(char c, char *base)$/
+get_new_x_in_mat	movement_management/check_collision.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
+get_new_y_in_mat	movement_management/check_collision.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
+get_next_line	../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
+get_parsed_mat	parsing/parsing.c	/^static char	**get_parsed_mat(char *scene_file, t_a/
+get_plane	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_plane(char c)$/
+get_raycast_dist	raycasting/get_raycast_dist.c	/^t_raycast_dist	get_raycast_dist(t_raycast_dir dire/
+get_side_dist	raycasting/raycasting_render.c	/^static t_raycast_dist	get_side_dist(t_raycast_dist/
+get_triangle_coords	display_minimap/get_triangle_coordinates.c	/^t_triangle	get_triangle_coords(float angle_a)$/
+go_down	movement_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
+go_left	movement_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
+go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
+go_right	movement_management/move.c	/^static t_player	go_right(t_player pos, char **mat)/
+go_up	movement_management/move.c	/^static t_player	go_up(t_player pos, char **mat)$/
+init	raycasting/init_data.c	/^static t_player	init(t_player pos, int i, int j, c/
+init	raycasting/init_raycast_dir.c	/^static t_raycast_dir	init(char c)$/
+init_data	raycasting/init_data.c	/^void	init_data(t_all *game_struct)$/
+init_images	parsing/init_struc.c	/^void	init_images(t_render_images *render_images, t/
+init_player_position	raycasting/init_data.c	/^static t_player	init_player_position(t_player play/
+init_raycast_dir	raycasting/init_raycast_dir.c	/^t_raycast_dir	init_raycast_dir(t_all *game_struct)/
+init_str	../libft/ft_itoa.c	/^static char	*init_str(char *str, int n)$/
+init_struc	parsing/init_struc.c	/^void	init_struc(t_all *game_struc)$/
+init_textures_and_colors	parsing/init_textures_and_colors.c	/^int	init_textures_and_colors(t_texture_color_data /
+join_gnl	../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
+launch_game	main_processes/launch_game.c	/^void	launch_game(t_all *game_struct)$/
+lgstr	../libft/ft_itoa.c	/^static int	lgstr(int n)$/
+load_textures	main_processes/open_window.c	/^bool	load_textures(t_texture_color_data texture_co/
+move	movement_management/move.c	/^t_player	move(int keycode, t_player pos, char **ma/
+movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
+my_pixel_put	draw_pixels/my_pixel_put.c	/^void	my_pixel_put(t_img_data *data, float x, float/
+nb_set	../libft/ft_strtrim.c	/^static int	nb_set(char const *s, char const *set)$/
+nb_str	../libft/ft_split.c	/^static int	nb_str(char *s, char c)$/
+open_window	main_processes/open_window.c	/^void	*open_window(t_window window, t_texture_color/
+pick_pixel_color	display_minimap/display_minimap.c	/^int	pick_pixel_color(char **mat, int x_pxl, int y_/
+prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat, int line_ind/
+print_adress	../libft/ft_printf_utils.c	/^int	print_adress(va_list param)$/
+print_adress_error	../libft/ft_print_error_utils.c	/^int	print_adress_error(va_list param)$/
+put_minimap_pixel	display_minimap/display_minimap.c	/^t_img_data	put_minimap_pixel(t_img_data img, int c/
+putnbr_adress	../libft/ft_printf.c	/^int	putnbr_adress(unsigned long long int nb, char /
+putnbr_adress_error	../libft/ft_print_error.c	/^int	putnbr_adress_error(unsigned long long int nb,/
+putnbr_hex	../libft/ft_printf.c	/^int	putnbr_hex(unsigned int nb, char *str)$/
+putnbr_hex_error	../libft/ft_print_error.c	/^int	putnbr_hex_error(unsigned int nb, char *str)$/
+putnbr_unsigned	../libft/ft_printf.c	/^int	putnbr_unsigned(unsigned int nb)$/
+putnbr_unsigned_error	../libft/ft_print_error.c	/^int	putnbr_unsigned_error(unsigned int nb)$/
+skip_textures_and_colors	parsing/init_textures_and_colors.c	/^int	skip_textures_and_colors(char *scene_file)$/
+start_parsing	parsing/parsing.c	/^char	**start_parsing(char *scene_file, t_all *game/
+strduploc	../libft/ft_split.c	/^static char	*strduploc(char *s, char c)$/
+swaploc	../libft/ft_itoa.c	/^static char	*swaploc(char *str)$/
+trim_end_of_line	parsing/init_textures_and_colors.c	/^char	*trim_end_of_line(int fd)$/
+update_raycast_dir	raycasting/get_raycast_dir.c	/^void	update_raycast_dir(float angle, t_raycast_dir/

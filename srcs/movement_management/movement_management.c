@@ -25,14 +25,16 @@ int	movement_management(int keycode, t_all *game_struct)
 	{
 		game_struct->player.angle = go_left_or_right(keycode, \
 			game_struct->player.angle);
-		cast_rays(*game_struct);
+		game_struct->direction.dir_x = cos(game_struct->player.angle);
+		game_struct->direction.dir_y = -sin(game_struct->player.angle);
+		cast_rays(game_struct);
 		display_minimap(*game_struct);
 	}
 	else if (keycode == 'w' || keycode == 's'
 		|| keycode == 'a' || keycode == 'd')
 	{
 		game_struct->player = move(keycode, game_struct->player, game_struct->mat);
-		cast_rays(*game_struct);
+		cast_rays(game_struct);
 		display_minimap(*game_struct);
 	}
 	return (0);

@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-void	display_map(float distance, int pxl_horizontal, t_img_data render_img)
+void	put_vertical_line(float distance, int pxl_horizontal, t_img_data render_img)
 {
 	int	wall_height;
 	int	pxl_vertical;
@@ -12,11 +12,11 @@ void	display_map(float distance, int pxl_horizontal, t_img_data render_img)
 	while (pxl_vertical < WIN_HEIGHT)
 	{
 		if (pxl_vertical <= pxl_sky_and_floor)
-			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0x0000FF);
+			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0xFFC5BF);
 		else if (pxl_vertical >= pxl_sky_and_floor + wall_height)
-			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0x00FF00);
+			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0xC6DBDA);
 		else
-			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0xFF0000);
+			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, 0xECD5E3);
 		pxl_vertical++;
 	}
 }

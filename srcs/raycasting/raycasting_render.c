@@ -1,145 +1,72 @@
 #include "cub3d.h"
 
-bool	ray_is_in_map(float x, float y, t_map_data map_data)
+static t_raycast_dir	get_camera_and_raydir(t_raycast_dir direction,
+			int ray_index)
 {
-	if (x > map_data.map_width)
-		return (false);
-	if (y > map_data.map_height)
-		return (false);
-	if (x < 0)
-		return (false);
-	if (y < 0)
-		return (false);
-	return (true);
+	direction.camera_x = 2 * ray_index / WIN_WIDTH - 1;
+	direction.raydir_x = direction.dir_x + direction.plane_x * direction.camera_x;
+	direction.raydir_y = direction.dir_y + direction.plane_y * direction.camera_x;
+	return (direction);
 }
 
-t_wall_coords	get_horizontal_wall(t_player player, char **mat, float player_angle, t_map_data map_data)
+static t_raycast_dist	get_side_dist(t_raycast_dist distance, t_player player, char **mat)
 {
-	t_wall_coords	wall;
-	int				incr_x;
-	int				incr_y;
-	char			hit;
+	int	hit;
+	int	map_x;
+	int	map_y;
 
 	hit = 0;
-	if (player_angle == 0 || fabs(player_angle - M_PI) < 0.0001 || fabs(player_angle - (M_PI * 2)) < 0.0001) //sides
+	map_x = player.pxl_x / SQ_SIZE;
+	map_y = player.pxl_y / SQ_SIZE;
+	while (hit != '1')
 	{
-		wall.x = -1;
-		wall.y = -1;
-		return (wall);
-	}
-	else if (player_angle < M_PI) //ray facing up
-	{
-		wall.y = floor(player.pxl_y / SQ_SIZE) * SQ_SIZE - 1;
-		wall.x = player.pxl_x + (player.pxl_y - wall.y) / tan(player_angle);
-		incr_y = -SQ_SIZE;
-		incr_x = SQ_SIZE / tan(player_angle);
-	}
-	else if (player_angle > M_PI) //ray facing down
-	{
-		wall.y = floor(player.pxl_y / SQ_SIZE) * SQ_SIZE + SQ_SIZE;
-		wall.x = player.pxl_x + (player.pxl_y - wall.y) / tan(player_angle);
-		incr_y = SQ_SIZE;
-		incr_x = SQ_SIZE / tan(player_angle);
-	}
-	while (hit != '1' && ray_is_in_map(floor(wall.x / SQ_SIZE), floor(wall.y / SQ_SIZE), map_data))
-	{
-		if (ray_is_in_map(floor(wall.x / SQ_SIZE), floor(wall.y / SQ_SIZE), map_data))
-			hit = mat[(int)floor(wall.y / SQ_SIZE)][(int)floor(wall.x / SQ_SIZE)];
+		if (distance.side_x < distance.side_y)
+		{
+			distance.side_x += distance.delta_x;
+			map_x += distance.step_x;
+			distance.side = 0;
+		}
 		else
 		{
-			wall.x -= incr_x;
-			wall.y -= incr_y;
-			hit = '1';
-			continue ;
+			distance.side_y += distance.delta_y;
+			map_y += distance.step_y;
+			distance.side = 1;
 		}
-		wall.x += incr_x;
-		wall.y += incr_y;
+		hit = mat[map_y][map_x];
 	}
-	return (wall);
+	return (distance);
 }
 
-t_wall_coords	get_vertical_wall(t_player player, char **mat, float player_angle, t_map_data map_data)
+static float	get_dist_from_wall(t_raycast_dist distance)
 {
-	t_wall_coords	wall;
-	int				incr_x;
-	int				incr_y;
-	char			hit;
+	float	perp_wall_dist;
 
-	hit = 0;
-	if (fabs(player_angle - (M_PI / 2)) < 0.0001 || fabs(player_angle  - (3 * M_PI /2)) < 0.0001) //up down
-	{
-		wall.x = -1;
-		wall.y = -1;
-		return (wall);
-	}
-	else if ((player_angle > M_PI / 2) && (player_angle < 3 * M_PI / 2)) //ray facing left
-	{
-		wall.x = floor(player.pxl_x / SQ_SIZE) * SQ_SIZE - 1;
-		wall.y = player.pxl_y + (player.pxl_x - wall.x) * tan(player_angle);
-		incr_x = -SQ_SIZE;
-		incr_y = floor(SQ_SIZE * tan(player_angle));
-	}
-	else if ((player_angle <= M_PI / 2) || (player_angle >= 3 * M_PI / 2)) //ray facing right
-	{
-		wall.x = floor(player.pxl_x / SQ_SIZE) * SQ_SIZE + SQ_SIZE;
-		wall.y = floor(player.pxl_y + (player.pxl_x - wall.x) * tan(player_angle));
-		incr_x = SQ_SIZE;
-		incr_y = floor(SQ_SIZE * tan(player_angle));
-	}
-	while (hit != '1' && ray_is_in_map(floor(wall.x / SQ_SIZE), floor(wall.y / SQ_SIZE), map_data))
-	{
-		if (ray_is_in_map(floor(wall.x / SQ_SIZE), floor(wall.y / SQ_SIZE), map_data))
-			hit = mat[(int)floor(wall.y / SQ_SIZE)][(int)floor(wall.x / SQ_SIZE)];
-		else
-		{
-			wall.x -= incr_x;
-			wall.y -= incr_y;
-			hit = '1';
-			continue ;
-		}
-		wall.x += incr_x;
-		wall.y += incr_y;
-	}
-	return (wall);
+	perp_wall_dist = distance.side_x - distance.delta_x;
+	if (distance.side)
+		perp_wall_dist = distance.side_y - distance.delta_y;
+	return (perp_wall_dist);
 }
 
-float	get_distance(t_player player, t_wall_coords horiz_wall)
+void	cast_rays(t_all *game_struct)
 {
-	float	x_squared;
-	float	y_squared;
-	float	dist;
+	float			perp_wall_dist;
+	int				ray_index;
 
-	x_squared = (player.pxl_x - horiz_wall.x) * (player.pxl_x - horiz_wall.x);
-	y_squared = (player.pxl_y - horiz_wall.y) * (player.pxl_y - horiz_wall.y);
-	dist = sqrt(x_squared + y_squared);
-	return (dist);
-}
-
-void	cast_rays(t_all game_struct)
-{
-	int				i;
-	t_wall_coords	wall;
-	float			distance_horiz;
-	float			distance_vertic;
-	float			distance;
-	float			player_angle_cpy;
-
-	i = 0;
-	player_angle_cpy = game_struct.player.angle + ((float)FOV / 2);
-	while (player_angle_cpy > game_struct.player.angle - ((float)FOV / 2))
+	ray_index = 0;
+	while (ray_index < WIN_WIDTH)
 	{
-		printf("%f\n", player_angle_cpy);
-		wall = get_horizontal_wall(game_struct.player, game_struct.mat, player_angle_cpy, game_struct.map_data);
-		distance_horiz = get_distance(game_struct.player, wall);
-		wall = get_vertical_wall(game_struct.player, game_struct.mat, player_angle_cpy, game_struct.map_data);
-		distance_vertic = get_distance(game_struct.player, wall);
-		if (distance_horiz > distance_vertic)
-			distance = distance_vertic;
-		else
-			distance = distance_horiz;
-		display_map(distance, i, game_struct.render_images.window_render);
-		player_angle_cpy -= ((float)FOV / WIN_WIDTH);
-		i++;
+		game_struct->direction = get_camera_and_raydir(game_struct->direction,
+			ray_index);
+		game_struct->distance = get_raycast_dist(game_struct->direction,
+			game_struct->player);
+		game_struct->distance = get_side_dist(game_struct->distance,
+			game_struct->player, game_struct->mat);
+		perp_wall_dist = get_dist_from_wall(game_struct->distance);
+		put_vertical_line(perp_wall_dist, ray_index,
+			game_struct->render_images.window_render);
+		ray_index++;
 	}
-	mlx_put_image_to_window(game_struct.window.mlx, game_struct.window.win_ptr, game_struct.render_images.window_render.img, 0, 0);
+	mlx_put_image_to_window(game_struct->window.mlx,
+		game_struct->window.win_ptr, game_struct->render_images.window_render.img,
+		MINI_POS, MINI_POS);
 }

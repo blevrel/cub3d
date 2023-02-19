@@ -96,6 +96,6 @@ void	display_minimap(t_all game_struct)
 		game_struct.mat, game_struct.player, game_struct.map_data);
 	draw_player(game_struct.render_images.minimap_render, player_triangle);
 	mlx_put_image_to_window(game_struct.window.mlx,
-	game_struct.window.win_ptr, game_struct.render_images.minimap_render.img,
+		game_struct.window.win_ptr, game_struct.render_images.minimap_render.img,
 		MINI_POS, MINI_POS);
 }
