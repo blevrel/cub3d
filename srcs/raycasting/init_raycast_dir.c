@@ -4,22 +4,22 @@ static t_raycast_dir	get_plane(char c)
 {
 	t_raycast_dir	direction;
 
-	direction.plane_x = (float)PLANE;
+	direction.plane_x = (float)-PLANE;
 	direction.plane_y = 0;
 	if (c == 'S')
 	{
-		direction.plane_x = ((float)-PLANE);
+		direction.plane_x = ((float)PLANE);
 		direction.plane_y = 0;
 	}
 	else if (c == 'W')
 	{
 		direction.plane_x = 0;
-		direction.plane_y = ((float)-PLANE);
+		direction.plane_y = ((float)PLANE);
 	}
 	else if (c == 'E')
 	{
 		direction.plane_x = 0;
-		direction.plane_y = (float)PLANE;
+		direction.plane_y = (float)-PLANE;
 	}
 	return (direction);
 }

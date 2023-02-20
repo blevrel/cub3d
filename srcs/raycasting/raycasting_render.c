@@ -3,7 +3,7 @@
 static t_raycast_dir	get_camera_and_raydir(t_raycast_dir direction,
 			int ray_index)
 {
-	direction.camera_x = 2 * ray_index / WIN_WIDTH - 1;
+	direction.camera_x = 2 * ray_index / (float)WIN_WIDTH - 1;
 	direction.raydir_x = direction.dir_x + direction.plane_x * direction.camera_x;
 	direction.raydir_y = direction.dir_y + direction.plane_y * direction.camera_x;
 	return (direction);
@@ -68,5 +68,5 @@ void	cast_rays(t_all *game_struct)
 	}
 	mlx_put_image_to_window(game_struct->window.mlx,
 		game_struct->window.win_ptr, game_struct->render_images.window_render.img,
-		MINI_POS, MINI_POS);
+		0, 0);
 }
