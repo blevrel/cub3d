@@ -22,7 +22,6 @@ check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *sce
 closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
 convert_rgb_to_hexa	parsing/parsing_utils.c	/^int	convert_rgb_to_hexa(int *color)$/
 diffls	../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
-display_map	display_map/display_map.c	/^void	display_map(float distance, int pxl_horizonta/
 display_minimap	display_minimap/display_minimap.c	/^void	display_minimap(t_all game_struct)$/
 draw_border	draw_pixels/my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
 draw_player	display_minimap/display_minimap.c	/^t_img_data	draw_player(t_img_data img, t_triangle /
@@ -118,7 +117,7 @@ get_angle	raycasting/init_data.c	/^static float	get_angle(char c)$/
 get_base_length	../libft/ft_atoi_base.c	/^int	get_base_length(char *base)$/
 get_camera_and_raydir	raycasting/raycasting_render.c	/^static t_raycast_dir	get_camera_and_raydir(t_rayca/
 get_color_elements	parsing/get_elements.c	/^int	get_color_elements(t_texture_color_data *textu/
-get_dir	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_dir(char c)$/
+get_dir	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_dir(t_raycast_dir directi/
 get_dist_from_wall	raycasting/raycasting_render.c	/^static float	get_dist_from_wall(t_raycast_dist dis/
 get_first_delta_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_delta_dist(float r/
 get_first_side_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_side_dist(float px/
@@ -162,6 +161,7 @@ prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat
 print_adress	../libft/ft_printf_utils.c	/^int	print_adress(va_list param)$/
 print_adress_error	../libft/ft_print_error_utils.c	/^int	print_adress_error(va_list param)$/
 put_minimap_pixel	display_minimap/display_minimap.c	/^t_img_data	put_minimap_pixel(t_img_data img, int c/
+put_vertical_line	display_map/display_map.c	/^void	put_vertical_line(float distance, int pxl_hor/
 putnbr_adress	../libft/ft_printf.c	/^int	putnbr_adress(unsigned long long int nb, char /
 putnbr_adress_error	../libft/ft_print_error.c	/^int	putnbr_adress_error(unsigned long long int nb,/
 putnbr_hex	../libft/ft_printf.c	/^int	putnbr_hex(unsigned int nb, char *str)$/
