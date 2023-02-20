@@ -20,7 +20,7 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 1
+# define MOVESPEED 4
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
