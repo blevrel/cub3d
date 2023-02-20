@@ -45,3 +45,25 @@ int	get_map_width(char **mat)
 	}
 	return (max_width);
 }
+
+int	convert_rgb_to_hexa(int *color)
+{
+	char	*nb_r;
+	char	*nb_g;
+	char	*nb_b;
+	char	*res_tmp;
+	int		res;
+	
+	nb_r = ft_itoa_base(color[0], 16);
+	res_tmp = ft_itoa_base(color[1], 16);
+	nb_b = ft_itoa_base(color[2], 16);
+	nb_g = ft_strjoin(nb_r, res_tmp);
+	free(res_tmp);
+	res_tmp = ft_strjoin(nb_g, nb_b);
+	free(nb_r);
+	free(nb_b);
+	free(nb_g);
+	res = ft_atoi_base(res_tmp, "0123456789ABCDEF");
+	free(res_tmp);
+	return (res);
+}
