@@ -14,29 +14,28 @@ bool	check_file_name(char *scene_file)
 	return (true);
 }
 
-bool	check_textures_and_colors_elements(t_color_data color_data
-	, t_texture_data texture_data)
+bool	check_textures_and_colors_elements(t_texture_color_data texture_color_data)
 {
 	int	i;
 
 	i = 0;
-	if (!texture_data.no_texture)
+	if (!texture_color_data.no_texture)
 		return (false);
-	if (!texture_data.so_texture)
+	if (!texture_color_data.so_texture)
 		return (false);
-	if (!texture_data.we_texture)
+	if (!texture_color_data.we_texture)
 		return (false);
-	if (!texture_data.ea_texture)
+	if (!texture_color_data.ea_texture)
 		return (false);
 	while (i < 3)
 	{
-		if (color_data.c_color[i] == -1)
+		if (texture_color_data.c_color[i] == -1)
 			return (false);
 		i++;
 	}
 	while (i < 3)
 	{
-		if (color_data.f_color[i] == -1)
+		if (texture_color_data.f_color[i] == -1)
 			return (false);
 		i++;
 	}
@@ -47,8 +46,7 @@ bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc)
 {
 	if (!check_file_name(scene_file))
 		return (false);
-	if (!check_textures_and_colors_elements(game_struc->color_data
-			, game_struc->texture_data))
+	if (!check_textures_and_colors_elements(game_struc->texture_color_data))
 	{
 		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck your scene file\e[0m\n");
 		return (false);

@@ -6,40 +6,44 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/10 10:28:35 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/19 19:12:50 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTURES_H
 # define STRUCTURES_H
 
-typedef struct s_texture_data
+typedef struct s_texture_color_data
 {
 	char	*no_texture;
 	char	*so_texture;
 	char	*we_texture;
 	char	*ea_texture;
-}				t_texture_data;
+	int		c_color[3];
+	int		f_color[3];
+}				t_texture_color_data;
 
-typedef struct s_texture_images_data
+typedef struct s_render_data
 {
-	char	*no_image;
-	char	*so_image;
-	char	*we_image;
-	char	*ea_image;
-}				t_texture_images_data;
-
-typedef struct s_color_data
-{
-	int	c_color[3];
-	int	f_color[3];
-}				t_color_data;
+	void	*no_image;
+	void	*so_image;
+	void	*we_image;
+	void	*ea_image;
+	int		c_color;
+	int		f_color;
+}				t_render_data;
 
 typedef struct s_window
 {
 	void	*win_ptr;
 	void	*mlx;	
 }				t_window;
+
+typedef struct s_wall_coords
+{
+	float	x;
+	float	y;
+}				t_wall_coords;
 
 typedef struct s_triangle
 {
@@ -74,14 +78,44 @@ typedef struct s_player
 	float	angle;
 }				t_player;
 
+typedef struct s_raycast_dist
+{
+	float	side_x;
+	float	side_y;
+	float	delta_x;
+	float	delta_y;
+	int		step_x;
+	int		step_y;
+	int		side;
+}				t_raycast_dist;
+
+typedef struct s_raycast_dir
+{
+	float	dir_x;
+	float	dir_y;
+	float	plane_x;
+	float	plane_y;
+	float	camera_x;
+	float	raydir_x;
+	float	raydir_y;
+}				t_raycast_dir;
+
+typedef struct s_render_images
+{
+	t_img_data	minimap_render;
+	t_img_data	window_render;
+}				t_render_images;
+
 typedef struct s_all
 {
-	t_texture_data			texture_data;
-	t_color_data			color_data;
-	t_texture_images_data	images_data;
+	t_texture_color_data	texture_color_data;
+	t_render_data			render_data;
+	t_render_images			render_images;
 	t_window				window;
 	t_map_data				map_data;
-	t_player				pos;
+	t_player				player;
+	t_raycast_dir			direction;
+	t_raycast_dist			distance;
 	char					**mat;
 }				t_all;
 

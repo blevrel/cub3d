@@ -23,17 +23,21 @@ int	movement_management(int keycode, t_all *game_struct)
 		exit(1);//faire un fonction destroy avec free et destroy_images
 	else if (keycode == XK_Left || keycode == XK_Right)
 	{
-		game_struct->pos.angle = go_left_or_right(keycode, \
-			game_struct->pos.angle);
-		display_minimap(game_struct->mat, game_struct->pos, game_struct->window,
-			game_struct->map_data);
+		game_struct->player.angle = go_left_or_right(keycode, \
+			game_struct->player.angle);
+		game_struct->direction.dir_x = cos(game_struct->player.angle);
+		game_struct->direction.dir_y = -sin(game_struct->player.angle);
+		game_struct->direction.plane_x = PLANE * sin(game_struct->player.angle);
+		game_struct->direction.plane_y = PLANE * cos(game_struct->player.angle);
+		cast_rays(game_struct);
+		display_minimap(*game_struct);
 	}
 	else if (keycode == 'w' || keycode == 's'
 		|| keycode == 'a' || keycode == 'd')
 	{
-		game_struct->pos = move(keycode, game_struct->pos, game_struct->mat);
-		display_minimap(game_struct->mat, game_struct->pos, game_struct->window,
-			game_struct->map_data);
+		game_struct->player = move(keycode, game_struct->player, game_struct->mat);
+		cast_rays(game_struct);
+		display_minimap(*game_struct);
 	}
 	return (0);
 }
