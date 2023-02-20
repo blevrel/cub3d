@@ -63,7 +63,7 @@ void	cast_rays(t_all *game_struct)
 			game_struct->player, game_struct->mat);
 		perp_wall_dist = get_dist_from_wall(game_struct->distance);
 		put_vertical_line(perp_wall_dist, ray_index,
-			game_struct->render_images.window_render);
+			game_struct->render_images.window_render, game_struct->render_data);
 		ray_index++;
 	}
 	mlx_put_image_to_window(game_struct->window.mlx,

@@ -64,7 +64,7 @@ t_player		move(int keycode, t_player pos, char **mat);
 int				check_collision_x(t_player pos, char **mat, char *oper);
 int				check_collision_y(t_player pos, char **mat, char *oper);
 void			put_vertical_line(float distance, int pxl_horizontal,
-					t_img_data render_img);
+					t_img_data render_img, t_render_data render_data);
 char			**start_parsing(char *scene_file, t_all *game_struc);
 void			init_data(t_all *game_struct);
 t_raycast_dir	init_raycast_dir(t_all *game_struct);
