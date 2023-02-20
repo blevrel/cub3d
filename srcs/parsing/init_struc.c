@@ -20,7 +20,7 @@ void	init_struc(t_all *game_struc)
 void	init_images(t_render_images *render_images, t_window window)
 {
 	render_images->minimap_render.img =
-		mlx_new_image(window.mlx, MINI_WIDTH, MINI_HEIGHT);
+		mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
 	render_images->minimap_render.addr =
 		mlx_get_data_addr(render_images->minimap_render.img,
 		&render_images->minimap_render.bits_per_pixel,

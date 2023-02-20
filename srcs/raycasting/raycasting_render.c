@@ -16,8 +16,8 @@ static t_raycast_dist	get_side_dist(t_raycast_dist distance, t_player player, ch
 	int	map_y;
 
 	hit = 0;
-	map_x = player.pxl_x / SQ_SIZE;
-	map_y = player.pxl_y / SQ_SIZE;
+	map_x = player.pxl_x  / SQ_SIZE;
+	map_y = player.pxl_y  / SQ_SIZE;
 	while (hit != '1')
 	{
 		if (distance.side_x < distance.side_y)
