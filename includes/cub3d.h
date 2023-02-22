@@ -5,12 +5,15 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
+# define NORTH 6
+# define SOUTH 7
+# define WEST 8
+# define EAST 9
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
 # define WALL_SIZE 250 
 # define PLANE 0.66
-# define PLAYER_HEIGHT 16
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
@@ -20,8 +23,8 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 10
-# define ROT_SPEED 100
+# define MOVESPEED 4
+# define ROT_SPEED 4
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -39,6 +42,8 @@ char			**fill_mat(char *line, int fd, char **mat, t_map_data *map_data);
 bool			check_map_content(char **mat, t_map_data *map_data);
 void			init_struc(t_all *game_struc);
 void			init_images(t_render_images *render_images, t_window window);
+bool			load_textures(t_texture_color_data texture_color_data,
+					t_render_data *render_data, t_window window);
 int				get_map_height(int fd);
 int				get_map_width(char **mat);
 int				init_textures_and_colors(t_texture_color_data *texture_color_data,
@@ -50,8 +55,7 @@ void			fill_texture_elements(t_texture_color_data *texture_color_data,
 int				get_color_elements(t_texture_color_data *texture_color_data,
 					char **line, int trigger);
 int				convert_rgb_to_hexa(int *color);
-void			*open_window(t_window window,
-				t_texture_color_data texture_color_data, t_render_data *images_data);
+void			*open_window(t_window window);
 void			display_minimap(t_all game_struct);
 void			cast_rays(t_all *game_struct);
 t_img_data		draw_vertical_line(t_img_data render_img, t_render_data render_data,
@@ -70,5 +74,12 @@ char			**start_parsing(char *scene_file, t_all *game_struc);
 void			init_data(t_all *game_struct);
 t_raycast_dir	init_raycast_dir(t_all *game_struct);
 t_raycast_dist	get_raycast_dist(t_raycast_dir directions, t_player player);
+void			get_side_of_wall_hit(t_render_data *render_data,
+					t_raycast_dist distance, t_raycast_dir direction);
+float			get_ray_hit_coords(t_raycast_dist distance,
+					t_player player, float perp_wall_dist,
+					t_raycast_dir direction);
+int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
+					t_raycast_dir direction);
 
 #endif

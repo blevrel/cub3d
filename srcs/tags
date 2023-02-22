@@ -1,0 +1,88 @@
+ELF	parsing/get_elements.o	1
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	7
+J	raycasting/raycasting_render.o	12
+J	display_minimap/get_triangle_coordinates.o	5
+J	movement_management/check_collision.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+J	parsing/init_struc.o	6
+MJ	draw_pixels/my_pixel_put.o	8
+Mcub3d	main_processes/cub3d.c	/^int	main(int argc, char **argv)$/
+X	parsing/get_elements.o	4
+Y3	raycasting/raycasting_render.o	9
+add_border	parsing/fill_matrix.c	/^char	**add_border(char **mat, t_map_data *map_data/
+alloc_mat	parsing/fill_matrix.c	/^char	**alloc_mat(char *scene_file, int fd, t_map_d/
+assign_line_to_elem	parsing/init_textures_and_colors.c	/^int	assign_line_to_elem(t_texture_color_data *text/
+cast_rays	raycasting/raycasting_render.c	/^void	cast_rays(t_all *game_struct)$/
+cast_rays	raycasting/tags	/^cast_rays	raycasting_render.c	\/^void	cast_rays(t_a/
+char_is_valid	parsing/check_map_content.c	/^int	char_is_valid(char c)$/
+check_around	parsing/check_map_content.c	/^bool	check_around(char **mat, int i, int j)$/
+check_collision_x	movement_management/check_collision.c	/^int	check_collision_x(t_player pos, char **mat, ch/
+check_collision_y	movement_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
+check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
+check_map_content	parsing/check_map_content.c	/^bool	check_map_content(char **mat, t_map_data *map/
+check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_textures_and_colors_elements(t_texture_/
+check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
+closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
+convert_rgb_to_hexa	parsing/parsing_utils.c	/^int	convert_rgb_to_hexa(int *color)$/
+display_minimap	display_minimap/display_minimap.c	/^void	display_minimap(t_all game_struct)$/
+draw_border	draw_pixels/my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
+draw_player	display_minimap/display_minimap.c	/^t_img_data	draw_player(t_img_data img, t_triangle /
+ft	movement_management/movement_management.o	6
+fill_color_elements	parsing/get_elements.c	/^int	fill_color_elements(char **col_value,$/
+fill_mat	parsing/fill_matrix.c	/^char	**fill_mat(char *line, int fd, char **mat, t_/
+fill_minimap	display_minimap/display_minimap.c	/^t_img_data	fill_minimap(t_img_data img, char **mat/
+fill_texture_elements	parsing/get_elements.c	/^void	fill_texture_elements(t_texture_color_data *t/
+free_struc_elements	parsing/free_struc_elements.c	/^void	free_struc_elements(t_texture_color_data text/
+get_angle	raycasting/init_data.c	/^static float	get_angle(char c)$/
+get_camera_and_raydir	raycasting/raycasting_render.c	/^static t_raycast_dir	get_camera_and_raydir(t_rayca/
+get_color_elements	parsing/get_elements.c	/^int	get_color_elements(t_texture_color_data *textu/
+get_dir	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_dir(t_raycast_dir directi/
+get_dist_from_wall	raycasting/raycasting_render.c	/^static float	get_dist_from_wall(t_raycast_dist dis/
+get_first_delta_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_delta_dist(float r/
+get_first_side_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_first_side_dist(float px/
+get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
+get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
+get_new_x_in_mat	movement_management/check_collision.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
+get_new_y_in_mat	movement_management/check_collision.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
+get_parsed_mat	parsing/parsing.c	/^static char	**get_parsed_mat(char *scene_file, t_a/
+get_plane	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_plane(char c)$/
+get_raycast_dist	raycasting/get_raycast_dist.c	/^t_raycast_dist	get_raycast_dist(t_raycast_dir dire/
+get_side_dist	raycasting/raycasting_render.c	/^static t_raycast_dist	get_side_dist(t_raycast_dist/
+get_triangle_coords	display_minimap/get_triangle_coordinates.c	/^t_triangle	get_triangle_coords(float angle_a)$/
+go_down	movement_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
+go_left	movement_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
+go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
+go_right	movement_management/move.c	/^static t_player	go_right(t_player pos, char **mat)/
+go_up	movement_management/move.c	/^static t_player	go_up(t_player pos, char **mat)$/
+init	raycasting/init_data.c	/^static t_player	init(t_player pos, int i, int j, c/
+init	raycasting/init_raycast_dir.c	/^static t_raycast_dir	init(char c)$/
+init_data	raycasting/init_data.c	/^void	init_data(t_all *game_struct)$/
+init_images	parsing/init_struc.c	/^void	init_images(t_render_images *render_images, t/
+init_player_position	raycasting/init_data.c	/^static t_player	init_player_position(t_player play/
+init_raycast_dir	raycasting/init_raycast_dir.c	/^t_raycast_dir	init_raycast_dir(t_all *game_struct)/
+init_struc	parsing/init_struc.c	/^void	init_struc(t_all *game_struc)$/
+init_textures_and_colors	parsing/init_textures_and_colors.c	/^int	init_textures_and_colors(t_texture_color_data /
+launch_game	main_processes/launch_game.c	/^void	launch_game(t_all *game_struct)$/
+load_textures	main_processes/open_window.c	/^bool	load_textures(t_texture_color_data texture_co/
+move	movement_management/move.c	/^t_player	move(int keycode, t_player pos, char **ma/
+movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
+my_pixel_put	draw_pixels/my_pixel_put.c	/^void	my_pixel_put(t_img_data *data, float x, float/
+open_window	main_processes/open_window.c	/^void	*open_window(t_window window, t_texture_color/
+pick_pixel_color	display_minimap/display_minimap.c	/^int	pick_pixel_color(char **mat, int x_pxl, int y_/
+prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat, int line_ind/
+put_minimap_pixel	display_minimap/display_minimap.c	/^t_img_data	put_minimap_pixel(t_img_data img, int c/
+put_vertical_line	display_map/display_map.c	/^void	put_vertical_line(float distance, int pxl_hor/
+s	raycasting/init_data.o	6
+skip_textures_and_colors	parsing/init_textures_and_colors.c	/^int	skip_textures_and_colors(char *scene_file)$/
+start_parsing	parsing/parsing.c	/^char	**start_parsing(char *scene_file, t_all *game/
+trim_end_of_line	parsing/init_textures_and_colors.c	/^char	*trim_end_of_line(int fd)$/
+u	raycasting/raycasting_render.o	8
+update_raycast_dir	raycasting/get_raycast_dir.c	/^void	update_raycast_dir(float angle, t_raycast_dir/

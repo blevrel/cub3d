@@ -1,8 +1,9 @@
 #include "cub3d.h"
 
 static t_raycast_dir	get_camera_and_raydir(t_raycast_dir direction,
-			int ray_index)
+			t_render_data *render_data, int ray_index)
 {
+	(void)render_data;
 	direction.camera_x = 2 * ray_index / (float)WIN_WIDTH - 1;
 	direction.raydir_x = direction.dir_x + direction.plane_x * direction.camera_x;
 	direction.raydir_y = direction.dir_y + direction.plane_y * direction.camera_x;
@@ -56,12 +57,20 @@ void	cast_rays(t_all *game_struct)
 	while (ray_index < WIN_WIDTH)
 	{
 		game_struct->direction = get_camera_and_raydir(game_struct->direction,
-			ray_index);
+			&game_struct->render_data, ray_index);
 		game_struct->distance = get_raycast_dist(game_struct->direction,
 			game_struct->player);
 		game_struct->distance = get_side_dist(game_struct->distance,
 			game_struct->player, game_struct->mat);
+		get_side_of_wall_hit(&game_struct->render_data, game_struct->distance,
+			game_struct->direction);
 		perp_wall_dist = get_dist_from_wall(game_struct->distance);
+		game_struct->render_data.ray_hit_x =
+			get_ray_hit_coords(game_struct->distance, game_struct->player,
+			perp_wall_dist, game_struct->direction);
+		game_struct->render_data.tex_x =
+			get_texture_coords(game_struct->render_data, game_struct->distance,
+			game_struct->direction);
 		put_vertical_line(perp_wall_dist, ray_index,
 			game_struct->render_images.window_render, game_struct->render_data);
 		ray_index++;
