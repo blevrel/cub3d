@@ -24,30 +24,27 @@ static char	**update_mat(char **mat, int x, int y, t_player player)
 	return (mat);
 }
 
-static char	**manage_door(char **mat, t_player player)
+int	door_management(t_all *game_struct)
 {
 	int	x;
 	int	y;
 
 	x = 0;
 	y = 0;
-	if (player.angle > M_PI / 4 && player.angle < 3 * M_PI / 4)
-		y = player.pxl_y / SQ_SIZE - 1;
-	else if (player.angle > 3 * M_PI / 4 && player.angle < 5 * M_PI / 4)
-		x = player.pxl_x / SQ_SIZE - 1;
-	else if (player.angle > 5 * M_PI / 4 && player.angle < 7 * M_PI / 4)
-		y = player.pxl_y / SQ_SIZE + 1;
-	else if (player.angle > 7 * M_PI / 4 || player.angle <  M_PI / 4)
-		x = player.pxl_x / SQ_SIZE + 1;
+	if (game_struct->player.angle > M_PI / 4
+		&& game_struct->player.angle < 3 * M_PI / 4)
+		y = game_struct->player.pxl_y / SQ_SIZE - 1;
+	else if (game_struct->player.angle > 3 * M_PI / 4
+		&& game_struct->player.angle < 5 * M_PI / 4)
+		x = game_struct->player.pxl_x / SQ_SIZE - 1;
+	else if (game_struct->player.angle > 5 * M_PI / 4
+		&& game_struct->player.angle < 7 * M_PI / 4)
+		y = game_struct->player.pxl_y / SQ_SIZE + 1;
+	else if (game_struct->player.angle > 7 * M_PI / 4
+		|| game_struct->player.angle <  M_PI / 4)
+		x = game_struct->player.pxl_x / SQ_SIZE + 1;
 	if (x || y)
-		mat = update_mat(mat, x, y, player);
-	return (mat);
-}
-
-int	door_management(t_all *game_struct)
-{
-	game_struct->mat = manage_door(game_struct->mat, game_struct->player);
-	cast_rays(game_struct);
-	display_minimap(*game_struct);
+		game_struct->mat = update_mat(game_struct->mat, x, y,
+			game_struct->player);
 	return (0);
 }

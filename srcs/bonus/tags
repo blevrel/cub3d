@@ -22,6 +22,7 @@ check_valid_scene	parsing/check_valid_scene_bonus.c	/^bool	check_valid_scene(cha
 closed_walls	parsing/check_map_content_bonus.c	/^bool	closed_walls(char c)$/
 convert_rgb_to_hexa	parsing/parsing_utils_bonus.c	/^int	convert_rgb_to_hexa(int *color)$/
 diffls	../../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
+display	main_processes/launch_game_bonus.c	/^static int	display(t_all *game_struct)$/
 display_minimap	display_minimap/display_minimap_bonus.c	/^void	display_minimap(t_all game_struct)$/
 door_management	game_management/door_management_bonus.c	/^int	door_management(t_all *game_struct)$/
 draw_border	draw_pixels/my_pixel_put_bonus.c	/^t_img_data	draw_border(t_img_data img)$/
@@ -125,10 +126,8 @@ get_first_side_dist	raycasting/get_raycast_dist_bonus.c	/^static t_raycast_dist	
 get_map_height	parsing/parsing_utils_bonus.c	/^int	get_map_height(int fd)$/
 get_map_width	parsing/parsing_utils_bonus.c	/^int	get_map_width(char **mat)$/
 get_nb	../../libft/ft_atoi_base.c	/^int	get_nb(char c, char *base)$/
-get_new_dir_and_plane	game_management/movement_management_bonus.c	/^static t_raycast_dir	get_new_dir_and_plane(t_rayca/
-get_new_x	game_management/update_mat_if_needed_bonus.c	/^static int	get_new_x(float pxl_x, float angle)$/
+get_new_dir_and_plane	game_management/get_new_dir_and_plane_bonus.c	/^t_raycast_dir	get_new_dir_and_plane(t_raycast_dir /
 get_new_x_in_mat	game_management/check_collision_bonus.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
-get_new_y	game_management/update_mat_if_needed_bonus.c	/^static int	get_new_y(float pxl_y, float angle)$/
 get_new_y_in_mat	game_management/check_collision_bonus.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
 get_next_line	../../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	parsing/parsing_bonus.c	/^static char	**get_parsed_mat(char *scene_file, t_a/
@@ -154,7 +153,6 @@ join_gnl	../../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
 launch_game	main_processes/launch_game_bonus.c	/^void	launch_game(t_all *game_struct)$/
 lgstr	../../libft/ft_itoa.c	/^static int	lgstr(int n)$/
 load_textures	main_processes/open_window_bonus.c	/^bool	load_textures(t_texture_color_data texture_co/
-manage_door	game_management/door_management_bonus.c	/^static char	**manage_door(char **mat, t_player pla/
 move	game_management/move_bonus.c	/^t_player	move(int keycode, t_player pos, char **ma/
 movement_management	game_management/movement_management_bonus.c	/^int	movement_management(int keycode, t_all *game_s/
 my_pixel_put	draw_pixels/my_pixel_put_bonus.c	/^void	my_pixel_put(t_img_data *data, float x, float/
@@ -173,9 +171,10 @@ putnbr_hex	../../libft/ft_printf.c	/^int	putnbr_hex(unsigned int nb, char *str)$
 putnbr_hex_error	../../libft/ft_print_error.c	/^int	putnbr_hex_error(unsigned int nb, char *str)$/
 putnbr_unsigned	../../libft/ft_printf.c	/^int	putnbr_unsigned(unsigned int nb)$/
 putnbr_unsigned_error	../../libft/ft_print_error.c	/^int	putnbr_unsigned_error(unsigned int nb)$/
+redisplay_map	main_processes/launch_game_bonus.c	/^static int	redisplay_map(int x, int y, t_all *game/
 skip_textures_and_colors	parsing/init_textures_and_colors_bonus.c	/^int	skip_textures_and_colors(char *scene_file)$/
 start_parsing	parsing/parsing_bonus.c	/^char	**start_parsing(char *scene_file, t_all *game/
 strduploc	../../libft/ft_split.c	/^static char	*strduploc(char *s, char c)$/
 swaploc	../../libft/ft_itoa.c	/^static char	*swaploc(char *str)$/
 trim_end_of_line	parsing/init_textures_and_colors_bonus.c	/^char	*trim_end_of_line(int fd)$/
-update_mat_if_needed	game_management/update_mat_if_needed_bonus.c	/^char	**update_mat_if_needed(char **mat, float x_di/
+update_mat	game_management/door_management_bonus.c	/^static char	**update_mat(char **mat, int x, int y,/

@@ -20,8 +20,9 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 8
-# define ROT_SPEED 10
+# define MOVESPEED 2
+# define KEY_ROTSPEED 10
+# define MOUSE_ROTSPEED 1
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -72,5 +73,7 @@ t_raycast_dist	get_raycast_dist(t_raycast_dir directions, t_player player);
 int				game_management(int keycode, t_all *game_struct);
 int				movement_management(int keycode, t_all *game_struct);
 int				door_management(t_all *game_struct);
+t_raycast_dir	get_new_dir_and_plane(t_raycast_dir direction,
+					float angle);
 
 #endif
