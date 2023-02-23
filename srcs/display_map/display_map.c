@@ -23,7 +23,7 @@ static int	get_color(t_render_data render_data, int y, int x)
 	image.img = select_texture(render_data);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel,
 			&image.line_length, &image.endian);
-	i = ((y * render_data.width) + x) * 4;
+	i = ((x * render_data.width) + y) * 4;
 	color = color | (unsigned char)(image.addr[i + 2]);
 	color = color << 8;
 	color = color | (unsigned char)(image.addr[i + 1]);
@@ -31,17 +31,16 @@ static int	get_color(t_render_data render_data, int y, int x)
 	color = color | (unsigned char)(image.addr[i]);
 	return (color);
 }
-
 int	get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 		t_raycast_dir direction)
 {
 	int	tex_x;
 
-	(void)direction;
-	if (distance.side == 0)
-		tex_x = render_data.ray_hit_x * render_data.width;
-	if (distance.side == 1)
-		tex_x = render_data.ray_hit_x * render_data.width;
+	tex_x = render_data.ray_hit_x * (float)render_data.width;
+	if (distance.side == 0 && direction.raydir_x > 0)
+		tex_x = render_data.width - tex_x - 1;
+	if (distance.side == 1 && direction.raydir_y < 0)
+		tex_x = render_data.width - tex_x - 1;
 	return (tex_x);
 }
 

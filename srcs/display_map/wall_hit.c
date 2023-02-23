@@ -19,12 +19,13 @@ void	get_side_of_wall_hit(t_render_data *render_data,
 float	get_ray_hit_coords(t_raycast_dist distance, t_player player,
 			float perp_wall_dist, t_raycast_dir direction)
 {
-	float	x;
+	float			x;
 
 	if (distance.side == 0)
 		x = player.pxl_y + perp_wall_dist * direction.raydir_y;
 	if (distance.side == 1)
 		x = player.pxl_x + perp_wall_dist * direction.raydir_x;
+	printf("%f\n", x);
 	x -= floor(x);
 	return (x);
 }
