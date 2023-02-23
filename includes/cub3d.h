@@ -5,12 +5,15 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
+# define NORTH 6
+# define SOUTH 7
+# define WEST 8
+# define EAST 9
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
 # define WALL_SIZE 250 
 # define PLANE 0.66
-# define PLAYER_HEIGHT 16
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
@@ -50,8 +53,6 @@ void			fill_texture_elements(t_texture_color_data *texture_color_data,
 int				get_color_elements(t_texture_color_data *texture_color_data,
 					char **line, int trigger);
 int				convert_rgb_to_hexa(int *color);
-void			*open_window(t_window window,
-				t_texture_color_data texture_color_data, t_render_data *images_data);
 void			display_minimap(t_all game_struct);
 void			cast_rays(t_all *game_struct);
 t_img_data		draw_vertical_line(t_img_data render_img, t_render_data render_data,
@@ -70,5 +71,14 @@ char			**start_parsing(char *scene_file, t_all *game_struc);
 void			init_data(t_all *game_struct);
 t_raycast_dir	init_raycast_dir(t_all *game_struct);
 t_raycast_dist	get_raycast_dist(t_raycast_dir directions, t_player player);
+void			get_side_of_wall_hit(t_render_data *render_data,
+					t_raycast_dist distance, t_raycast_dir direction);
+float			get_ray_hit_coords(t_raycast_dist distance,
+					t_player player, float perp_wall_dist,
+					t_raycast_dir direction);
+int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
+					t_raycast_dir direction);
+bool			load_textures(t_texture_color_data texture_color_data,
+				t_render_data *render_data, t_window window);
 
 #endif

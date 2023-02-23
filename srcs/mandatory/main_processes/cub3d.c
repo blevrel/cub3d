@@ -14,8 +14,14 @@ int	main(int argc, char **argv)
 	if (!game_struc.mat)
 		return (-2);
 	game_struc.window.mlx = mlx_init();
-	game_struc.window.win_ptr = open_window(game_struc.window,
-			game_struc.texture_color_data, &game_struc.render_data);
+	if (!load_textures(game_struc.texture_color_data, &game_struc.render_data,
+			game_struc.window))
+	{
+		//free tout le bordel
+		return (-2);
+	}
+	game_struc.window.win_ptr = mlx_new_window(game_struc.window.mlx, WIN_WIDTH,
+			WIN_HEIGHT, "cub3D");
 	init_images(&game_struc.render_images, game_struc.window);
 	launch_game(&game_struc);
 	mlx_loop(game_struc.window.mlx);

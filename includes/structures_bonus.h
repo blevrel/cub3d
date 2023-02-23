@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/23 09:18:51 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:57:27 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,15 @@ typedef struct s_texture_color_data
 
 typedef struct s_render_data
 {
+	int		wall_side;
+	float	ray_hit_x;
+	int		tex_x;
 	void	*no_image;
 	void	*so_image;
 	void	*we_image;
 	void	*ea_image;
+	int		width;
+	int		height;
 	int		c_color;
 	int		f_color;
 }				t_render_data;

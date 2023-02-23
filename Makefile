@@ -2,9 +2,10 @@ NAME  =	cub3D
 
 SRCS  =	srcs/mandatory/main_processes/cub3d.c \
 		srcs/mandatory/main_processes/launch_game.c	\
-		srcs/mandatory/main_processes/open_window.c	\
+		srcs/mandatory/main_processes/load_textures.c	\
 		srcs/mandatory/draw_pixels/my_pixel_put.c	\
 		srcs/mandatory/display_map/display_map.c	\
+		srcs/mandatory/display_map/wall_hit.c	\
 		srcs/mandatory/display_minimap/display_minimap.c	\
 		srcs/mandatory/display_minimap/get_triangle_coordinates.c	\
 		srcs/mandatory/parsing/check_valid_scene.c \
@@ -26,9 +27,10 @@ SRCS  =	srcs/mandatory/main_processes/cub3d.c \
 
 SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/main_processes/launch_game_bonus.c	\
-				srcs/bonus/main_processes/open_window_bonus.c	\
+				srcs/bonus/main_processes/load_textures_bonus.c	\
 				srcs/bonus/draw_pixels/my_pixel_put_bonus.c	\
 				srcs/bonus/display_map/display_map_bonus.c	\
+				srcs/bonus/display_map/wall_hit_bonus.c	\
 				srcs/bonus/display_minimap/display_minimap_bonus.c	\
 				srcs/bonus/display_minimap/get_triangle_coordinates_bonus.c	\
 				srcs/bonus/parsing/check_valid_scene_bonus.c \

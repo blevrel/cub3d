@@ -5,7 +5,11 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
-# define DOOR 6
+# define NORTH 6
+# define SOUTH 7
+# define WEST 8
+# define EAST 9
+# define DOOR 10
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
@@ -51,8 +55,6 @@ void			fill_texture_elements(t_texture_color_data *texture_color_data,
 int				get_color_elements(t_texture_color_data *texture_color_data,
 					char **line, int trigger);
 int				convert_rgb_to_hexa(int *color);
-void			*open_window(t_window window,
-				t_texture_color_data texture_color_data, t_render_data *images_data);
 void			display_minimap(t_all game_struct);
 void			cast_rays(t_all *game_struct);
 t_img_data		draw_vertical_line(t_img_data render_img, t_render_data render_data,
@@ -75,5 +77,14 @@ int				movement_management(int keycode, t_all *game_struct);
 int				door_management(t_all *game_struct);
 t_raycast_dir	get_new_dir_and_plane(t_raycast_dir direction,
 					float angle);
+void			get_side_of_wall_hit(t_render_data *render_data,
+					t_raycast_dist distance, t_raycast_dir direction);
+float			get_ray_hit_coords(t_raycast_dist distance,
+					t_player player, float perp_wall_dist,
+					t_raycast_dir direction);
+int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
+					t_raycast_dir direction);
+bool			load_textures(t_texture_color_data texture_color_data,
+					t_render_data *render_data, t_window window);
 
 #endif
