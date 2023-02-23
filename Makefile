@@ -1,34 +1,63 @@
 NAME  =	cub3D
 
-SRCS  =	srcs/main_processes/cub3d.c \
-		srcs/main_processes/launch_game.c	\
-		srcs/main_processes/open_window.c	\
-		srcs/draw_pixels/my_pixel_put.c	\
-		srcs/display_map/display_map.c	\
-		srcs/display_minimap/display_minimap.c	\
-		srcs/display_minimap/get_triangle_coordinates.c	\
-		srcs/parsing/check_valid_scene.c \
-		srcs/parsing/fill_matrix.c \
-		srcs/parsing/check_map_content.c \
-		srcs/parsing/init_struc.c \
-		srcs/parsing/parsing_utils.c \
-		srcs/parsing/init_textures_and_colors.c \
-		srcs/parsing/free_struc_elements.c	\
-		srcs/parsing/get_elements.c	\
-		srcs/parsing/parsing.c	\
-		srcs/movement_management/move.c	\
-		srcs/movement_management/movement_management.c	\
-		srcs/movement_management/check_collision.c	\
-		srcs/raycasting/raycasting_render.c	\
-		srcs/raycasting/init_raycast_dir.c	\
-		srcs/raycasting/get_raycast_dist.c	\
-		srcs/raycasting/init_data.c	\
+SRCS  =	srcs/mandatory/main_processes/cub3d.c \
+		srcs/mandatory/main_processes/launch_game.c	\
+		srcs/mandatory/main_processes/open_window.c	\
+		srcs/mandatory/draw_pixels/my_pixel_put.c	\
+		srcs/mandatory/display_map/display_map.c	\
+		srcs/mandatory/display_minimap/display_minimap.c	\
+		srcs/mandatory/display_minimap/get_triangle_coordinates.c	\
+		srcs/mandatory/parsing/check_valid_scene.c \
+		srcs/mandatory/parsing/fill_matrix.c \
+		srcs/mandatory/parsing/check_map_content.c \
+		srcs/mandatory/parsing/init_struc.c \
+		srcs/mandatory/parsing/parsing_utils.c \
+		srcs/mandatory/parsing/init_textures_and_colors.c \
+		srcs/mandatory/parsing/free_struc_elements.c	\
+		srcs/mandatory/parsing/get_elements.c	\
+		srcs/mandatory/parsing/parsing.c	\
+		srcs/mandatory/movement_management/move.c	\
+		srcs/mandatory/movement_management/movement_management.c	\
+		srcs/mandatory/movement_management/check_collision.c	\
+		srcs/mandatory/raycasting/raycasting_render.c	\
+		srcs/mandatory/raycasting/init_raycast_dir.c	\
+		srcs/mandatory/raycasting/get_raycast_dist.c	\
+		srcs/mandatory/raycasting/init_data.c	\
+
+SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
+				srcs/bonus/main_processes/launch_game_bonus.c	\
+				srcs/bonus/main_processes/open_window_bonus.c	\
+				srcs/bonus/draw_pixels/my_pixel_put_bonus.c	\
+				srcs/bonus/display_map/display_map_bonus.c	\
+				srcs/bonus/display_minimap/display_minimap_bonus.c	\
+				srcs/bonus/display_minimap/get_triangle_coordinates_bonus.c	\
+				srcs/bonus/parsing/check_valid_scene_bonus.c \
+				srcs/bonus/parsing/fill_matrix_bonus.c \
+				srcs/bonus/parsing/check_map_content_bonus.c \
+				srcs/bonus/parsing/init_struc_bonus.c \
+				srcs/bonus/parsing/parsing_utils_bonus.c \
+				srcs/bonus/parsing/init_textures_and_colors_bonus.c \
+				srcs/bonus/parsing/free_struc_elements_bonus.c	\
+				srcs/bonus/parsing/get_elements_bonus.c	\
+				srcs/bonus/parsing/parsing_bonus.c	\
+				srcs/bonus/game_management/game_management_bonus.c	\
+				srcs/bonus/game_management/move_bonus.c	\
+				srcs/bonus/game_management/movement_management_bonus.c	\
+				srcs/bonus/game_management/check_collision_bonus.c	\
+				srcs/bonus/game_management/door_management_bonus.c	\
+				srcs/bonus/game_management/update_mat_if_needed_bonus.c	\
+				srcs/bonus/raycasting/raycasting_render_bonus.c	\
+				srcs/bonus/raycasting/init_raycast_dir_bonus.c	\
+				srcs/bonus/raycasting/get_raycast_dist_bonus.c	\
+				srcs/bonus/raycasting/init_data_bonus.c	\
 
 OBJS  =	${SRCS:.c=.o}
 
+OBJS_BONUS  =	${SRCS_BONUS:.c=.o}
+
 CC	  =	clang
 
-CFLAGS =	-Wall -Wextra -Werror
+CFLAGS =	-Wall -Wextra -Werror -g
 
 LIB   =	-L mlx_linux -lmlx -lXext -lX11 -L libft -lft -lm
 
@@ -41,7 +70,7 @@ all: ${NAME}
 clean:
 	make clean -C libft
 	make clean -C mlx_linux
-	${RM} ${OBJS}
+	${RM} ${OBJS} ${OBJS_BONUS}
 
 fclean: clean
 	make fclean -C libft
@@ -49,12 +78,17 @@ fclean: clean
 
 re: fclean all
 
-%.o: %.c includes/cub3d.h
-	${CC} ${CFLAGS} -c ${HEAD} $< -o ${<:.c=.o} -g
+.c.o:
+			$(CC) $(CFLAGS) $(HEAD) -c  $< -o $(<:.c=.o)
 
 ${NAME}: ${OBJS}
 	make -C libft
 	make -C mlx_linux
-	${CC} ${CFLAGS} ${OBJS} ${HEAD} ${LIB} -o ${NAME} -g
+	${CC} ${CFLAGS} ${OBJS} ${HEAD} ${LIB} -o ${NAME}
+
+bonus: ${OBJS_BONUS}
+	make -C libft
+	make -C mlx_linux
+	${CC} ${CFLAGS} ${OBJS_BONUS} ${HEAD} ${LIB} -o ${NAME}
 
 .PHONY: all re clean fclean bonus

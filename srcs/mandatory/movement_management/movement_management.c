@@ -17,6 +17,16 @@ static float	go_left_or_right(int keycode, float angle)
 	return (angle);
 }
 
+static t_raycast_dir	get_new_dir_and_plane(t_raycast_dir direction,
+	float angle)
+{
+	direction.dir_x = cos(angle);
+	direction.dir_y = -sin(angle);
+	direction.plane_x = PLANE * sin(angle);
+	direction.plane_y = PLANE * cos(angle);
+	return (direction);
+}
+
 int	movement_management(int keycode, t_all *game_struct)
 {
 	if (keycode == XK_Escape)
@@ -25,10 +35,8 @@ int	movement_management(int keycode, t_all *game_struct)
 	{
 		game_struct->player.angle = go_left_or_right(keycode, \
 			game_struct->player.angle);
-		game_struct->direction.dir_x = cos(game_struct->player.angle);
-		game_struct->direction.dir_y = -sin(game_struct->player.angle);
-		game_struct->direction.plane_x = PLANE * sin(game_struct->player.angle);
-		game_struct->direction.plane_y = PLANE * cos(game_struct->player.angle);
+		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
+			game_struct->player.angle);
 		cast_rays(game_struct);
 		display_minimap(*game_struct);
 	}

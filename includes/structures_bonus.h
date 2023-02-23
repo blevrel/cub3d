@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structures.h                                       :+:      :+:    :+:   */
+/*   structures_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/23 09:17:11 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/23 09:18:51 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTURES_H
-# define STRUCTURES_H
+#ifndef STRUCTURES_BONUS_H
+# define STRUCTURES_BONUS_H
 
 typedef struct s_texture_color_data
 {

@@ -1,16 +1,16 @@
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef CUB3D_BONUS_H
+# define CUB3D_BONUS_H
 # define PLAYER 1
 # define WALL 2
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
+# define DOOR 6
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
 # define WALL_SIZE 250 
 # define PLANE 0.66
-# define PLAYER_HEIGHT 16
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
 # define MINI_POS 20
@@ -60,7 +60,6 @@ void			my_pixel_put(t_img_data *data, float x, float y, int color);
 t_img_data		draw_border(t_img_data img_data);
 t_triangle		get_triangle_coords(float angle);
 void			launch_game(t_all *game_struct);
-int				movement_management(int keycode, t_all *game_struct);
 t_player		move(int keycode, t_player pos, char **mat);
 int				check_collision_x(t_player pos, char **mat, char *oper);
 int				check_collision_y(t_player pos, char **mat, char *oper);
@@ -70,5 +69,8 @@ char			**start_parsing(char *scene_file, t_all *game_struc);
 void			init_data(t_all *game_struct);
 t_raycast_dir	init_raycast_dir(t_all *game_struct);
 t_raycast_dist	get_raycast_dist(t_raycast_dir directions, t_player player);
+int				game_management(int keycode, t_all *game_struct);
+int				movement_management(int keycode, t_all *game_struct);
+int				door_management(t_all *game_struct);
 
 #endif
