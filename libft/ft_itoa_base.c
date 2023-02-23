@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 11:45:27 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/13 11:47:40 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:04:07 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -47,6 +47,17 @@ static void	ft_fill_res(int offset, int n, char *res, int base)
 	}
 }
 
+char	*ft_is_zero()
+{
+	char	*str;
+
+	str = malloc(3 * sizeof(char));
+	str[0] = '0';
+	str[1] = '0';
+	str[2] = '\0';
+	return (str);
+}
+
 char	*ft_itoa_base(int n, int base)
 {
 	int		offset;
@@ -57,6 +68,8 @@ char	*ft_itoa_base(int n, int base)
 		return (NULL);
 	if (n == -2147483648 && base == 10)
 		return ("-2147483648");
+	if (n == 0)
+		return (ft_is_zero());
 	size = ft_get_size(n, base);
 	res = malloc(sizeof(char) * size + 1);
 	if (!res)

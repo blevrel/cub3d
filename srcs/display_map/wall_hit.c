@@ -22,10 +22,9 @@ float	get_ray_hit_coords(t_raycast_dist distance, t_player player,
 	float			x;
 
 	if (distance.side == 0)
-		x = player.pxl_y + perp_wall_dist * direction.raydir_y;
+		x = player.pxl_y / SQ_SIZE + perp_wall_dist * direction.raydir_y;
 	if (distance.side == 1)
-		x = player.pxl_x + perp_wall_dist * direction.raydir_x;
-	printf("%f\n", x);
+		x = player.pxl_x / SQ_SIZE + perp_wall_dist * direction.raydir_x;
 	x -= floor(x);
 	return (x);
 }

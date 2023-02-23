@@ -3,12 +3,12 @@ SO   graph/SO_test.xpm
 WE   graph/WE_test.xpm
 EA   graph/EA_test.xpm
 
-C     223,162,144
-F     255,244,230
+C     64,0,0
+F     85,85,85
 
  111111
 10000001
-10000N01
+10000E01
 11000001
 10001001
 1001 101
