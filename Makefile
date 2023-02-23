@@ -3,9 +3,10 @@ NAME  =	cub3D
 SRCS  =	srcs/main_processes/cub3d.c \
 		srcs/main_processes/launch_game.c	\
 		srcs/main_processes/open_window.c	\
+		srcs/main_processes/load_textures.c	\
 		srcs/draw_pixels/my_pixel_put.c	\
-		srcs/draw_pixels/draw_vertical_line.c	\
 		srcs/display_map/display_map.c	\
+		srcs/display_map/wall_hit.c	\
 		srcs/display_minimap/display_minimap.c	\
 		srcs/display_minimap/get_triangle_coordinates.c	\
 		srcs/parsing/check_valid_scene.c \
