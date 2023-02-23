@@ -32,7 +32,7 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
-# include "structures.h"
+# include "structures_bonus.h"
 # include "mlx.h"
 # include "mlx_int.h"
 # include "libft.h"

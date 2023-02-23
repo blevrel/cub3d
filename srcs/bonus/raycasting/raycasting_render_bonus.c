@@ -9,16 +9,15 @@ static t_raycast_dir	get_camera_and_raydir(t_raycast_dir direction,
 	return (direction);
 }
 
-static t_raycast_dist	get_side_dist(t_raycast_dist distance, t_player *player, char **mat)
+static t_raycast_dist	get_side_dist(t_render_data *render_data,
+	t_raycast_dist distance, t_player *player, char **mat)
 {
-	int	hit;
 	int	map_x;
 	int	map_y;
 
-	hit = 0;
 	map_x = player->pxl_x  / SQ_SIZE;
 	map_y = player->pxl_y  / SQ_SIZE;
-	while (hit != '1' && hit != '2')
+	while (mat[map_y][map_x] != '1' && mat[map_y][map_x] != '2')
 	{
 		if (distance.side_x < distance.side_y)
 		{
@@ -32,8 +31,11 @@ static t_raycast_dist	get_side_dist(t_raycast_dist distance, t_player *player, c
 			map_y += distance.step_y;
 			distance.side = 1;
 		}
-		hit = mat[map_y][map_x];
 	}
+	if (mat[map_y][map_x] == '2')
+		render_data->door_wall = 1;
+	else
+		render_data->door_wall = 0;
 	return (distance);
 }
 
@@ -59,8 +61,8 @@ void	cast_rays(t_all *game_struct)
 			ray_index);
 		game_struct->distance = get_raycast_dist(game_struct->direction,
 			game_struct->player);
-		game_struct->distance = get_side_dist(game_struct->distance,
-			&game_struct->player, game_struct->mat);
+		game_struct->distance = get_side_dist(&game_struct->render_data,
+		game_struct->distance, &game_struct->player, game_struct->mat);
 		get_side_of_wall_hit(&game_struct->render_data, game_struct->distance,
 			game_struct->direction);
 		perp_wall_dist = get_dist_from_wall(game_struct->distance);

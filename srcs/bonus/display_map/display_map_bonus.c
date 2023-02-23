@@ -2,6 +2,8 @@
 
 static void	*select_texture(t_render_data render_data)
 {
+	if (render_data.door_wall == 1)
+		return (render_data.door_image);
 	if (render_data.wall_side == NORTH)
 		return (render_data.no_image);
 	if (render_data.wall_side == SOUTH)

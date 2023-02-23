@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/23 15:57:27 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:25:56 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ typedef struct s_texture_color_data
 	char	*so_texture;
 	char	*we_texture;
 	char	*ea_texture;
+	char	*door_texture;
+	char	*s_one_sprite;
+	char	*s_two_sprite;
+	char	*s_three_sprite;
+	char	*s_four_sprite;
+	char	*s_five_sprite;
 	int		c_color[3];
 	int		f_color[3];
 }				t_texture_color_data;
@@ -26,12 +32,19 @@ typedef struct s_texture_color_data
 typedef struct s_render_data
 {
 	int		wall_side;
+	int		door_wall;
 	float	ray_hit_x;
 	int		tex_x;
 	void	*no_image;
 	void	*so_image;
 	void	*we_image;
 	void	*ea_image;
+	void	*door_image;
+	char	*s_one_image;
+	char	*s_two_image;
+	char	*s_three_image;
+	char	*s_four_image;
+	char	*s_five_image;
 	int		width;
 	int		height;
 	int		c_color;

@@ -39,7 +39,7 @@ int	skip_textures_and_colors(char *scene_file)
 	i = 0;
 	if (fd == -1)
 		return (-1);
-	while (i < 6)
+	while (i < 12)
 	{
 		line = get_next_line(fd, 1);
 		if (ft_strcmp(line, "\n") != 0)
@@ -82,7 +82,7 @@ int	init_textures_and_colors(t_texture_color_data *texture_color_data,
 	fd = open(scene_file, O_RDONLY);
 	if (fd == -1)
 		return (-1);
-	while (i < 6)
+	while (i < 12)
 	{
 		trim_line = trim_end_of_line(fd);
 		if (!trim_line)
