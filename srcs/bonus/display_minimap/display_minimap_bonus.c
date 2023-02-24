@@ -13,6 +13,10 @@ int	pick_pixel_color(char **mat, int x_pxl, int y_pxl, t_map_data map_data)
 		|| mat[y_pos_in_mat][x_pos_in_mat] == 2
 		|| ft_isspace(mat[y_pos_in_mat][x_pos_in_mat]))
 		return (WALL_COLOR);
+	else if (mat[y_pos_in_mat][x_pos_in_mat] == '3')
+		return (O_DOOR_COLOR);
+	else if (mat[y_pos_in_mat][x_pos_in_mat] == '2')
+		return (C_DOOR_COLOR);
 	else
 		return (FLOOR_COLOR);
 }
