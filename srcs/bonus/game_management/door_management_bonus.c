@@ -7,6 +7,7 @@ static char	**update_mat(char **mat, int x, int y, t_player player)
 
 	x_mat = player.pxl_x / SQ_SIZE;
 	y_mat = player.pxl_y / SQ_SIZE;
+		mat[y_mat][x], mat[y][x_mat]);
 	if (x)
 	{
 		if (mat[y_mat][x] == '2')

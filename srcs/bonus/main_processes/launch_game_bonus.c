@@ -6,6 +6,8 @@ static int	redisplay_map(int x, int y, t_all *game_struct)
 	if (x > WIN_WIDTH / 2)
 	{
 		game_struct->player.angle -= (MOUSE_ROTSPEED * M_PI / 180);
+		if (game_struct->player.angle < 0)
+			game_struct->player.angle += 2 * M_PI;
 		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
 			game_struct->player.angle);
 		mlx_mouse_move(game_struct->window.mlx, game_struct->window.win_ptr,
@@ -14,6 +16,8 @@ static int	redisplay_map(int x, int y, t_all *game_struct)
 	else if (x < WIN_WIDTH / 2)
 	{
 		game_struct->player.angle += (MOUSE_ROTSPEED * M_PI / 180);
+		if (game_struct->player.angle > 2 * M_PI)
+			game_struct->player.angle -= 2 * M_PI;
 		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
 			game_struct->player.angle);
 		mlx_mouse_move(game_struct->window.mlx, game_struct->window.win_ptr,
