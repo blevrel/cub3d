@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/23 17:25:56 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/24 10:24:54 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ typedef struct s_render_data
 	void	*we_image;
 	void	*ea_image;
 	void	*door_image;
-	char	*s_one_image;
-	char	*s_two_image;
-	char	*s_three_image;
-	char	*s_four_image;
-	char	*s_five_image;
+	void	*s_one_image;
+	void	*s_two_image;
+	void	*s_three_image;
+	void	*s_four_image;
+	void	*s_five_image;
 	int		width;
 	int		height;
 	int		c_color;

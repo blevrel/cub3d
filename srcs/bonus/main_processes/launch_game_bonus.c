@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   launch_game_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/24 10:33:48 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/24 10:33:54 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d_bonus.h"
 
 static int	redisplay_map(int x, int y, t_all *game_struct)
@@ -30,6 +42,8 @@ static int	display(t_all *game_struct)
 {
 	cast_rays(game_struct);
 	display_minimap(*game_struct);
+	draw_sword(game_struct->render_data, game_struct->window,
+		game_struct->render_images);
 	return (0);
 }
 

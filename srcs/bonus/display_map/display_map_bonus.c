@@ -15,7 +15,7 @@ static void	*select_texture(t_render_data render_data)
 	return (NULL);
 }
 
-static int	get_color(t_render_data render_data, int y, int x)
+static int	get_texture_color(t_render_data render_data, int y, int x)
 {
 	t_img_data	image;
 	int			i;
@@ -70,8 +70,8 @@ void	put_vertical_line(float distance, int pxl_horizontal,
 			render_data.f_color);
 		else
 		{
-			color = get_color(render_data, (pxl_vertical - pxl_sky_and_floor) *
-				ratio, render_data.tex_x);
+			color = get_texture_color(render_data,
+				(pxl_vertical - pxl_sky_and_floor) * ratio, render_data.tex_x);
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, color);
 		}
 		pxl_vertical++;

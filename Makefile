@@ -48,6 +48,7 @@ SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/game_management/check_collision_bonus.c	\
 				srcs/bonus/game_management/door_management_bonus.c	\
 				srcs/bonus/game_management/get_new_dir_and_plane_bonus.c	\
+				srcs/bonus/game_management/draw_sword_bonus.c	\
 				srcs/bonus/raycasting/raycasting_render_bonus.c	\
 				srcs/bonus/raycasting/init_raycast_dir_bonus.c	\
 				srcs/bonus/raycasting/get_raycast_dist_bonus.c	\
