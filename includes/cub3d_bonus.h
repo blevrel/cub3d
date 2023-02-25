@@ -26,8 +26,8 @@
 # define FLOOR_COLOR 0xfff4e6
 # define C_DOOR_COLOR 0x011f4b
 # define O_DOOR_COLOR 0x005b96
-# define SPRITE_HEIGHT 170
-# define SPRITE_WIDTH 70
+# define SPRITE_HEIGHT 700
+# define SPRITE_WIDTH 700
 # define PLAYER_COLOR 0xbe9b7b
 # define MOVESPEED 2
 # define KEY_ROTSPEED 10
@@ -91,7 +91,5 @@ int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 					t_render_data *render_data, t_window window);
-void	draw_sword(t_render_data render_data, t_window window,
-			t_render_images render_images);
 
 #endif

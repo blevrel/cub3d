@@ -4,6 +4,7 @@ static bool	load_sprites(t_texture_color_data texture_color_data,
 			t_render_data *render_data, t_window window)
 {
 	int	x;
+
 	render_data->s_one_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.s_one_sprite, &x,
 			&x);
@@ -17,11 +18,19 @@ static bool	load_sprites(t_texture_color_data texture_color_data,
 			texture_color_data.s_four_sprite, &x,
 			&x);
 	render_data->s_five_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_five_sprite, &x,
+			texture_color_data.s_four_sprite, &x,
 			&x);
+	render_data->s_six_image = mlx_xpm_file_to_image(window.mlx,
+			texture_color_data.s_six_sprite, &x,
+			&x);
+	render_data->s_seven_image = mlx_xpm_file_to_image(window.mlx,
+			texture_color_data.s_seven_sprite, &x,
+			&x);
+
 	if (!render_data->s_one_image || !render_data->s_two_image
-		|| !render_data->s_three_image ||!render_data->s_four_image
-		|| !render_data->s_five_image)
+		|| !render_data->s_three_image || !render_data->s_four_image
+		|| !render_data->s_five_image || !render_data->s_six_image
+		|| !render_data->s_seven_image)
 		return (false);
 	return (true);
 }

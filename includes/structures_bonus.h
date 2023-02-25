@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:24:54 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/25 10:44:57 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ typedef struct s_texture_color_data
 	char	*s_three_sprite;
 	char	*s_four_sprite;
 	char	*s_five_sprite;
+	char	*s_six_sprite;
+	char	*s_seven_sprite;
 	int		c_color[3];
 	int		f_color[3];
 }				t_texture_color_data;
@@ -45,6 +47,8 @@ typedef struct s_render_data
 	void	*s_three_image;
 	void	*s_four_image;
 	void	*s_five_image;
+	void	*s_six_image;
+	void	*s_seven_image;
 	int		width;
 	int		height;
 	int		c_color;

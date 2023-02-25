@@ -65,6 +65,10 @@ void	fill_texture_elements(t_texture_color_data *texture_color_data,
 		texture_color_data->s_four_sprite = ft_strdup(line[1]);
 	if (ft_strcmp(line[0], "S5") == 0)
 		texture_color_data->s_five_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S6") == 0)
+		texture_color_data->s_six_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S7") == 0)
+		texture_color_data->s_seven_sprite = ft_strdup(line[1]);
 	if (ft_strcmp(line[0], "DOOR") == 0)
 		texture_color_data->door_texture = ft_strdup(line[1]);
 }

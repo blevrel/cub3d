@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:33:48 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/24 10:33:54 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/25 10:56:24 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static int	display(t_all *game_struct)
 {
 	cast_rays(game_struct);
 	display_minimap(*game_struct);
-	draw_sword(game_struct->render_data, game_struct->window,
-		game_struct->render_images);
 	return (0);
 }
 

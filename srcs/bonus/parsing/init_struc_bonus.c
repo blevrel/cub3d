@@ -9,6 +9,13 @@ void	init_struc(t_all *game_struc)
 	game_struc->texture_color_data.so_texture = NULL;
 	game_struc->texture_color_data.we_texture = NULL;
 	game_struc->texture_color_data.ea_texture = NULL;
+	game_struc->texture_color_data.s_one_sprite = NULL;
+	game_struc->texture_color_data.s_two_sprite = NULL;
+	game_struc->texture_color_data.s_three_sprite = NULL;
+	game_struc->texture_color_data.s_four_sprite = NULL;
+	game_struc->texture_color_data.s_five_sprite = NULL;
+	game_struc->texture_color_data.s_six_sprite = NULL;
+	game_struc->texture_color_data.s_seven_sprite = NULL;
 	game_struc->texture_color_data.c_color[0] = -1;
 	game_struc->texture_color_data.c_color[1] = -1;
 	game_struc->texture_color_data.c_color[2] = -1;
