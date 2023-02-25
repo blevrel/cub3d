@@ -89,7 +89,7 @@ char	**alloc_mat(char *scene_file, int fd, t_map_data *map_data)
 	char	*line;
 
 	map_data->map_height = get_map_height(fd);
-	if (!map_data->map_height)
+	if (map_data->map_height == -1)
 	{
 		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (NULL);

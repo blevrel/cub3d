@@ -1,5 +1,23 @@
 #include "cub3d.h"
 
+bool	line_is_only_space(char *line)
+{
+	int	i;
+	int	size;
+
+	i = 0;
+	size = ft_strlen(line);
+	if (size == 1)
+		return (false);
+	while (i < size - 1)
+	{
+		if (!ft_isspace(line[i]))
+			return (false);
+		i++;
+	}
+	return (true);
+}
+
 int	get_map_height(int fd)
 {
 	char	*line;
@@ -7,22 +25,22 @@ int	get_map_height(int fd)
 
 	count = 0;
 	line = get_next_line(fd, 1);
-	if (!line)
+	if (!line || line_is_only_space(line))
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n");
-		ft_print_error("\e[95mCheck scene file\e[0m\n");
 		close(fd);
-		return (0);
+		return (-1);
 	}
 	while (line)
 	{
-		if (ft_strcmp(line, "\n") != 0)
+		if (ft_strcmp(line, "\n") != 0 && count != -1)
 			count++;
+		if (line_is_only_space(line))
+			count = -1;
 		free(line);
 		line = get_next_line(fd, 1);
 	}
 	if (close(fd) == -1)
-		return (0);
+		return (-1);
 	return (count);
 }
 

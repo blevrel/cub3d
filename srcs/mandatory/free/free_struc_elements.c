@@ -11,4 +11,3 @@ void	free_struc_elements(t_texture_color_data texture_color_data)
 	if (texture_color_data.ea_texture)
 		free(texture_color_data.ea_texture);
 }
-

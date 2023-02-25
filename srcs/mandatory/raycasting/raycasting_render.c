@@ -50,6 +50,18 @@ static float	get_dist_from_wall(t_raycast_dist distance)
 	return (perp_wall_dist);
 }
 
+static void	update_raycasting_data(t_all *game_struct, int ray_index)
+{
+	game_struct->direction = get_camera_and_raydir(game_struct->direction,
+			ray_index);
+	game_struct->distance = get_raycast_dist(game_struct->direction,
+			game_struct->player);
+	game_struct->distance = get_side_dist(game_struct->distance,
+			game_struct->player, game_struct->mat);
+	get_side_of_wall_hit(&game_struct->render_data, game_struct->distance,
+		game_struct->direction);
+}
+
 void	cast_rays(t_all *game_struct)
 {
 	float			perp_wall_dist;
@@ -58,23 +70,16 @@ void	cast_rays(t_all *game_struct)
 	ray_index = 0;
 	while (ray_index < WIN_WIDTH)
 	{
-		game_struct->direction = get_camera_and_raydir(game_struct->direction,
-				ray_index);
-		game_struct->distance = get_raycast_dist(game_struct->direction,
-				game_struct->player);
-		game_struct->distance = get_side_dist(game_struct->distance,
-				game_struct->player, game_struct->mat);
-		get_side_of_wall_hit(&game_struct->render_data, game_struct->distance,
-				game_struct->direction);
+		update_raycasting_data(game_struct, ray_index);
 		perp_wall_dist = get_dist_from_wall(game_struct->distance);
-		game_struct->render_data.ray_hit_x =
-				get_ray_hit_coords(game_struct->distance, game_struct->player,
+		game_struct->render_data.ray_hit_x
+			= get_ray_hit_coords(game_struct->distance, game_struct->player,
 				perp_wall_dist, game_struct->direction);
-		game_struct->render_data.tex_x =
-				get_texture_coords(game_struct->render_data, game_struct->distance,
-				game_struct->direction);
+		game_struct->render_data.tex_x
+			= get_texture_coords(game_struct->render_data,
+				game_struct->distance, game_struct->direction);
 		put_vertical_line(perp_wall_dist, ray_index,
-				game_struct->render_images.window_render, game_struct->render_data);
+			game_struct->render_images.window_render, game_struct->render_data);
 		ray_index++;
 	}
 	mlx_put_image_to_window(game_struct->window.mlx,
