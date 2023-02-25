@@ -80,5 +80,6 @@ int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 				t_render_data *render_data, t_window window);
+int				exit_program(void);
 
 #endif

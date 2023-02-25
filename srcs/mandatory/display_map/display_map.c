@@ -31,6 +31,7 @@ static int	get_color(t_render_data render_data, int y, int x)
 	color = color | (unsigned char)(image.addr[i]);
 	return (color);
 }
+
 int	get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 		t_raycast_dir direction)
 {
@@ -50,7 +51,6 @@ void	put_vertical_line(float distance, int pxl_horizontal,
 	int		wall_height;
 	int		pxl_vertical;
 	int		pxl_sky_and_floor;
-	int		color;
 	double	ratio;
 
 	wall_height = WIN_HEIGHT / distance;
@@ -61,15 +61,15 @@ void	put_vertical_line(float distance, int pxl_horizontal,
 	{
 		if (pxl_vertical <= pxl_sky_and_floor)
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical,
-			render_data.c_color);
+				render_data.c_color);
 		else if (pxl_vertical >= pxl_sky_and_floor + wall_height)
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical,
-			render_data.f_color);
+				render_data.f_color);
 		else
 		{
-			color = get_color(render_data, (pxl_vertical - pxl_sky_and_floor) *
-				ratio, render_data.tex_x);
-			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, color);
+			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical,
+				get_color(render_data, (pxl_vertical - pxl_sky_and_floor)
+					* ratio, render_data.tex_x));
 		}
 		pxl_vertical++;
 	}
