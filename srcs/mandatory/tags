@@ -5,8 +5,8 @@ assign_line_to_elem	parsing/init_textures_and_colors.c	/^int	assign_line_to_elem
 cast_rays	raycasting/raycasting_render.c	/^void	cast_rays(t_all *game_struct)$/
 char_is_valid	parsing/check_map_content.c	/^int	char_is_valid(char c)$/
 check_around	parsing/check_map_content.c	/^bool	check_around(char **mat, int i, int j)$/
-check_collision_x	movement_management/check_collision.c	/^int	check_collision_x(t_player pos, char **mat, ch/
-check_collision_y	movement_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
+check_collision_x	game_management/check_collision.c	/^int	check_collision_x(t_player pos, char **mat, ch/
+check_collision_y	game_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
 check_end	../../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
 check_errors	../../libft/ft_atoi_base.c	/^int	check_errors(char *str, char *base)$/
 check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
@@ -21,6 +21,8 @@ check_textures_and_colors_elements	parsing/check_valid_scene.c	/^bool	check_text
 check_valid_scene	parsing/check_valid_scene.c	/^bool	check_valid_scene(char *scene_file, char **ma/
 closed_walls	parsing/check_map_content.c	/^bool	closed_walls(char c)$/
 convert_rgb_to_hexa	parsing/parsing_utils.c	/^int	convert_rgb_to_hexa(int *color)$/
+destroy	game_management/destroy.c	/^int	destroy(t_all *game_struct)$/
+destroy_images	game_management/destroy.c	/^static void	destroy_images(void *mlx, t_render_dat/
 diffls	../../libft/ft_substr.c	/^static size_t	diffls(char const *s, unsigned int s/
 display_minimap	display_minimap/display_minimap.c	/^void	display_minimap(t_all game_struct)$/
 draw_border	draw_pixels/my_pixel_put.c	/^t_img_data	draw_border(t_img_data img)$/
@@ -38,7 +40,7 @@ fill_str	../../libft/ft_substr.c	/^static char	*fill_str(char *res, char const *
 fill_texture_elements	parsing/get_elements.c	/^void	fill_texture_elements(t_texture_color_data *t/
 free_double_tab	../../libft/free_double_tab.c	/^void	free_double_tab(char **tab)$/
 free_save	../../libft/get_next_line.c	/^char	*free_save(char *save)$/
-free_struc_elements	parsing/free_struc_elements.c	/^void	free_struc_elements(t_texture_color_data text/
+free_struc_elements	free/free_struc_elements.c	/^void	free_struc_elements(t_texture_color_data text/
 ft_atod	../../libft/ft_atod.c	/^double	ft_atod(const char *nptr)$/
 ft_atof	../../libft/ft_atof.c	/^float	ft_atof(const char *nptr)$/
 ft_atoi	../../libft/ft_atoi.c	/^int	ft_atoi(const char *nptr)$/
@@ -112,6 +114,7 @@ ft_strtrim	../../libft/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char cons
 ft_substr	../../libft/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start,/
 ft_tolower	../../libft/ft_tolower.c	/^int	ft_tolower(int c)$/
 ft_toupper	../../libft/ft_toupper.c	/^int	ft_toupper(int c)$/
+game_management	game_management/game_management_bonus.c	/^int	game_management(int keycode, t_all *game_struc/
 get_angle	raycasting/init_data.c	/^static float	get_angle(char c)$/
 get_base_length	../../libft/ft_atoi_base.c	/^int	get_base_length(char *base)$/
 get_camera_and_raydir	raycasting/raycasting_render.c	/^static t_raycast_dir	get_camera_and_raydir(t_rayca/
@@ -124,9 +127,9 @@ get_first_side_dist	raycasting/get_raycast_dist.c	/^static t_raycast_dist	get_fi
 get_map_height	parsing/parsing_utils.c	/^int	get_map_height(int fd)$/
 get_map_width	parsing/parsing_utils.c	/^int	get_map_width(char **mat)$/
 get_nb	../../libft/ft_atoi_base.c	/^int	get_nb(char c, char *base)$/
-get_new_dir_and_plane	movement_management/movement_management.c	/^static t_raycast_dir	get_new_dir_and_plane(t_rayca/
-get_new_x_in_mat	movement_management/check_collision.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
-get_new_y_in_mat	movement_management/check_collision.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
+get_new_dir_and_plane	game_management/movement_management.c	/^static t_raycast_dir	get_new_dir_and_plane(t_rayca/
+get_new_x_in_mat	game_management/check_collision.c	/^static int	get_new_x_in_mat(float pxl_x, float ang/
+get_new_y_in_mat	game_management/check_collision.c	/^static int	get_new_y_in_mat(float pxl_y, float ang/
 get_next_line	../../libft/get_next_line.c	/^char	*get_next_line(int fd, int buffer_size)$/
 get_parsed_mat	parsing/parsing.c	/^static char	**get_parsed_mat(char *scene_file, t_a/
 get_plane	raycasting/init_raycast_dir.c	/^static t_raycast_dir	get_plane(char c)$/
@@ -136,11 +139,11 @@ get_side_dist	raycasting/raycasting_render.c	/^static t_raycast_dist	get_side_di
 get_side_of_wall_hit	display_map/wall_hit.c	/^void	get_side_of_wall_hit(t_render_data *render_da/
 get_texture_coords	display_map/display_map.c	/^int	get_texture_coords(t_render_data render_data, /
 get_triangle_coords	display_minimap/get_triangle_coordinates.c	/^t_triangle	get_triangle_coords(float angle_a)$/
-go_down	movement_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
-go_left	movement_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
-go_left_or_right	movement_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
-go_right	movement_management/move.c	/^static t_player	go_right(t_player pos, char **mat)/
-go_up	movement_management/move.c	/^static t_player	go_up(t_player pos, char **mat)$/
+go_down	game_management/move.c	/^static t_player	go_down(t_player pos, char **mat)$/
+go_left	game_management/move.c	/^static t_player	go_left(t_player pos, char **mat)$/
+go_left_or_right	game_management/movement_management.c	/^static float	go_left_or_right(int keycode, float a/
+go_right	game_management/move.c	/^static t_player	go_right(t_player pos, char **mat)/
+go_up	game_management/move.c	/^static t_player	go_up(t_player pos, char **mat)$/
 init	raycasting/init_data.c	/^static t_player	init(t_player pos, int i, int j, c/
 init	raycasting/init_raycast_dir.c	/^static t_raycast_dir	init(char c)$/
 init_data	raycasting/init_data.c	/^void	init_data(t_all *game_struct)$/
@@ -154,13 +157,12 @@ join_gnl	../../libft/join_gnl.c	/^char	*join_gnl(char *s1, char *s2)$/
 launch_game	main_processes/launch_game.c	/^void	launch_game(t_all *game_struct)$/
 lgstr	../../libft/ft_itoa.c	/^static int	lgstr(int n)$/
 load_textures	main_processes/load_textures.c	/^bool	load_textures(t_texture_color_data texture_co/
-load_textures	main_processes/open_window.c	/^bool	load_textures(t_texture_color_data texture_co/
-move	movement_management/move.c	/^t_player	move(int keycode, t_player pos, char **ma/
-movement_management	movement_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
+move	game_management/move.c	/^t_player	move(int keycode, t_player pos, char **ma/
+movement_management	game_management/movement_management.c	/^int	movement_management(int keycode, t_all *game_s/
 my_pixel_put	draw_pixels/my_pixel_put.c	/^void	my_pixel_put(t_img_data *data, float x, float/
+n_is_zero	../../libft/ft_itoa_base.c	/^char	*n_is_zero(void)$/
 nb_set	../../libft/ft_strtrim.c	/^static int	nb_set(char const *s, char const *set)$/
 nb_str	../../libft/ft_split.c	/^static int	nb_str(char *s, char c)$/
-open_window	main_processes/open_window.c	/^void	*open_window(t_window window, t_texture_color/
 pick_pixel_color	display_minimap/display_minimap.c	/^int	pick_pixel_color(char **mat, int x_pxl, int y_/
 prepare_border_line	parsing/fill_matrix.c	/^char	*prepare_border_line(char **mat, int line_ind/
 print_adress	../../libft/ft_printf_utils.c	/^int	print_adress(va_list param)$/

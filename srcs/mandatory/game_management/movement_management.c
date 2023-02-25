@@ -29,9 +29,7 @@ static t_raycast_dir	get_new_dir_and_plane(t_raycast_dir direction,
 
 int	movement_management(int keycode, t_all *game_struct)
 {
-	if (keycode == XK_Escape)
-		exit_program();
-	else if (keycode == XK_Left || keycode == XK_Right)
+	if (keycode == XK_Left || keycode == XK_Right)
 	{
 		game_struct->player.angle = go_left_or_right(keycode, \
 			game_struct->player.angle);

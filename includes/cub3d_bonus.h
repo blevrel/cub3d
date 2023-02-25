@@ -95,6 +95,6 @@ bool			load_textures(t_texture_color_data texture_color_data,
 					t_render_data *render_data, t_window window);
 void			put_animation_on_texture(float distance, int pxl_horizontal,
 					t_img_data render_img, t_render_data render_data);
-int				exit_program(void);
+int				destroy(t_all *game_struct);
 
 #endif

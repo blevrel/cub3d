@@ -1,10 +1,8 @@
-#include "cub3d_bonus.h"
+#include "cub3d.h"
 
 int	game_management(int keycode, t_all *game_struct)
 {
-	if (keycode == 'e')
-		door_management(game_struct);
-	else if (keycode == XK_Escape)
+	if (keycode == XK_Escape)
 		destroy(game_struct);
 	else
 		movement_management(keycode, game_struct);

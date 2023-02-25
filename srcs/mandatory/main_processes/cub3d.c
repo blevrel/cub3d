@@ -25,9 +25,5 @@ int	main(int argc, char **argv)
 	init_images(&game_struc.render_images, game_struc.window);
 	launch_game(&game_struc);
 	mlx_loop(game_struc.window.mlx);
-	free_double_tab(game_struc.mat);
-	free_struc_elements(game_struc.texture_color_data);
-	mlx_destroy_display(game_struc.window.mlx);
-	free(game_struc.window.mlx);
 	return (0);
 }

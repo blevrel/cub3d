@@ -1,0 +1,31 @@
+#include "cub3d.h"
+
+static void	destroy_images(void *mlx, t_render_data render_data,
+	t_render_images render_images)
+{
+	if (render_data.no_image)
+		mlx_destroy_image(mlx, render_data.no_image);
+	if (render_data.so_image)
+		mlx_destroy_image(mlx, render_data.so_image);
+	if (render_data.we_image)
+		mlx_destroy_image(mlx, render_data.we_image);
+	if (render_data.ea_image)
+		mlx_destroy_image(mlx, render_data.ea_image);
+	if (render_images.minimap_render.img)
+		mlx_destroy_image(mlx, render_images.minimap_render.img);
+	if (render_images.window_render.img)
+		mlx_destroy_image(mlx, render_images.window_render.img);
+}
+
+int	destroy(t_all *game_struct)
+{
+	free_double_tab(game_struct->mat);
+	free_struc_elements(game_struct->texture_color_data);
+	mlx_destroy_window(game_struct->window.mlx, game_struct->window.win_ptr);
+	destroy_images(game_struct->window.mlx, game_struct->render_data,
+		game_struct->render_images);
+	mlx_loop_end(game_struct->window.mlx);
+	mlx_destroy_display(game_struct->window.mlx);
+	free(game_struct->window.mlx);
+	exit(1);
+}
