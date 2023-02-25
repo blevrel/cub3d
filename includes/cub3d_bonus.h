@@ -91,5 +91,7 @@ int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 					t_render_data *render_data, t_window window);
+void			put_animation_on_texture(float distance, int pxl_horizontal,
+					t_img_data render_img, t_render_data render_data);
 
 #endif

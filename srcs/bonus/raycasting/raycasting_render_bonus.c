@@ -74,6 +74,8 @@ void	cast_rays(t_all *game_struct)
 			game_struct->direction);
 		put_vertical_line(perp_wall_dist, ray_index,
 			game_struct->render_images.window_render, game_struct->render_data);
+		put_animation_on_texture(perp_wall_dist, ray_index,
+			game_struct->render_images.window_render, game_struct->render_data);
 		ray_index++;
 	}
 	mlx_put_image_to_window(game_struct->window.mlx,
