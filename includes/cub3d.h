@@ -23,8 +23,8 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 4
-# define ROT_SPEED 4
+# define MOVESPEED 8
+# define ROT_SPEED 10
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
@@ -42,8 +42,6 @@ char			**fill_mat(char *line, int fd, char **mat, t_map_data *map_data);
 bool			check_map_content(char **mat, t_map_data *map_data);
 void			init_struc(t_all *game_struc);
 void			init_images(t_render_images *render_images, t_window window);
-bool			load_textures(t_texture_color_data texture_color_data,
-					t_render_data *render_data, t_window window);
 int				get_map_height(int fd);
 int				get_map_width(char **mat);
 int				init_textures_and_colors(t_texture_color_data *texture_color_data,
@@ -55,7 +53,6 @@ void			fill_texture_elements(t_texture_color_data *texture_color_data,
 int				get_color_elements(t_texture_color_data *texture_color_data,
 					char **line, int trigger);
 int				convert_rgb_to_hexa(int *color);
-void			*open_window(t_window window);
 void			display_minimap(t_all game_struct);
 void			cast_rays(t_all *game_struct);
 t_img_data		draw_vertical_line(t_img_data render_img, t_render_data render_data,
@@ -81,5 +78,7 @@ float			get_ray_hit_coords(t_raycast_dist distance,
 					t_raycast_dir direction);
 int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
+bool			load_textures(t_texture_color_data texture_color_data,
+				t_render_data *render_data, t_window window);
 
 #endif
