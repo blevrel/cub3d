@@ -25,7 +25,8 @@ SRCS  =	srcs/mandatory/main_processes/cub3d.c \
 		srcs/mandatory/raycasting/get_raycast_dist.c	\
 		srcs/mandatory/raycasting/init_data.c	\
 
-SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
+SRCS_BONUS  =	srcs/bonus/animation/put_animation_on_texture_bonus.c \
+				srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/main_processes/launch_game_bonus.c	\
 				srcs/bonus/main_processes/load_textures_bonus.c	\
 				srcs/bonus/draw_pixels/my_pixel_put_bonus.c	\
