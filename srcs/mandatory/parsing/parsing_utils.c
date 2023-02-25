@@ -53,7 +53,7 @@ int	convert_rgb_to_hexa(int *color)
 	char	*nb_b;
 	char	*res_tmp;
 	int		res;
-	
+
 	nb_r = ft_itoa_base(color[0], 16);
 	res_tmp = ft_itoa_base(color[1], 16);
 	nb_b = ft_itoa_base(color[2], 16);

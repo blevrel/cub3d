@@ -1,6 +1,7 @@
 #include "cub3d.h"
 
-int	assign_line_to_elem(t_texture_color_data *texture_color_data, char *line, int *i)
+int	assign_line_to_elem(t_texture_color_data *texture_color_data,
+	char *line, int *i)
 {
 	char	**splitted_line;
 

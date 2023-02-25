@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:33:48 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/25 10:56:24 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/25 13:31:13 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	launch_game(t_all *game_struct)
 	init_data(game_struct);
 	mlx_hook(game_struct->window.win_ptr, KeyPress, KeyPressMask,
 		game_management, game_struct);
+	mlx_hook(game_struct->window.win_ptr, DestroyNotify, StructureNotifyMask,
+		exit_program, NULL);
 	mlx_hook(game_struct->window.win_ptr, MotionNotify, PointerMotionMask,
 		redisplay_map, game_struct);
 	mlx_loop_hook(game_struct->window.mlx, display, game_struct);
