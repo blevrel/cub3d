@@ -32,11 +32,13 @@
 # define MOVESPEED 2
 # define KEY_ROTSPEED 10
 # define MOUSE_ROTSPEED 1
+# define SWITCH_TIME_SPRITE 100
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
+# include <sys/time.h>
 # include "structures_bonus.h"
 # include "mlx.h"
 # include "mlx_int.h"

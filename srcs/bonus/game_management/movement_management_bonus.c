@@ -29,7 +29,5 @@ int	movement_management(int keycode, t_all *game_struct)
 	else if (keycode == 'w' || keycode == 's'
 		|| keycode == 'a' || keycode == 'd')
 		game_struct->player = move(keycode, game_struct->player, game_struct->mat);
-	else if (keycode == XK_Escape)
-		exit_program();
 	return (0);
 }

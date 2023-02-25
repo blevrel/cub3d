@@ -1,10 +1,40 @@
 #include "cub3d_bonus.h"
 
+static int	get_index_sprite(void)
+{
+	static int		current_sprite_index = 1;
+	static long int	last_sprite_switch_time = 0;
+	struct timeval	current_time;
+	long int		time;
+	
+	gettimeofday(&current_time, NULL);
+	time = current_time.tv_usec / 1000 + current_time.tv_sec * 1000;
+	if (time - last_sprite_switch_time > SWITCH_TIME_SPRITE)
+	{
+		last_sprite_switch_time = time;
+		current_sprite_index = (current_sprite_index + 1) % 7;
+	}
+	return (current_sprite_index);
+}
+
 static void	*select_sprite(t_render_data render_data)
 {
-	//renvoyer la texture correspondant a la frame que nous devons afficher
-	//selon ce que jordan a fait
-	return (render_data.s_six_image);
+	int	current_sprite_index;
+
+	current_sprite_index = get_index_sprite();
+	if (current_sprite_index == 1)
+		return (render_data.s_one_image);
+	else if (current_sprite_index == 2)
+		return (render_data.s_two_image);
+	else if (current_sprite_index == 3)
+		return (render_data.s_three_image);
+	else if (current_sprite_index == 4)
+		return (render_data.s_four_image);
+	else if (current_sprite_index == 5)
+		return (render_data.s_five_image);
+	else if (current_sprite_index == 6)
+		return (render_data.s_six_image);
+	return (render_data.s_seven_image);
 }
 
 static int	get_texture_color(t_render_data render_data, int y, int x)
