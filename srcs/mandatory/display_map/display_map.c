@@ -68,13 +68,13 @@ static double	get_ratio(t_render_data render_data, int wall_height)
 	int	width;
 
 	if (render_data.wall_side == NORTH)
-		width = render_data.no_tex.height;
+		width = render_data.no_tex.width;
 	if (render_data.wall_side == SOUTH)
-		width = render_data.so_tex.height;
+		width = render_data.so_tex.width;
 	if (render_data.wall_side == WEST)
-		width = render_data.we_tex.height;
+		width = render_data.we_tex.width;
 	if (render_data.wall_side == EAST)
-		width = render_data.ea_tex.height;
+		width = render_data.ea_tex.width;
 	return ((double)width / (double)wall_height);
 }
 
