@@ -6,7 +6,7 @@
 /*   By: jsauvain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/28 12:14:15 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/23 15:58:30 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:46:52 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,45 @@ typedef struct s_texture_color_data
 	int		f_color[3];
 }				t_texture_color_data;
 
-typedef struct s_render_data
+typedef struct s_no_tex
 {
-	int		wall_side;
-	float	ray_hit_x;
-	int		tex_x;
 	void	*no_image;
+	int		width;
+	int		height;
+}				t_no_tex;
+
+typedef struct s_so_tex
+{
 	void	*so_image;
-	void	*we_image;
+	int		width;
+	int		height;
+}				t_so_tex;
+
+typedef struct s_ea_tex
+{
 	void	*ea_image;
 	int		width;
 	int		height;
-	int		c_color;
-	int		f_color;
+}				t_ea_tex;
+
+typedef struct s_we_tex
+{
+	void	*we_image;
+	int		width;
+	int		height;
+}				t_we_tex;
+
+typedef struct s_render_data
+{
+	int			wall_side;
+	float		ray_hit_x;
+	int			tex_x;
+	t_no_tex	no_tex;
+	t_so_tex	so_tex;
+	t_we_tex	we_tex;
+	t_ea_tex	ea_tex;
+	int			c_color;
+	int			f_color;
 }				t_render_data;
 
 typedef struct s_window

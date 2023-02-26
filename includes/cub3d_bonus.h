@@ -26,8 +26,8 @@
 # define FLOOR_COLOR 0xfff4e6
 # define C_DOOR_COLOR 0x011f4b
 # define O_DOOR_COLOR 0x005b96
-# define SPRITE_HEIGHT 700
-# define SPRITE_WIDTH 700
+# define SPRITE_HEIGHT 256
+# define SPRITE_WIDTH 256
 # define PLAYER_COLOR 0xbe9b7b
 # define MOVESPEED 2
 # define KEY_ROTSPEED 10
@@ -96,5 +96,7 @@ bool			load_textures(t_texture_color_data texture_color_data,
 void			put_animation_on_texture(float distance, int pxl_horizontal,
 					t_img_data render_img, t_render_data render_data);
 int				destroy(t_all *game_struct);
+int				destroy_tex_not_found(t_all *game_struct);
+
 
 #endif

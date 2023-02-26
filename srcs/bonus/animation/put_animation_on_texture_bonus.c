@@ -47,7 +47,7 @@ static int	get_texture_color(t_render_data render_data, int y, int x)
 	image.img = select_sprite(render_data);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel,
 			&image.line_length, &image.endian);
-	i = ((x * render_data.width) + y) * 4;
+	i = ((x * SPRITE_WIDTH) + y) * 4;
 	color = color | (unsigned char)(image.addr[i + 2]);
 	color = color << 8;
 	color = color | (unsigned char)(image.addr[i + 1]);
@@ -66,7 +66,7 @@ t_img_data render_img, t_render_data render_data)
 	double	ratio;
 
 	wall_height = WIN_HEIGHT / distance;
-	ratio = (double)render_data.width / (double)wall_height;
+	ratio = (double)SPRITE_WIDTH / (double)wall_height;
 	pxl_sky_and_floor = (WIN_HEIGHT - wall_height) / 2;
 	pxl_vertical = 0;
 	while (pxl_vertical < WIN_HEIGHT)

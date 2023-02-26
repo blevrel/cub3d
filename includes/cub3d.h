@@ -82,5 +82,6 @@ bool			load_textures(t_texture_color_data texture_color_data,
 				t_render_data *render_data, t_window window);
 void			free_struc_elements(t_texture_color_data texture_color_data);
 int				destroy(t_all *game_struct);
+int				destroy_tex_not_found(t_all *game_struct);
 
 #endif
