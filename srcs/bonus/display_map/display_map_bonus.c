@@ -23,13 +23,14 @@ static int	get_texture_color(t_render_data render_data, int y, int x)
 	int			width;
 
 	color = 0;
-	if (render_data.wall_side == NORTH)
-		width = render_data.no_tex.width;
-	if (render_data.wall_side == SOUTH)
+	width = render_data.no_tex.width;
+	if (render_data.door_wall == 1)
+		width = render_data.door_width;
+	else if (render_data.wall_side == SOUTH)
 		width = render_data.so_tex.width;
-	if (render_data.wall_side == WEST)
+	else if (render_data.wall_side == WEST)
 		width = render_data.we_tex.width;
-	if (render_data.wall_side == EAST)
+	else if (render_data.wall_side == EAST)
 		width = render_data.ea_tex.width;
 	image.img = select_texture(render_data);
 	image.addr = mlx_get_data_addr(image.img, &image.bits_per_pixel,
@@ -48,14 +49,16 @@ int	get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 {
 	int	tex_x;
 	int	width;
-
-	if (render_data.wall_side == NORTH)
+	
+	if (render_data.door_wall == 1)
+		width = render_data.door_width;
+	else if (render_data.wall_side == NORTH)
 		width = render_data.no_tex.height;
-	if (render_data.wall_side == SOUTH)
+	else if (render_data.wall_side == SOUTH)
 		width = render_data.so_tex.height;
-	if (render_data.wall_side == WEST)
+	else if (render_data.wall_side == WEST)
 		width = render_data.we_tex.height;
-	if (render_data.wall_side == EAST)
+	else
 		width = render_data.ea_tex.height;
 	tex_x = render_data.ray_hit_x * (float)width;
 	if (distance.side == 0 && direction.raydir_x > 0)
@@ -69,14 +72,16 @@ static double	get_ratio(t_render_data render_data, int wall_height)
 {
 	int	width;
 
-	if (render_data.wall_side == NORTH)
-		width = render_data.no_tex.height;
-	if (render_data.wall_side == SOUTH)
-		width = render_data.so_tex.height;
-	if (render_data.wall_side == WEST)
-		width = render_data.we_tex.height;
-	if (render_data.wall_side == EAST)
-		width = render_data.ea_tex.height;
+	if (render_data.door_wall == 1)
+		width = render_data.door_width;
+	else if (render_data.wall_side == NORTH)
+		width = render_data.no_tex.width;
+	else if (render_data.wall_side == SOUTH)
+		width = render_data.so_tex.width;
+	else if (render_data.wall_side == WEST)
+		width = render_data.we_tex.width;
+	else
+		width = render_data.ea_tex.width;
 	return ((double)width / (double)wall_height);
 }
 
