@@ -1,36 +1,44 @@
 #include "cub3d_bonus.h"
 
+static bool	check_images_status(t_render_data *render_data)
+{
+	if (!render_data->s_one_image)
+		return (false);
+	else if (!render_data->s_two_image)
+		return (false);
+	else if (!render_data->s_three_image)
+		return (false);
+	else if (!render_data->s_four_image)
+		return (false);
+	else if (!render_data->s_five_image)
+		return (false);
+	else if (!render_data->s_six_image)
+		return (false);
+	else if (!render_data->s_seven_image)
+		return (false);
+	return (true);
+}
+
 static bool	load_sprites(t_texture_color_data texture_color_data,
 			t_render_data *render_data, t_window window)
 {
 	int	x;
 
 	render_data->s_one_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_one_sprite, &x,
-			&x);
+			texture_color_data.s_one_sprite, &x, &x);
 	render_data->s_two_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_two_sprite, &x,
-			&x);
+			texture_color_data.s_two_sprite, &x, &x);
 	render_data->s_three_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_three_sprite, &x,
-			&x);
+			texture_color_data.s_three_sprite, &x, &x);
 	render_data->s_four_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_four_sprite, &x,
-			&x);
+			texture_color_data.s_four_sprite, &x, &x);
 	render_data->s_five_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_four_sprite, &x,
-			&x);
+			texture_color_data.s_four_sprite, &x, &x);
 	render_data->s_six_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_six_sprite, &x,
-			&x);
+			texture_color_data.s_six_sprite, &x, &x);
 	render_data->s_seven_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_seven_sprite, &x,
-			&x);
-
-	if (!render_data->s_one_image || !render_data->s_two_image
-		|| !render_data->s_three_image || !render_data->s_four_image
-		|| !render_data->s_five_image || !render_data->s_six_image
-		|| !render_data->s_seven_image)
+			texture_color_data.s_seven_sprite, &x, &x);
+	if (check_images_status(render_data) == false)
 		return (false);
 	return (true);
 }

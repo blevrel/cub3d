@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 10:33:48 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/25 18:15:33 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:27:03 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	redisplay_map(int x, int y, t_all *game_struct)
 		if (game_struct->player.angle < 0)
 			game_struct->player.angle += 2 * M_PI;
 		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
-			game_struct->player.angle);
+				game_struct->player.angle);
 		mlx_mouse_move(game_struct->window.mlx, game_struct->window.win_ptr,
 			WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	}
@@ -31,7 +31,7 @@ static int	redisplay_map(int x, int y, t_all *game_struct)
 		if (game_struct->player.angle > 2 * M_PI)
 			game_struct->player.angle -= 2 * M_PI;
 		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
-			game_struct->player.angle);
+				game_struct->player.angle);
 		mlx_mouse_move(game_struct->window.mlx, game_struct->window.win_ptr,
 			WIN_WIDTH / 2, WIN_HEIGHT / 2);
 	}

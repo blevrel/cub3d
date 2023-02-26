@@ -52,26 +52,25 @@ void	put_vertical_line(float distance, int pxl_horizontal,
 {
 	int		wall_height;
 	int		pxl_vertical;
-	int		pxl_sky_and_floor;
 	int		color;
 	double	ratio;
 
 	wall_height = WIN_HEIGHT / distance;
 	ratio = (double)render_data.width / (double)wall_height;
-	pxl_sky_and_floor = (WIN_HEIGHT - wall_height) / 2;
 	pxl_vertical = 0;
 	while (pxl_vertical < WIN_HEIGHT)
 	{
-		if (pxl_vertical <= pxl_sky_and_floor)
+		if (pxl_vertical <= (WIN_HEIGHT - wall_height) / 2)
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical,
-			render_data.c_color);
-		else if (pxl_vertical >= pxl_sky_and_floor + wall_height)
+				render_data.c_color);
+		else if (pxl_vertical >= WIN_HEIGHT / 2 + wall_height / 2)
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical,
-			render_data.f_color);
+				render_data.f_color);
 		else
 		{
 			color = get_texture_color(render_data,
-				(pxl_vertical - pxl_sky_and_floor) * ratio, render_data.tex_x);
+					(pxl_vertical - (WIN_HEIGHT - wall_height) / 2)
+					* ratio, render_data.tex_x);
 			my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, color);
 		}
 		pxl_vertical++;

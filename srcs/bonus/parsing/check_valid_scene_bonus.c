@@ -14,7 +14,8 @@ bool	check_file_name(char *scene_file)
 	return (true);
 }
 
-bool	check_textures_and_colors_elements(t_texture_color_data texture_color_data)
+bool	check_textures_and_colors_elements(t_texture_color_data \
+	texture_color_data)
 {
 	int	i;
 

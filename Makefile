@@ -31,7 +31,6 @@ SRCS_BONUS  =	srcs/bonus/animation/put_animation_on_texture_bonus.c \
 				srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/main_processes/launch_game_bonus.c	\
 				srcs/bonus/main_processes/load_textures_bonus.c	\
-				srcs/bonus/main_processes/exit_program_bonus.c	\
 				srcs/bonus/draw_pixels/my_pixel_put_bonus.c	\
 				srcs/bonus/display_map/display_map_bonus.c	\
 				srcs/bonus/display_map/wall_hit_bonus.c	\

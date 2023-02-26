@@ -38,24 +38,26 @@ t_img_data	put_minimap_pixel(t_img_data img, int color)
 	return (img);
 }
 
-t_img_data	draw_player(t_img_data img, t_triangle triangle)
+t_img_data	draw_player(t_img_data img, t_triangle tri)
 {
 	int	x;
 	int	y;
 	int	max_x;
 	int	max_y;
 
-	max_x = ft_max(triangle.x_a, ft_max(triangle.x_b, triangle.x_c));
-	max_y = ft_max(triangle.y_a, ft_max(triangle.y_b, triangle.y_c));
-	x = ft_min(triangle.x_a, ft_min(triangle.x_b, triangle.x_c));
+	max_x = ft_max(tri.x_a, ft_max(tri.x_b, tri.x_c));
+	max_y = ft_max(tri.y_a, ft_max(tri.y_b, tri.y_c));
+	x = ft_min(tri.x_a, ft_min(tri.x_b, tri.x_c));
 	while (x <= max_x)
 	{
-		y = ft_min(triangle.y_a, ft_min(triangle.y_b, triangle.y_c));
+		y = ft_min(tri.y_a, ft_min(tri.y_b, tri.y_c));
 		while (y <= max_y)
 		{
-			if ((triangle.y_b - triangle.y_c) * x + (triangle.x_c - triangle.x_b) * y + triangle.x_b * triangle.y_c - triangle.x_c * triangle.y_b >= 0
-				&& (triangle.y_c - triangle.y_a) * x + (triangle.x_a - triangle.x_c) * y + triangle.x_c * triangle.y_a - triangle.x_a * triangle.y_c >= 0
-				&& (triangle.y_a - triangle.y_b) * x + (triangle.x_b - triangle.x_a) * y + triangle.x_a * triangle.y_b - triangle.x_b * triangle.y_a >= 0)
+			if ((tri.y_b - tri.y_c) * x + (tri.x_c - tri.x_b) * y + tri.x_b
+				* tri.y_c - tri.x_c * tri.y_b >= 0 && (tri.y_c - tri.y_a)
+				* x + (tri.x_a - tri.x_c) * y + tri.x_c * tri.y_a - tri.x_a
+				* tri.y_c >= 0 && (tri.y_a - tri.y_b) * x + (tri.x_b - tri.x_a)
+				* y + tri.x_a * tri.y_b - tri.x_b * tri.y_a >= 0)
 				my_pixel_put(&img, x, y, PLAYER_COLOR);
 			y++;
 		}
@@ -100,6 +102,6 @@ void	display_minimap(t_all game_struct)
 		game_struct.mat, game_struct.player, game_struct.map_data);
 	draw_player(game_struct.render_images.minimap_render, player_triangle);
 	mlx_put_image_to_window(game_struct.window.mlx,
-		game_struct.window.win_ptr, game_struct.render_images.minimap_render.img,
-		MINI_POS, MINI_POS);
+		game_struct.window.win_ptr,
+		game_struct.render_images.minimap_render.img, MINI_POS, MINI_POS);
 }
