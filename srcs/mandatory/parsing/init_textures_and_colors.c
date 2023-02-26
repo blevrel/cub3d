@@ -94,7 +94,7 @@ int	init_textures_and_colors(t_texture_color_data *texture_color_data,
 				, &i) == -1)
 		{
 			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
-			return (-1);
+			return (-2);
 		}
 	}
 	return (fd);

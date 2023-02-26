@@ -35,9 +35,10 @@ char	**start_parsing(char *scene_file, t_all *game_struc)
 
 	i = 0;
 	fd = init_textures_and_colors(&game_struc->texture_color_data, scene_file);
-	if (fd == -1)
+	if (fd == -1 || fd == -2)
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mOpen failed\e[0m\n");
+		if (fd == -1)
+			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mOpen failed\e[0m\n");
 		free_struc_elements(game_struc->texture_color_data);
 		return (NULL);
 	}
