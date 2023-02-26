@@ -90,7 +90,6 @@ void	put_vertical_line(float distance, int pxl_horizontal,
 
 	wall_height = WIN_HEIGHT / distance;
 	ratio = get_ratio(render_data, wall_height);
-	pxl_sky_and_floor = (WIN_HEIGHT - wall_height) / 2;
 	pxl_vertical = 0;
 	while (pxl_vertical < WIN_HEIGHT)
 	{
