@@ -6,7 +6,7 @@ static int	get_index_sprite(void)
 	static long int	last_sprite_switch_time = 0;
 	struct timeval	current_time;
 	long int		time;
-	
+
 	gettimeofday(&current_time, NULL);
 	time = current_time.tv_usec / 1000 + current_time.tv_sec * 1000;
 	if (time - last_sprite_switch_time > SWITCH_TIME_SPRITE)
@@ -75,7 +75,8 @@ t_img_data render_img, t_render_data render_data)
 			< pxl_sky_and_floor + wall_height)
 		{
 			color = get_texture_color(render_data,
-				(pxl_vertical - pxl_sky_and_floor) * ratio, render_data.tex_x);
+					(pxl_vertical - pxl_sky_and_floor)
+					* ratio, render_data.tex_x);
 			if (color != 0x000000)
 				my_pixel_put(&render_img, pxl_horizontal, pxl_vertical, color);
 		}

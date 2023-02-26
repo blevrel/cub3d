@@ -26,18 +26,18 @@ void	init_struc(t_all *game_struc)
 
 void	init_images(t_render_images *render_images, t_window window)
 {
-	render_images->minimap_render.img =
-		mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
-	render_images->minimap_render.addr =
-		mlx_get_data_addr(render_images->minimap_render.img,
-		&render_images->minimap_render.bits_per_pixel,
-		&render_images->minimap_render.line_length,
-		&render_images->minimap_render.endian);
-	render_images->window_render.img =
-		mlx_new_image(window.mlx, WIN_WIDTH, WIN_HEIGHT);
-	render_images->window_render.addr =
-		mlx_get_data_addr(render_images->window_render.img,
-		&render_images->window_render.bits_per_pixel,
-		&render_images->window_render.line_length,
-		&render_images->window_render.endian);
+	render_images->minimap_render.img
+		= mlx_new_image(window.mlx, MINI_WIDTH + 1, MINI_HEIGHT + 1);
+	render_images->minimap_render.addr
+		= mlx_get_data_addr(render_images->minimap_render.img,
+			&render_images->minimap_render.bits_per_pixel,
+			&render_images->minimap_render.line_length,
+			&render_images->minimap_render.endian);
+	render_images->window_render.img
+		= mlx_new_image(window.mlx, WIN_WIDTH, WIN_HEIGHT);
+	render_images->window_render.addr
+		= mlx_get_data_addr(render_images->window_render.img,
+			&render_images->window_render.bits_per_pixel,
+			&render_images->window_render.line_length,
+			&render_images->window_render.endian);
 }

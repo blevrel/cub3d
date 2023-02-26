@@ -48,6 +48,6 @@ static t_player	init_player_position(t_player player, char **mat)
 void	init_data(t_all *game_struct)
 {
 	game_struct->player = init_player_position(game_struct->player,
-		game_struct->mat);
+			game_struct->mat);
 	game_struct->direction = init_raycast_dir(game_struct);
 }
