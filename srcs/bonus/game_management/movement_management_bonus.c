@@ -21,15 +21,14 @@ int	movement_management(int keycode, t_all *game_struct)
 {
 	if (keycode == XK_Left || keycode == XK_Right)
 	{
-		game_struct->player.angle = go_left_or_right(keycode, \
-			game_struct->player.angle);
+		game_struct->player.angle = go_left_or_right(keycode,
+				game_struct->player.angle);
 		game_struct->direction = get_new_dir_and_plane(game_struct->direction,
-			game_struct->player.angle);
+				game_struct->player.angle);
 	}
 	else if (keycode == 'w' || keycode == 's'
 		|| keycode == 'a' || keycode == 'd')
-		game_struct->player = move(keycode, game_struct->player, game_struct->mat);
-	else if (keycode == XK_Escape)
-		exit(1);//faire un fonction destroy avec free et destroy_images
+		game_struct->player = move(keycode, game_struct->player,
+				game_struct->mat);
 	return (0);
 }

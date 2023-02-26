@@ -52,7 +52,7 @@ bool	check_map_content(char **mat, t_map_data *map_data)
 
 	i = 1;
 	value = true;
-	while (i < map_data->map_height && value != false)
+	while (i - 1 < map_data->map_height && value != false)
 	{
 		j = 1;
 		while (j < map_data->map_width && value != false)

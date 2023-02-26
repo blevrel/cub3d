@@ -41,10 +41,10 @@ int	door_management(t_all *game_struct)
 		&& game_struct->player.angle < 7 * M_PI / 4)
 		y = game_struct->player.pxl_y / SQ_SIZE + 1;
 	else if (game_struct->player.angle > 7 * M_PI / 4
-		|| game_struct->player.angle <  M_PI / 4)
+		|| game_struct->player.angle < M_PI / 4)
 		x = game_struct->player.pxl_x / SQ_SIZE + 1;
 	if (x || y)
 		game_struct->mat = update_mat(game_struct->mat, x, y,
-			game_struct->player);
+				game_struct->player);
 	return (0);
 }

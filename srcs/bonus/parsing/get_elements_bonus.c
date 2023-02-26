@@ -21,7 +21,8 @@ int	fill_color_elements(char **col_value,
 	return (0);
 }
 
-int	get_color_elements(t_texture_color_data *texture_color_data, char **line, int trigger)
+int	get_color_elements(t_texture_color_data *texture_color_data,
+	char **line, int trigger)
 {
 	char	**color_value;
 
@@ -55,4 +56,20 @@ void	fill_texture_elements(t_texture_color_data *texture_color_data,
 		texture_color_data->we_texture = ft_strdup(line[1]);
 	if (ft_strcmp(line[0], "EA") == 0)
 		texture_color_data->ea_texture = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S1") == 0)
+		texture_color_data->s_one_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S2") == 0)
+		texture_color_data->s_two_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S3") == 0)
+		texture_color_data->s_three_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S4") == 0)
+		texture_color_data->s_four_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S5") == 0)
+		texture_color_data->s_five_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S6") == 0)
+		texture_color_data->s_six_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "S7") == 0)
+		texture_color_data->s_seven_sprite = ft_strdup(line[1]);
+	if (ft_strcmp(line[0], "DOOR") == 0)
+		texture_color_data->door_texture = ft_strdup(line[1]);
 }

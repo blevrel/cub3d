@@ -21,7 +21,8 @@ int	fill_color_elements(char **col_value,
 	return (0);
 }
 
-int	get_color_elements(t_texture_color_data *texture_color_data, char **line, int trigger)
+int	get_color_elements(t_texture_color_data *texture_color_data,
+	char **line, int trigger)
 {
 	char	**color_value;
 

@@ -14,18 +14,21 @@ SRCS  =	srcs/mandatory/main_processes/cub3d.c \
 		srcs/mandatory/parsing/init_struc.c \
 		srcs/mandatory/parsing/parsing_utils.c \
 		srcs/mandatory/parsing/init_textures_and_colors.c \
-		srcs/mandatory/parsing/free_struc_elements.c	\
 		srcs/mandatory/parsing/get_elements.c	\
 		srcs/mandatory/parsing/parsing.c	\
-		srcs/mandatory/movement_management/move.c	\
-		srcs/mandatory/movement_management/movement_management.c	\
-		srcs/mandatory/movement_management/check_collision.c	\
+		srcs/mandatory/game_management/move.c	\
+		srcs/mandatory/game_management/movement_management.c	\
+		srcs/mandatory/game_management/game_management.c	\
+		srcs/mandatory/game_management/destroy.c	\
+		srcs/mandatory/game_management/check_collision.c	\
 		srcs/mandatory/raycasting/raycasting_render.c	\
 		srcs/mandatory/raycasting/init_raycast_dir.c	\
 		srcs/mandatory/raycasting/get_raycast_dist.c	\
 		srcs/mandatory/raycasting/init_data.c	\
+		srcs/mandatory/free/free_struc_elements.c	\
 
-SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
+SRCS_BONUS  =	srcs/bonus/animation/put_animation_on_texture_bonus.c \
+				srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/main_processes/launch_game_bonus.c	\
 				srcs/bonus/main_processes/load_textures_bonus.c	\
 				srcs/bonus/draw_pixels/my_pixel_put_bonus.c	\
@@ -39,7 +42,7 @@ SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/parsing/init_struc_bonus.c \
 				srcs/bonus/parsing/parsing_utils_bonus.c \
 				srcs/bonus/parsing/init_textures_and_colors_bonus.c \
-				srcs/bonus/parsing/free_struc_elements_bonus.c	\
+				srcs/bonus/free/free_struc_elements_bonus.c	\
 				srcs/bonus/parsing/get_elements_bonus.c	\
 				srcs/bonus/parsing/parsing_bonus.c	\
 				srcs/bonus/game_management/game_management_bonus.c	\
@@ -48,6 +51,7 @@ SRCS_BONUS  =	srcs/bonus/main_processes/cub3d_bonus.c \
 				srcs/bonus/game_management/check_collision_bonus.c	\
 				srcs/bonus/game_management/door_management_bonus.c	\
 				srcs/bonus/game_management/get_new_dir_and_plane_bonus.c	\
+				srcs/bonus/game_management/destroy_bonus.c	\
 				srcs/bonus/raycasting/raycasting_render_bonus.c	\
 				srcs/bonus/raycasting/init_raycast_dir_bonus.c	\
 				srcs/bonus/raycasting/get_raycast_dist_bonus.c	\

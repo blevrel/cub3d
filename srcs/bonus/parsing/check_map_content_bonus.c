@@ -62,7 +62,7 @@ bool	check_map_content(char **mat, t_map_data *map_data)
 			c = char_is_valid(mat[i][j]);
 			if (c == PLAYER)
 				map_data->nb_players++;
-			if (c == FLOOR || c == PLAYER)
+			if (c == FLOOR || c == PLAYER || c == DOOR)
 				value = check_around(mat, i, j);
 			if (c == 0)
 				return (false);

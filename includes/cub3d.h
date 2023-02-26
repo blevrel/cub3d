@@ -47,7 +47,6 @@ int				get_map_width(char **mat);
 int				init_textures_and_colors(t_texture_color_data *texture_color_data,
 					char *scene_file);
 int				skip_textures_and_colors(char *scene_file);
-void			free_struc_elements(t_texture_color_data texture_color_data);
 void			fill_texture_elements(t_texture_color_data *texture_color_data,
 					char **line);
 int				get_color_elements(t_texture_color_data *texture_color_data,
@@ -62,6 +61,7 @@ t_img_data		draw_border(t_img_data img_data);
 t_triangle		get_triangle_coords(float angle);
 void			launch_game(t_all *game_struct);
 int				movement_management(int keycode, t_all *game_struct);
+int				game_management(int keycode, t_all *game_struct);
 t_player		move(int keycode, t_player pos, char **mat);
 int				check_collision_x(t_player pos, char **mat, char *oper);
 int				check_collision_y(t_player pos, char **mat, char *oper);
@@ -80,5 +80,8 @@ int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 				t_render_data *render_data, t_window window);
+void			free_struc_elements(t_texture_color_data texture_color_data);
+int				destroy(t_all *game_struct);
+int				destroy_tex_not_found(t_all *game_struct);
 
 #endif

@@ -14,28 +14,28 @@ bool	check_file_name(char *scene_file)
 	return (true);
 }
 
-bool	check_textures_and_colors_elements(t_texture_color_data texture_color_data)
+bool	check_textures_and_colors_elements(t_texture_color_data tex_color_data)
 {
 	int	i;
 
 	i = 0;
-	if (!texture_color_data.no_texture)
+	if (!tex_color_data.no_texture)
 		return (false);
-	if (!texture_color_data.so_texture)
+	if (!tex_color_data.so_texture)
 		return (false);
-	if (!texture_color_data.we_texture)
+	if (!tex_color_data.we_texture)
 		return (false);
-	if (!texture_color_data.ea_texture)
+	if (!tex_color_data.ea_texture)
 		return (false);
 	while (i < 3)
 	{
-		if (texture_color_data.c_color[i] == -1)
+		if (tex_color_data.c_color[i] == -1)
 			return (false);
 		i++;
 	}
 	while (i < 3)
 	{
-		if (texture_color_data.f_color[i] == -1)
+		if (tex_color_data.f_color[i] == -1)
 			return (false);
 		i++;
 	}

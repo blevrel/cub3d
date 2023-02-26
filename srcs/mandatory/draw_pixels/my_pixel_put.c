@@ -4,7 +4,8 @@ void	my_pixel_put(t_img_data *data, float x, float y, int color)
 {
 	char	*dst;
 
-	dst = data->addr + ((int)y * data->line_length + (int)x * (data->bits_per_pixel / 8));
+	dst = data->addr + ((int)y * data->line_length + (int)x
+			* (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
 

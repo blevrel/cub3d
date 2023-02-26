@@ -21,18 +21,25 @@
 # define MINI_PLAYER_SIZE 11
 # define MINI_VISION 3
 # define BORDER_COLOR 0x854442
+# define VOID_COLOR 0x800000
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
+# define C_DOOR_COLOR 0x011f4b
+# define O_DOOR_COLOR 0x005b96
+# define SPRITE_HEIGHT 256
+# define SPRITE_WIDTH 256
 # define PLAYER_COLOR 0xbe9b7b
 # define MOVESPEED 2
 # define KEY_ROTSPEED 10
 # define MOUSE_ROTSPEED 1
+# define SWITCH_TIME_SPRITE 100
 # include <stdio.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <fcntl.h>
 # include <math.h>
-# include "structures.h"
+# include <sys/time.h>
+# include "structures_bonus.h"
 # include "mlx.h"
 # include "mlx_int.h"
 # include "libft.h"
@@ -86,5 +93,10 @@ int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 					t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 					t_render_data *render_data, t_window window);
+void			put_animation_on_texture(float distance, int pxl_horizontal,
+					t_img_data render_img, t_render_data render_data);
+int				destroy(t_all *game_struct);
+int				destroy_tex_not_found(t_all *game_struct);
+
 
 #endif
