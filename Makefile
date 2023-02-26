@@ -71,7 +71,23 @@ HEAD  =	-I mlx_linux -I libft -I includes
 
 RM	  =	rm -f
 
+ifdef	BONUS
+				SRCS = 
+				SRCS += $(SRCS_BONUS)
+endif
+
+.c.o:
+			$(CC) $(CFLAGS) $(HEAD) -c  $< -o $(<:.c=.o)
+
 all: ${NAME}
+
+${NAME}: ${OBJS}
+	make -C libft
+	make -C mlx_linux
+	${CC} ${CFLAGS} ${OBJS} ${HEAD} ${LIB} -o ${NAME}
+
+bonus: ${OBJS_BONUS}
+	@make BONUS=1
 
 clean:
 	make clean -C libft
@@ -83,18 +99,5 @@ fclean: clean
 	${RM} ${NAME}
 
 re: fclean all
-
-.c.o:
-			$(CC) $(CFLAGS) $(HEAD) -c  $< -o $(<:.c=.o)
-
-${NAME}: ${OBJS}
-	make -C libft
-	make -C mlx_linux
-	${CC} ${CFLAGS} ${OBJS} ${HEAD} ${LIB} -o ${NAME}
-
-bonus: ${OBJS_BONUS}
-	make -C libft
-	make -C mlx_linux
-	${CC} ${CFLAGS} ${OBJS_BONUS} ${HEAD} ${LIB} -o ${NAME}
 
 .PHONY: all re clean fclean bonus
