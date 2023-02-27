@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:03:31 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 16:03:34 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:15:58 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -23,7 +23,6 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
-# define WALL_SIZE 250 
 # define PLANE 0.66
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
@@ -34,7 +33,7 @@
 # define WALL_COLOR 0x4b3832
 # define FLOOR_COLOR 0xfff4e6
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 8
+# define MOVESPEED 3
 # define ROT_SPEED 10
 # include <stdio.h>
 # include <stdlib.h>

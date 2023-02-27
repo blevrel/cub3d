@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:03:37 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 16:03:40 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/27 16:17:34 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_BONUS_H
@@ -24,7 +24,6 @@
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32
-# define WALL_SIZE 250 
 # define PLANE 0.66
 # define MINI_WIDTH 193
 # define MINI_HEIGHT 193
@@ -40,7 +39,7 @@
 # define SPRITE_HEIGHT 256
 # define SPRITE_WIDTH 256
 # define PLAYER_COLOR 0xbe9b7b
-# define MOVESPEED 2
+# define MOVESPEED 3
 # define KEY_ROTSPEED 10
 # define MOUSE_ROTSPEED 1
 # define SWITCH_TIME_SPRITE 100
