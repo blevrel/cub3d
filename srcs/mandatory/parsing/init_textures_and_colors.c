@@ -1,6 +1,6 @@
 #include "cub3d.h"
 
-static int	check_file_extension(char **textures)
+static int	check_ext(char **textures)
 {
 	char	**splitted_textures;
 	int		len_textures;
@@ -31,8 +31,7 @@ int	assign_line_to_elem(t_texture_color_data *texture_color_data,
 		return (-1);
 	splitted_line = ft_split(line, ' ');
 	free(line);
-	if (ft_strlen_double_tab(splitted_line) != 2
-		|| check_file_extension(splitted_line))
+	if (ft_strlen_double_tab(splitted_line) != 2 || check_ext(splitted_line))
 	{
 		free_double_tab(splitted_line);
 		return (-1);
