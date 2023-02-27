@@ -33,7 +33,7 @@ static bool	load_sprites(t_texture_color_data texture_color_data,
 	render_data->s_four_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.s_four_sprite, &x, &x);
 	render_data->s_five_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.s_four_sprite, &x, &x);
+			texture_color_data.s_five_sprite, &x, &x);
 	render_data->s_six_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.s_six_sprite, &x, &x);
 	render_data->s_seven_image = mlx_xpm_file_to_image(window.mlx,
@@ -66,7 +66,7 @@ bool	load_textures(t_texture_color_data texture_color_data,
 		|| !render_data->we_tex.we_image ||!render_data->ea_tex.ea_image
 		|| !render_data->door_image)
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mTexture not found\e[0m\n");
+		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (false);
 	}
 	return (true);
