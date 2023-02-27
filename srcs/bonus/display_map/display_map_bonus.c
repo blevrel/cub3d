@@ -49,7 +49,7 @@ int	get_texture_coords(t_render_data render_data, t_raycast_dist distance,
 {
 	int	tex_x;
 	int	width;
-	
+
 	if (render_data.door_wall == 1)
 		width = render_data.door_width;
 	else if (render_data.wall_side == NORTH)
