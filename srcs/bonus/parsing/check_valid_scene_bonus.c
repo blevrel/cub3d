@@ -6,12 +6,7 @@ bool	check_file_name(char *scene_file, char *extension)
 
 	j = ft_strlen(scene_file) - 4;
 	if (ft_strcmp(&scene_file[j], extension) != 0)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n");
-		ft_print_error("\e[95mFile must have the '%s' extension\e[0m\n",
-			extension);
 		return (false);
-	}
 	return (true);
 }
 
@@ -49,16 +44,10 @@ bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc)
 	if (!check_file_name(scene_file, ".cub"))
 		return (false);
 	if (!check_textures_and_colors_elements(game_struc->texture_color_data))
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck your scene file\e[0m\n");
 		return (false);
-	}
 	if (!check_map_content(mat, &game_struc->map_data))
 		return (false);
 	if (game_struc->map_data.nb_players != 1)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck your scene file\e[0m\n");
 		return (false);
-	}
 	return (true);
 }

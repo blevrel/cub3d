@@ -29,11 +29,9 @@ static char	**get_parsed_mat(char *scene_file, t_all *game_struc, int fd)
 
 char	**start_parsing(char *scene_file, t_all *game_struc)
 {
-	int		i;
 	int		fd;
 	char	**mat;
 
-	i = 0;
 	fd = init_textures_and_colors(&game_struc->texture_color_data, scene_file);
 	if (fd == -1 || fd == -2)
 	{
@@ -43,14 +41,17 @@ char	**start_parsing(char *scene_file, t_all *game_struc)
 		return (NULL);
 	}
 	mat = get_parsed_mat(scene_file, game_struc, fd);
-	if (!mat)
-	{
-		free_struc_elements(game_struc->texture_color_data);
-		return (NULL);
-	}
 	game_struc->render_data.c_color
 		= convert_rgb_to_hexa(game_struc->texture_color_data.c_color);
 	game_struc->render_data.f_color
 		= convert_rgb_to_hexa(game_struc->texture_color_data.f_color);
+	if (!mat || game_struc->render_data.c_color == -1
+		|| game_struc->render_data.f_color == -1)
+	{
+		free_struc_elements(game_struc->texture_color_data);
+		if (mat)
+			free_double_tab(mat);
+		return (NULL);
+	}
 	return (mat);
 }

@@ -1,5 +1,17 @@
 #include "cub3d_bonus.h"
 
+static void	init_sprites_images(t_render_data *render_data)
+{
+	render_data->door_image = NULL;
+	render_data->s_one_image = NULL;
+	render_data->s_two_image = NULL;
+	render_data->s_three_image = NULL;
+	render_data->s_four_image = NULL;
+	render_data->s_five_image = NULL;
+	render_data->s_six_image = NULL;
+	render_data->s_seven_image = NULL;
+}
+
 void	init_struc(t_all *game_struc)
 {
 	game_struc->map_data.map_width = 0;
@@ -23,6 +35,7 @@ void	init_struc(t_all *game_struc)
 	game_struc->texture_color_data.f_color[0] = -1;
 	game_struc->texture_color_data.f_color[1] = -1;
 	game_struc->texture_color_data.f_color[2] = -1;
+	init_sprites_images(&game_struc->render_data);
 }
 
 void	init_images(t_render_images *render_images, t_window window)

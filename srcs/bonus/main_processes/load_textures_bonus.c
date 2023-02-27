@@ -24,6 +24,11 @@ static bool	load_sprites(t_texture_color_data texture_color_data,
 {
 	int	x;
 
+	if (!texture_color_data.s_one_sprite || !texture_color_data.s_two_sprite
+		|| !texture_color_data.s_three_sprite || !texture_color_data.s_four_sprite
+		|| !texture_color_data.s_five_sprite || !texture_color_data.s_six_sprite
+		|| !texture_color_data.s_seven_sprite)
+		return (false);
 	render_data->s_one_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.s_one_sprite, &x, &x);
 	render_data->s_two_image = mlx_xpm_file_to_image(window.mlx,
@@ -58,7 +63,8 @@ bool	load_textures(t_texture_color_data texture_color_data,
 	render_data->ea_tex.ea_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.ea_texture, &render_data->ea_tex.width,
 			&render_data->ea_tex.height);
-	render_data->door_image = mlx_xpm_file_to_image(window.mlx,
+	if (texture_color_data.door_texture)
+		render_data->door_image = mlx_xpm_file_to_image(window.mlx,
 			texture_color_data.door_texture, &render_data->door_width,
 			&render_data->door_height);
 	if (!load_sprites(texture_color_data, render_data, window)
