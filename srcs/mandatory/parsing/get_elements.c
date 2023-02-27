@@ -21,6 +21,44 @@ int	fill_color_elements(char **col_value,
 	return (0);
 }
 
+static int	check_line_format(char **line)
+{
+	size_t	i;
+
+	i = 0;
+	if (line[1][0] == ',')
+		return (1);
+	while (line[1][i])
+	{
+		if (!ft_isdigit(line[1][i]) && line[1][i] != ',')
+			return (1);
+		if (line[1][i] == ',' && i == ft_strlen(line[1]) - 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+static int	check_multiple_comas(char **line)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (line[i])
+	{
+		j = 0;
+		while (line[i][j])
+		{
+			if (line[i][j] == ',' && line[i][j + 1] == ',')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	get_color_elements(t_texture_color_data *texture_color_data,
 	char **line, int trigger)
 {
@@ -29,7 +67,8 @@ int	get_color_elements(t_texture_color_data *texture_color_data,
 	color_value = ft_split(line[1], ',');
 	if (color_value == NULL)
 		return (-1);
-	if (ft_strlen_double_tab(color_value) != 3)
+	if (ft_strlen_double_tab(color_value) != 3
+		|| check_line_format(line) || check_multiple_comas(line))
 	{
 		free_double_tab(color_value);
 		free_double_tab(line);

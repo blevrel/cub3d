@@ -90,8 +90,7 @@ int	init_textures_and_colors(t_texture_color_data *texture_color_data,
 			return (-1);
 		if (!trim_line[0])
 			free(trim_line);
-		else if (assign_line_to_elem(texture_color_data, trim_line
-				, &i) == -1)
+		else if (assign_line_to_elem(texture_color_data, trim_line, &i) == -1)
 		{
 			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 			return (-2);
