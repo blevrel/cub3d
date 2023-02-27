@@ -44,17 +44,19 @@
 # include "mlx_int.h"
 # include "libft.h"
 
-bool			check_valid_scene(char *scene_file, char **mat, t_all *game_struc);
+bool			check_valid_scene(char *scene_file, char **mat,
+					t_all *game_struc);
 char			**add_border(char **mat, t_map_data *map_data);
 char			**alloc_mat(char *scene_file, int fd, t_map_data *map_data);
-char			**fill_mat(char *line, int fd, char **mat, t_map_data *map_data);
+char			**fill_mat(char *line, int fd, char **mat,
+					t_map_data *map_data);
 bool			check_map_content(char **mat, t_map_data *map_data);
 void			init_struc(t_all *game_struc);
 void			init_images(t_render_images *render_images, t_window window);
 int				get_map_height(int fd);
 int				get_map_width(char **mat);
-int				init_textures_and_colors(t_texture_color_data *texture_color_data,
-					char *scene_file);
+int				init_textures_and_colors(t_texture_color_data \
+					*texture_color_data, char *scene_file);
 int				skip_textures_and_colors(char *scene_file);
 void			free_struc_elements(t_texture_color_data texture_color_data);
 void			fill_texture_elements(t_texture_color_data *texture_color_data,
@@ -64,8 +66,8 @@ int				get_color_elements(t_texture_color_data *texture_color_data,
 int				convert_rgb_to_hexa(int *color);
 void			display_minimap(t_all game_struct);
 void			cast_rays(t_all *game_struct);
-t_img_data		draw_vertical_line(t_img_data render_img, t_render_data render_data,
-					int x, float distance);
+t_img_data		draw_vertical_line(t_img_data render_img,
+					t_render_data render_data, int x, float distance);
 void			my_pixel_put(t_img_data *data, float x, float y, int color);
 t_img_data		draw_border(t_img_data img_data);
 t_triangle		get_triangle_coords(float angle);
@@ -89,8 +91,8 @@ void			get_side_of_wall_hit(t_render_data *render_data,
 float			get_ray_hit_coords(t_raycast_dist distance,
 					t_player player, float perp_wall_dist,
 					t_raycast_dir direction);
-int				get_texture_coords(t_render_data render_data, t_raycast_dist distance,
-					t_raycast_dir direction);
+int				get_texture_coords(t_render_data render_data,
+					t_raycast_dist distance, t_raycast_dir direction);
 bool			load_textures(t_texture_color_data texture_color_data,
 					t_render_data *render_data, t_window window);
 void			put_animation_on_texture(float distance, int pxl_horizontal,

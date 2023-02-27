@@ -1,7 +1,14 @@
 #include "cub3d_bonus.h"
 
-static int	check_file_extension(char **textures)
+static int	check_ext(char **textures)
 {
+	char	**splitted_textures;
+	int		len_textures;
+	int		len_filename;
+
+	splitted_textures = ft_split(textures[1], '/');
+	len_textures = ft_strlen_double_tab(splitted_textures) - 1;
+	len_filename = ft_strlen(splitted_textures[len_textures]);
 	if (!ft_strcmp(textures[0], "NO") || !ft_strcmp(textures[0], "SO")
 		|| !ft_strcmp(textures[0], "WE") || !ft_strcmp(textures[0], "EA")
 		|| !ft_strcmp(textures[0], "S1") || !ft_strcmp(textures[0], "S2")
@@ -9,9 +16,13 @@ static int	check_file_extension(char **textures)
 		|| !ft_strcmp(textures[0], "S5") || !ft_strcmp(textures[0], "S6")
 		|| !ft_strcmp(textures[0], "S7") || !ft_strcmp(textures[0], "DOOR"))
 	{
-		if (check_file_name(textures[1], ".xpm") == false)
+		if (check_file_name(textures[1], ".xpm") == false || len_filename == 4)
+		{
+			free_double_tab(splitted_textures);
 			return (1);
+		}
 	}
+	free_double_tab(splitted_textures);
 	return (0);
 }
 
@@ -24,8 +35,7 @@ int	assign_line_to_elem(t_texture_color_data *texture_color_data,
 		return (-1);
 	splitted_line = ft_split(line, ' ');
 	free(line);
-	if (ft_strlen_double_tab(splitted_line) != 2
-		|| check_file_extension(splitted_line))
+	if (ft_strlen_double_tab(splitted_line) != 2 || check_ext(splitted_line))
 	{
 		free_double_tab(splitted_line);
 		return (-1);
