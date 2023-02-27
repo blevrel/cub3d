@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   load_textures_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:56:29 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/27 15:56:33 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "cub3d_bonus.h"
 
 static bool	check_images_status(t_render_data *render_data)
@@ -25,7 +36,8 @@ static bool	load_sprites(t_texture_color_data texture_color_data,
 	int	x;
 
 	if (!texture_color_data.s_one_sprite || !texture_color_data.s_two_sprite
-		|| !texture_color_data.s_three_sprite || !texture_color_data.s_four_sprite
+		|| !texture_color_data.s_three_sprite
+		|| !texture_color_data.s_four_sprite
 		|| !texture_color_data.s_five_sprite || !texture_color_data.s_six_sprite
 		|| !texture_color_data.s_seven_sprite)
 		return (false);
@@ -65,8 +77,8 @@ bool	load_textures(t_texture_color_data texture_color_data,
 			&render_data->ea_tex.height);
 	if (texture_color_data.door_texture)
 		render_data->door_image = mlx_xpm_file_to_image(window.mlx,
-			texture_color_data.door_texture, &render_data->door_width,
-			&render_data->door_height);
+				texture_color_data.door_texture, &render_data->door_width,
+				&render_data->door_height);
 	if (!load_sprites(texture_color_data, render_data, window)
 		|| !render_data->no_tex.no_image || !render_data->so_tex.so_image
 		|| !render_data->we_tex.we_image ||!render_data->ea_tex.ea_image

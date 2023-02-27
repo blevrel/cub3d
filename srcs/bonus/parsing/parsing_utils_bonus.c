@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing_utils_bonus.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:57:43 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/27 15:57:45 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "cub3d_bonus.h"
 
 bool	line_is_only_space(char *line)
@@ -73,10 +84,7 @@ int	convert_rgb_to_hexa(int *color)
 	int		res;
 
 	if (color[0] == -1 || color[1] == -1 || color[2] == -1)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (-1);
-	}
 	nb_r = ft_itoa_base(color[0], 16);
 	res_tmp = ft_itoa_base(color[1], 16);
 	nb_b = ft_itoa_base(color[2], 16);

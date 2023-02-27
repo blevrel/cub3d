@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_map_content.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:49:43 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/27 15:49:45 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "cub3d.h"
 
 int	char_is_valid(char c)
@@ -21,7 +32,6 @@ int	char_is_valid(char c)
 			return (PLAYER);
 		i++;
 	}
-	ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 	return (0);
 }
 
@@ -36,10 +46,7 @@ bool	check_around(char **mat, int i, int j)
 {
 	if (!closed_walls(mat[i - 1][j]) || !closed_walls(mat[i][j - 1])
 		|| !closed_walls(mat[i][j + 1]) || !closed_walls(mat[i + 1][j]))
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (false);
-	}
 	return (true);
 }
 

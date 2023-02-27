@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fill_matrix_bonus.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:56:49 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/27 15:56:51 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "cub3d_bonus.h"
 
 char	*prepare_border_line(char **mat, int line_index, int trigger, int width)
@@ -74,7 +85,6 @@ char	**fill_mat(char *line, int fd, char **mat, t_map_data *map_data)
 			mat[i++] = tmp;
 		else
 		{
-			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 			free_double_tab(mat);
 			free(tmp);
 			return (NULL);
@@ -90,10 +100,7 @@ char	**alloc_mat(char *scene_file, int fd, t_map_data *map_data)
 
 	map_data->map_height = get_map_height(fd);
 	if (map_data->map_height == -1)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (NULL);
-	}
 	fd = skip_textures_and_colors(scene_file);
 	line = get_next_line(fd, 1);
 	if (!line)

@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check_valid_scene_bonus.c                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 15:57:19 by blevrel           #+#    #+#             */
+/*   Updated: 2023/02/27 15:57:21 by blevrel          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "cub3d_bonus.h"
 
 bool	check_file_name(char *scene_file, char *extension)
@@ -48,9 +59,6 @@ bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc)
 	if (!check_map_content(mat, &game_struc->map_data))
 		return (false);
 	if (game_struc->map_data.nb_players != 1)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (false);
-	}
 	return (true);
 }
