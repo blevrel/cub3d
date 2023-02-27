@@ -1,14 +1,15 @@
 #include "cub3d.h"
 
-bool	check_file_name(char *scene_file)
+bool	check_file_name(char *scene_file, char *extension)
 {
 	int	j;
 
 	j = ft_strlen(scene_file) - 4;
-	if (ft_strcmp(&scene_file[j], ".cub") != 0)
+	if (ft_strcmp(&scene_file[j], extension) != 0)
 	{
 		ft_print_error("\e[5;31m[ERROR]\e[0m\n");
-		ft_print_error("\e[95mFile must have the '.cub' extension\e[0m\n");
+		ft_print_error("\e[95mFile must have the '%s' extension\e[0m\n",
+			extension);
 		return (false);
 	}
 	return (true);
@@ -44,7 +45,7 @@ bool	check_textures_and_colors_elements(t_texture_color_data tex_color_data)
 
 bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc)
 {
-	if (!check_file_name(scene_file))
+	if (!check_file_name(scene_file, ".cub"))
 		return (false);
 	if (!check_textures_and_colors_elements(game_struc->texture_color_data))
 	{

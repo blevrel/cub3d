@@ -83,5 +83,6 @@ bool			load_textures(t_texture_color_data texture_color_data,
 void			free_struc_elements(t_texture_color_data texture_color_data);
 int				destroy(t_all *game_struct);
 int				destroy_tex_not_found(t_all *game_struct);
+bool			check_file_name(char *scene_file, char *extension);
 
 #endif

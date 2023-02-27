@@ -9,7 +9,8 @@ check_collision_x	game_management/check_collision_bonus.c	/^int	check_collision_
 check_collision_y	game_management/check_collision_bonus.c	/^int	check_collision_y(t_player pos, char **mat, ch/
 check_end	../../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
 check_errors	../../libft/ft_atoi_base.c	/^int	check_errors(char *str, char *base)$/
-check_file_name	parsing/check_valid_scene_bonus.c	/^bool	check_file_name(char *scene_file)$/
+check_file_extension	parsing/init_textures_and_colors_bonus.c	/^static int	check_file_extension(char **textures)$/
+check_file_name	parsing/check_valid_scene_bonus.c	/^bool	check_file_name(char *scene_file, char *exten/
 check_images_status	main_processes/load_textures_bonus.c	/^static bool	check_images_status(t_render_data *ren/
 check_last	../../libft/ft_strrchr.c	/^static int	check_last(char *s, int i, int c)$/
 check_line_format	parsing/get_elements_bonus.c	/^static int	check_line_format(char **line)$/
@@ -20,7 +21,6 @@ check_print	../../libft/ft_printf_utils.c	/^int	check_print(char c, va_list para
 check_print_error	../../libft/ft_print_error_utils.c	/^int	check_print_error(char c, va_list param)$/
 check_s	../../libft/ft_split.c	/^static char	**check_s(char const *s)$/
 check_set	../../libft/ft_strtrim.c	/^static int	check_set(char const c, char const *set/
-check_textures	parsing/init_textures_and_colors_bonus.c	/^static int	check_textures(char **line)$/
 check_textures_and_colors_elements	parsing/check_valid_scene_bonus.c	/^bool	check_textures_and_colors_elements(t_texture_/
 check_valid_scene	parsing/check_valid_scene_bonus.c	/^bool	check_valid_scene(char *scene_file, char **ma/
 closed_walls	parsing/check_map_content_bonus.c	/^bool	closed_walls(char c)$/

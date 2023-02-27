@@ -97,6 +97,6 @@ void			put_animation_on_texture(float distance, int pxl_horizontal,
 					t_img_data render_img, t_render_data render_data);
 int				destroy(t_all *game_struct);
 int				destroy_tex_not_found(t_all *game_struct);
-
+bool			check_file_name(char *scene_file, char *extension);
 
 #endif

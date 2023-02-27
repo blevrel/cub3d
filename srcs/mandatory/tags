@@ -9,7 +9,8 @@ check_collision_x	game_management/check_collision.c	/^int	check_collision_x(t_pl
 check_collision_y	game_management/check_collision.c	/^int	check_collision_y(t_player pos, char **mat, ch/
 check_end	../../libft/ft_strtrim.c	/^static int	check_end(char const *s, char const *se/
 check_errors	../../libft/ft_atoi_base.c	/^int	check_errors(char *str, char *base)$/
-check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file)$/
+check_file_extension	parsing/init_textures_and_colors.c	/^static int	check_file_extension(char **textures)$/
+check_file_name	parsing/check_valid_scene.c	/^bool	check_file_name(char *scene_file, char *exten/
 check_last	../../libft/ft_strrchr.c	/^static int	check_last(char *s, int i, int c)$/
 check_line_format	parsing/get_elements.c	/^static int	check_line_format(char **line)$/
 check_map_content	parsing/check_map_content.c	/^bool	check_map_content(char **mat, t_map_data *map/

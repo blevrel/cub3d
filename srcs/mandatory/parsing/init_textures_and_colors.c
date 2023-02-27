@@ -1,5 +1,16 @@
 #include "cub3d.h"
 
+static int	check_file_extension(char **textures)
+{
+	if (!ft_strcmp(textures[0], "NO") || !ft_strcmp(textures[0], "SO")
+		|| !ft_strcmp(textures[0], "WE") || !ft_strcmp(textures[0], "EA"))
+	{
+		if (check_file_name(textures[1], ".xpm") == false)
+			return (1);
+	}
+	return (0);
+}
+
 int	assign_line_to_elem(t_texture_color_data *texture_color_data,
 	char *line, int *i)
 {
@@ -9,7 +20,8 @@ int	assign_line_to_elem(t_texture_color_data *texture_color_data,
 		return (-1);
 	splitted_line = ft_split(line, ' ');
 	free(line);
-	if (ft_strlen_double_tab(splitted_line) != 2)
+	if (ft_strlen_double_tab(splitted_line) != 2
+		|| check_file_extension(splitted_line))
 	{
 		free_double_tab(splitted_line);
 		return (-1);
