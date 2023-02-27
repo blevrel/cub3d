@@ -48,6 +48,9 @@ bool	check_valid_scene(char *scene_file, char **mat, t_all *game_struc)
 	if (!check_map_content(mat, &game_struc->map_data))
 		return (false);
 	if (game_struc->map_data.nb_players != 1)
+	{
+		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
 		return (false);
+	}
 	return (true);
 }
