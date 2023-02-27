@@ -28,6 +28,8 @@ static void	destroy_tex_images(void *mlx, t_render_data render_data)
 		mlx_destroy_image(mlx, render_data.we_tex.we_image);
 	if (render_data.ea_tex.ea_image)
 		mlx_destroy_image(mlx, render_data.ea_tex.ea_image);
+	if (render_data.door_image)
+		mlx_destroy_image(mlx, render_data.door_image);
 }
 
 static void	destroy_images(void *mlx, t_render_data render_data,
@@ -55,6 +57,7 @@ int	destroy_tex_not_found(t_all *game_struct)
 	free_double_tab(game_struct->mat);
 	free_struc_elements(game_struct->texture_color_data);
 	destroy_tex_images(game_struct->window.mlx, game_struct->render_data);
+	destroy_animation_images(game_struct->window.mlx, game_struct->render_data);
 	mlx_destroy_display(game_struct->window.mlx);
 	free(game_struct->window.mlx);
 	exit(1);
