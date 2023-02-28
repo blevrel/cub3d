@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:50:23 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 15:50:25 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:26:00 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -98,12 +98,12 @@ int	get_color_elements(t_texture_color_data *texture_color_data,
 void	fill_texture_elements(t_texture_color_data *texture_color_data,
 		char **line)
 {
-	if (ft_strcmp(line[0], "NO") == 0)
+	if (ft_strcmp(line[0], "NO") == 0 && !texture_color_data->no_texture)
 		texture_color_data->no_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "SO") == 0)
+	if (ft_strcmp(line[0], "SO") == 0 && !texture_color_data->so_texture)
 		texture_color_data->so_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "WE") == 0)
+	if (ft_strcmp(line[0], "WE") == 0 && !texture_color_data->we_texture)
 		texture_color_data->we_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "EA") == 0)
+	if (ft_strcmp(line[0], "EA") == 0 && !texture_color_data->ea_texture)
 		texture_color_data->ea_texture = ft_strdup(line[1]);
 }

@@ -8,11 +8,11 @@ S3   graph/S3.xpm
 S4   graph/S4.xpm
 S5   graph/S5.xpm
 S6   graph/S6.xpm
-S7   graph/S7.xpm
 DOOR graph/DOOR.xpm
+S7   graph/S7.xpm
 
 C     64,0,0
-F     53,56,57
+F     255,5,57
 
  111111111111111111111111111111
 10000000000000000000000000000011

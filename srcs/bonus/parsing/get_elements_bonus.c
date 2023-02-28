@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:57:25 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 15:57:27 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:32:58 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d_bonus.h"
@@ -98,28 +98,28 @@ int	get_color_elements(t_texture_color_data *texture_color_data,
 void	fill_texture_elements(t_texture_color_data *texture_color_data,
 		char **line)
 {
-	if (ft_strcmp(line[0], "NO") == 0)
+	if (ft_strcmp(line[0], "NO") == 0 && !texture_color_data->no_texture)
 		texture_color_data->no_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "SO") == 0)
+	if (ft_strcmp(line[0], "SO") == 0 && !texture_color_data->so_texture)
 		texture_color_data->so_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "WE") == 0)
+	if (ft_strcmp(line[0], "WE") == 0 && !texture_color_data->we_texture)
 		texture_color_data->we_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "EA") == 0)
+	if (ft_strcmp(line[0], "EA") == 0 && !texture_color_data->ea_texture)
 		texture_color_data->ea_texture = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S1") == 0)
+	if (ft_strcmp(line[0], "S1") == 0 && !texture_color_data->s_one_sprite)
 		texture_color_data->s_one_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S2") == 0)
+	if (ft_strcmp(line[0], "S2") == 0 && !texture_color_data->s_two_sprite)
 		texture_color_data->s_two_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S3") == 0)
+	if (ft_strcmp(line[0], "S3") == 0 && !texture_color_data->s_three_sprite)
 		texture_color_data->s_three_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S4") == 0)
+	if (ft_strcmp(line[0], "S4") == 0 && !texture_color_data->s_four_sprite)
 		texture_color_data->s_four_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S5") == 0)
+	if (ft_strcmp(line[0], "S5") == 0 && !texture_color_data->s_five_sprite)
 		texture_color_data->s_five_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S6") == 0)
+	if (ft_strcmp(line[0], "S6") == 0 && !texture_color_data->s_six_sprite)
 		texture_color_data->s_six_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "S7") == 0)
+	if (ft_strcmp(line[0], "S7") == 0 && !texture_color_data->s_seven_sprite)
 		texture_color_data->s_seven_sprite = ft_strdup(line[1]);
-	if (ft_strcmp(line[0], "DOOR") == 0)
+	if (ft_strcmp(line[0], "DOOR") == 0 && !texture_color_data->door_texture)
 		texture_color_data->door_texture = ft_strdup(line[1]);
 }

@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:56:29 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 15:56:33 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:18:20 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d_bonus.h"
@@ -84,7 +84,7 @@ bool	load_textures(t_texture_color_data texture_color_data,
 		|| !render_data->we_tex.we_image ||!render_data->ea_tex.ea_image
 		|| !render_data->door_image)
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
+		ft_print_error("Error\nCheck scene file\n");
 		return (false);
 	}
 	return (true);

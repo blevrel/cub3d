@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:57:31 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 16:10:55 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/02/28 17:37:04 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d_bonus.h"
@@ -99,13 +99,13 @@ char	*trim_end_of_line(int fd)
 	line = get_next_line(fd, 1);
 	if (!line)
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
+		ft_print_error("Error\nCheck scene file\n");
 		return (NULL);
 	}
 	trim_line = ft_strtrim(line, "\n");
 	if (!trim_line)
 	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
+		ft_print_error("Error\nCheck scene file\n");
 		return (NULL);
 	}
 	free(line);
@@ -122,11 +122,8 @@ int	init_textures_and_colors(t_texture_color_data *texture_color_data,
 	i = 0;
 	fd = open(scene_file, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mOpen failed\e[0m\n");
-		return (-1);
-	}
-	while (i < 14)
+		ft_print_error("Error\nOpen failed\n");
+	while (i < 14 && fd != -1)
 	{
 		trim_line = trim_end_of_line(fd);
 		if (!trim_line)
@@ -135,7 +132,8 @@ int	init_textures_and_colors(t_texture_color_data *texture_color_data,
 			free(trim_line);
 		else if (assign_line_to_elem(texture_color_data, trim_line, &i) == -1)
 		{
-			ft_print_error("\e[5;31m[ERROR]\e[0m\n\e[95mCheck scene file\e[0m\n");
+			ft_print_error("Error\nCheck scene file\n");
+			close(fd);
 			return (-2);
 		}
 	}
