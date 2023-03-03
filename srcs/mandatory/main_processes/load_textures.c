@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:49:33 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/28 16:19:39 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:04:29 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -29,7 +29,7 @@ bool	load_textures(t_texture_color_data texture_color_data,
 	if (!render_data->no_tex.no_image || !render_data->so_tex.so_image
 		|| !render_data->we_tex.we_image ||!render_data->ea_tex.ea_image)
 	{
-		ft_print_error("\e[5;31m[Error]\e[0m\n\e[95mTexture not found\e[0m\n");
+		ft_print_error("Error\nTexture not found\n");
 		return (false);
 	}
 	return (true);
