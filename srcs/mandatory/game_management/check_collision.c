@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:48:32 by blevrel           #+#    #+#             */
-/*   Updated: 2023/03/06 18:16:29 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:48:34 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -17,13 +17,13 @@ static int	get_new_x_in_mat(float pxl_x, float angle, char *oper)
 
 	new_x = pxl_x;
 	if (!ft_strcmp(oper, "+cos"))
-		new_x += cos(angle) * MOVESPEED - 1;
+		new_x += cos(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "-cos"))
 		new_x -= cos(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "-sin"))
 		new_x -= sin(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+sin"))
-		new_x += sin(angle) * MOVESPEED - 1;
+		new_x += sin(angle) * MOVESPEED;
 	return (new_x / 32);
 }
 
@@ -33,11 +33,11 @@ static int	get_new_y_in_mat(float pxl_y, float angle, char *oper)
 
 	new_y = pxl_y;
 	if (!ft_strcmp(oper, "-sin"))
-		new_y -= sin(angle) * MOVESPEED + 1;
+		new_y -= sin(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+sin"))
 		new_y += sin(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "-cos"))
-		new_y -= cos(angle) * MOVESPEED + 1;
+		new_y -= cos(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+cos"))
 		new_y += cos(angle) * MOVESPEED;
 	return (new_y / 32);
