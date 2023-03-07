@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:03:31 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 16:15:58 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/03/07 10:07:31 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef CUB3D_H
@@ -16,10 +16,10 @@
 # define FLOOR 3
 # define SPACE 4
 # define BORDER 5
-# define NORTH 6
-# define SOUTH 7
-# define WEST 8
-# define EAST 9
+# define SOUTH 6
+# define NORTH 7
+# define EAST 8
+# define WEST 9
 # define WIN_WIDTH 1920
 # define WIN_HEIGHT 1080
 # define SQ_SIZE 32

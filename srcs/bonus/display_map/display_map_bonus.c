@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:54:09 by blevrel           #+#    #+#             */
-/*   Updated: 2023/03/02 17:00:48 by jsauvain         ###   ########.fr       */
+/*   Updated: 2023/03/07 11:20:57 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d_bonus.h"
@@ -16,13 +16,13 @@ static void	*select_texture(t_render_data render_data)
 	if (render_data.door_wall == 1)
 		return (render_data.door_image);
 	if (render_data.wall_side == NORTH)
-		return (render_data.so_tex.so_image);
-	if (render_data.wall_side == SOUTH)
 		return (render_data.no_tex.no_image);
+	if (render_data.wall_side == SOUTH)
+		return (render_data.so_tex.so_image);
 	if (render_data.wall_side == WEST)
-		return (render_data.ea_tex.ea_image);
-	if (render_data.wall_side == EAST)
 		return (render_data.we_tex.we_image);
+	if (render_data.wall_side == EAST)
+		return (render_data.ea_tex.ea_image);
 	return (NULL);
 }
 
