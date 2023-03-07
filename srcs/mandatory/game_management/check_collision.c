@@ -6,7 +6,11 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:48:32 by blevrel           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/03/07 13:50:29 by jsauvain         ###   ########.fr       */
+=======
+/*   Updated: 2023/02/27 15:48:34 by blevrel          ###   ########.fr       */
+>>>>>>> 3939ca3132526e85ca529317dbb01626ad2517ba
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -24,9 +28,7 @@ static int	get_new_x_in_mat(float pxl_x, float angle, char *oper)
 		new_x -= sin(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+sin"))
 		new_x += sin(angle) * MOVESPEED;
-	if (pxl_x - new_x < 0)
-		return ((new_x + 1) / SQ_SIZE);
-	else if (pxl_x - new_x > 0)
+	if (pxl_x - new_x > 0)
 		return ((new_x - 1) / SQ_SIZE);
 	return (new_x / SQ_SIZE);
 }
@@ -44,9 +46,7 @@ static int	get_new_y_in_mat(float pxl_y, float angle, char *oper)
 		new_y -= cos(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+cos"))
 		new_y += cos(angle) * MOVESPEED;
-	if (pxl_y - new_y < 0)
-		return ((new_y + 1) / SQ_SIZE);
-	else if (pxl_y - new_y > 0)
+	if (pxl_y - new_y > 0)
 		return ((new_y - 1) / SQ_SIZE);
 	return (new_y / SQ_SIZE);
 }
