@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:50:30 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/28 17:36:33 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/03/09 13:19:41 by blevrel          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d.h"
@@ -96,12 +96,14 @@ char	*trim_end_of_line(int fd)
 	if (!line)
 	{
 		ft_print_error("Error\nCheck scene file\n");
+		close(fd);
 		return (NULL);
 	}
 	trim_line = ft_strtrim(line, "\n");
 	if (!trim_line)
 	{
 		ft_print_error("Error\nCheck scene file\n");
+		close(fd);
 		return (NULL);
 	}
 	free(line);
