@@ -6,7 +6,7 @@
 /*   By: blevrel <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:55:04 by blevrel           #+#    #+#             */
-/*   Updated: 2023/02/27 15:55:06 by blevrel          ###   ########.fr       */
+/*   Updated: 2023/03/07 14:34:52 by jsauvain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "cub3d_bonus.h"
@@ -24,7 +24,9 @@ static int	get_new_x_in_mat(float pxl_x, float angle, char *oper)
 		new_x -= sin(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+sin"))
 		new_x += sin(angle) * MOVESPEED;
-	return (new_x / 32);
+	if (pxl_x - new_x > 0)
+		return ((new_x - 1) / SQ_SIZE);
+	return (new_x / SQ_SIZE);
 }
 
 static int	get_new_y_in_mat(float pxl_y, float angle, char *oper)
@@ -40,7 +42,9 @@ static int	get_new_y_in_mat(float pxl_y, float angle, char *oper)
 		new_y -= cos(angle) * MOVESPEED;
 	else if (!ft_strcmp(oper, "+cos"))
 		new_y += cos(angle) * MOVESPEED;
-	return (new_y / 32);
+	if (pxl_y - new_y > 0)
+		return ((new_y - 1) / SQ_SIZE);
+	return (new_y / SQ_SIZE);
 }
 
 int	check_collision_x(t_player pos, char **mat, char *oper)
